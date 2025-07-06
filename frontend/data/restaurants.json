@@ -1,0 +1,3470 @@
+[
+  {
+    "restaurant_name": "The Grand Buffet",
+    "location": {
+      "address": "123 Main Street, Cityville",
+      "latitude": 34.0522,
+      "longitude": -118.2437
+    },
+    "avg_ratings": 4.5,
+    "restaurant_photo": "https://example.com/images/restaurant_grand_buffet.jpg",
+    "menu": [
+      {
+        "item_name": "Grilled Salmon",
+        "category": "Main Course",
+        "price": 22.99,
+        "item_photo": "https://example.com/images/item_grilled_salmon.jpg"
+      },
+      {
+        "item_name": "Chicken Alfredo",
+        "category": "Main Course",
+        "price": 18.5,
+        "item_photo": "https://example.com/images/item_chicken_alfredo.jpg"
+      },
+      {
+        "item_name": "Vegetable Lasagna",
+        "category": "Main Course",
+        "price": 16.75,
+        "item_photo": "https://example.com/images/item_vegetable_lasagna.jpg"
+      },
+      {
+        "item_name": "Caesar Salad",
+        "category": "Appetizer",
+        "price": 9.25,
+        "item_photo": "https://example.com/images/item_caesar_salad.jpg"
+      },
+      {
+        "item_name": "Tomato Soup",
+        "category": "Appetizer",
+        "price": 7.0,
+        "item_photo": "https://example.com/images/item_tomato_soup.jpg"
+      },
+      {
+        "item_name": "Garlic Bread",
+        "category": "Appetizer",
+        "price": 5.5,
+        "item_photo": "https://example.com/images/item_garlic_bread.jpg"
+      },
+      {
+        "item_name": "Chocolate Lava Cake",
+        "category": "Dessert",
+        "price": 10.0,
+        "item_photo": "https://example.com/images/item_chocolate_lava_cake.jpg"
+      },
+      {
+        "item_name": "Cheesecake",
+        "category": "Dessert",
+        "price": 8.75,
+        "item_photo": "https://example.com/images/item_cheesecake.jpg"
+      },
+      {
+        "item_name": "Apple Pie",
+        "category": "Dessert",
+        "price": 7.5,
+        "item_photo": "https://example.com/images/item_apple_pie.jpg"
+      },
+      {
+        "item_name": "Mushroom Risotto",
+        "category": "Main Course",
+        "price": 19.0,
+        "item_photo": "https://example.com/images/item_mushroom_risotto.jpg"
+      },
+      {
+        "item_name": "Shrimp Scampi",
+        "category": "Main Course",
+        "price": 24.0,
+        "item_photo": "https://example.com/images/item_shrimp_scampi.jpg"
+      },
+      {
+        "item_name": "Spring Rolls",
+        "category": "Appetizer",
+        "price": 8.0,
+        "item_photo": "https://example.com/images/item_spring_rolls.jpg"
+      },
+      {
+        "item_name": "Caprese Salad",
+        "category": "Appetizer",
+        "price": 11.0,
+        "item_photo": "https://example.com/images/item_caprese_salad.jpg"
+      },
+      {
+        "item_name": "Tiramisu",
+        "category": "Dessert",
+        "price": 9.5,
+        "item_photo": "https://example.com/images/item_tiramisu.jpg"
+      },
+      {
+        "item_name": "Lemon Sorbet",
+        "category": "Dessert",
+        "price": 6.5,
+        "item_photo": "https://example.com/images/item_lemon_sorbet.jpg"
+      }
+    ]
+  },
+  {
+    "restaurant_name": "Taste of India",
+    "location": {
+      "address": "456 Oak Avenue, Townsville",
+      "latitude": 34.0522,
+      "longitude": -118.2437
+    },
+    "avg_ratings": 4.2,
+    "restaurant_photo": "https://example.com/images/restaurant_taste_of_india.jpg",
+    "menu": [
+      {
+        "item_name": "Butter Chicken",
+        "category": "Main Course",
+        "price": 17.99,
+        "item_photo": "https://example.com/images/item_butter_chicken.jpg"
+      },
+      {
+        "item_name": "Chicken Tikka Masala",
+        "category": "Main Course",
+        "price": 16.5,
+        "item_photo": "https://example.com/images/item_chicken_tikka_masala.jpg"
+      },
+      {
+        "item_name": "Vegetable Biryani",
+        "category": "Main Course",
+        "price": 14.75,
+        "item_photo": "https://example.com/images/item_vegetable_biryani.jpg"
+      },
+      {
+        "item_name": "Samosa",
+        "category": "Appetizer",
+        "price": 6.25,
+        "item_photo": "https://example.com/images/item_samosa.jpg"
+      },
+      {
+        "item_name": "Naan Bread",
+        "category": "Appetizer",
+        "price": 3.0,
+        "item_photo": "https://example.com/images/item_naan_bread.jpg"
+      },
+      {
+        "item_name": "Aloo Gobi",
+        "category": "Appetizer",
+        "price": 9.5,
+        "item_photo": "https://example.com/images/item_aloo_gobi.jpg"
+      },
+      {
+        "item_name": "Gulab Jamun",
+        "category": "Dessert",
+        "price": 5.0,
+        "item_photo": "https://example.com/images/item_gulab_jamun.jpg"
+      },
+      {
+        "item_name": "Kheer",
+        "category": "Dessert",
+        "price": 4.5,
+        "item_photo": "https://example.com/images/item_kheer.jpg"
+      },
+      {
+        "item_name": "Mango Lassi",
+        "category": "Dessert",
+        "price": 6.0,
+        "item_photo": "https://example.com/images/item_mango_lassi.jpg"
+      },
+      {
+        "item_name": "Lamb Rogan Josh",
+        "category": "Main Course",
+        "price": 20.0,
+        "item_photo": "https://example.com/images/item_lamb_rogan_josh.jpg"
+      },
+      {
+        "item_name": "Palak Paneer",
+        "category": "Main Course",
+        "price": 15.0,
+        "item_photo": "https://example.com/images/item_palak_paneer.jpg"
+      },
+      {
+        "item_name": "Pani Puri",
+        "category": "Appetizer",
+        "price": 7.0,
+        "item_photo": "https://example.com/images/item_pani_puri.jpg"
+      },
+      {
+        "item_name": "Onion Bhaji",
+        "category": "Appetizer",
+        "price": 5.5,
+        "item_photo": "https://example.com/images/item_onion_bhaji.jpg"
+      },
+      {
+        "item_name": "Jalebi",
+        "category": "Dessert",
+        "price": 3.5,
+        "item_photo": "https://example.com/images/item_jalebi.jpg"
+      },
+      {
+        "item_name": "Gajar Halwa",
+        "category": "Dessert",
+        "price": 5.75,
+        "item_photo": "https://example.com/images/item_gajar_halwa.jpg"
+      }
+    ]
+  },
+  {
+    "restaurant_name": "Sushi Haven",
+    "location": {
+      "address": "789 Pine Lane, Villageton",
+      "latitude": 34.0522,
+      "longitude": -118.2437
+    },
+    "avg_ratings": 4.7,
+    "restaurant_photo": "https://example.com/images/restaurant_sushi_haven.jpg",
+    "menu": [
+      {
+        "item_name": "Tuna Nigiri",
+        "category": "Main Course",
+        "price": 8.0,
+        "item_photo": "https://example.com/images/item_tuna_nigiri.jpg"
+      },
+      {
+        "item_name": "Salmon Sashimi",
+        "category": "Main Course",
+        "price": 9.5,
+        "item_photo": "https://example.com/images/item_salmon_sashimi.jpg"
+      },
+      {
+        "item_name": "California Roll",
+        "category": "Main Course",
+        "price": 12.0,
+        "item_photo": "https://example.com/images/item_california_roll.jpg"
+      },
+      {
+        "item_name": "Edamame",
+        "category": "Appetizer",
+        "price": 5.0,
+        "item_photo": "https://example.com/images/item_edamame.jpg"
+      },
+      {
+        "item_name": "Gyoza",
+        "category": "Appetizer",
+        "price": 7.0,
+        "item_photo": "https://example.com/images/item_gyoza.jpg"
+      },
+      {
+        "item_name": "Miso Soup",
+        "category": "Appetizer",
+        "price": 4.5,
+        "item_photo": "https://example.com/images/item_miso_soup.jpg"
+      },
+      {
+        "item_name": "Green Tea Ice Cream",
+        "category": "Dessert",
+        "price": 6.0,
+        "item_photo": "https://example.com/images/item_green_tea_ice_cream.jpg"
+      },
+      {
+        "item_name": "Mochi",
+        "category": "Dessert",
+        "price": 5.5,
+        "item_photo": "https://example.com/images/item_mochi.jpg"
+      },
+      {
+        "item_name": "Tempura Ice Cream",
+        "category": "Dessert",
+        "price": 8.0,
+        "item_photo": "https://example.com/images/item_tempura_ice_cream.jpg"
+      },
+      {
+        "item_name": "Dragon Roll",
+        "category": "Main Course",
+        "price": 18.0,
+        "item_photo": "https://example.com/images/item_dragon_roll.jpg"
+      },
+      {
+        "item_name": "Spicy Tuna Roll",
+        "category": "Main Course",
+        "price": 14.0,
+        "item_photo": "https://example.com/images/item_spicy_tuna_roll.jpg"
+      },
+      {
+        "item_name": "Seaweed Salad",
+        "category": "Appetizer",
+        "price": 6.5,
+        "item_photo": "https://example.com/images/item_seaweed_salad.jpg"
+      },
+      {
+        "item_name": "Agedashi Tofu",
+        "category": "Appetizer",
+        "price": 7.5,
+        "item_photo": "https://example.com/images/item_agedashi_tofu.jpg"
+      },
+      {
+        "item_name": "Dorayaki",
+        "category": "Dessert",
+        "price": 4.0,
+        "item_photo": "https://example.com/images/item_dorayaki.jpg"
+      },
+      {
+        "item_name": "Matcha Cheesecake",
+        "category": "Dessert",
+        "price": 9.0,
+        "item_photo": "https://example.com/images/item_matcha_cheesecake.jpg"
+      }
+    ]
+  },
+  {
+    "restaurant_name": "Pizza Palace",
+    "location": {
+      "address": "101 Elm Street, Metropolis",
+      "latitude": 34.0522,
+      "longitude": -118.2437
+    },
+    "avg_ratings": 4.0,
+    "restaurant_photo": "https://example.com/images/restaurant_pizza_palace.jpg",
+    "menu": [
+      {
+        "item_name": "Pepperoni Pizza",
+        "category": "Main Course",
+        "price": 15.0,
+        "item_photo": "https://example.com/images/item_pepperoni_pizza.jpg"
+      },
+      {
+        "item_name": "Margherita Pizza",
+        "category": "Main Course",
+        "price": 13.5,
+        "item_photo": "https://example.com/images/item_margherita_pizza.jpg"
+      },
+      {
+        "item_name": "Veggie Supreme Pizza",
+        "category": "Main Course",
+        "price": 16.75,
+        "item_photo": "https://example.com/images/item_veggie_supreme_pizza.jpg"
+      },
+      {
+        "item_name": "Garlic Knots",
+        "category": "Appetizer",
+        "price": 6.0,
+        "item_photo": "https://example.com/images/item_garlic_knots.jpg"
+      },
+      {
+        "item_name": "Mozzarella Sticks",
+        "category": "Appetizer",
+        "price": 8.0,
+        "item_photo": "https://example.com/images/item_mozzarella_sticks.jpg"
+      },
+      {
+        "item_name": "Side Salad",
+        "category": "Appetizer",
+        "price": 5.0,
+        "item_photo": "https://example.com/images/item_side_salad.jpg"
+      },
+      {
+        "item_name": "Cannoli",
+        "category": "Dessert",
+        "price": 7.0,
+        "item_photo": "https://example.com/images/item_cannoli.jpg"
+      },
+      {
+        "item_name": "Tiramisu",
+        "category": "Dessert",
+        "price": 9.5,
+        "item_photo": "https://example.com/images/item_tiramisu_pizza.jpg"
+      },
+      {
+        "item_name": "Chocolate Chip Cookies",
+        "category": "Dessert",
+        "price": 4.0,
+        "item_photo": "https://example.com/images/item_chocolate_chip_cookies.jpg"
+      },
+      {
+        "item_name": "BBQ Chicken Pizza",
+        "category": "Main Course",
+        "price": 17.5,
+        "item_photo": "https://example.com/images/item_bbq_chicken_pizza.jpg"
+      },
+      {
+        "item_name": "Meat Lovers Pizza",
+        "category": "Main Course",
+        "price": 18.0,
+        "item_photo": "https://example.com/images/item_meat_lovers_pizza.jpg"
+      },
+      {
+        "item_name": "Cheesy Breadsticks",
+        "category": "Appetizer",
+        "price": 7.0,
+        "item_photo": "https://example.com/images/item_cheesy_breadsticks.jpg"
+      },
+      {
+        "item_name": "Jalapeno Poppers",
+        "category": "Appetizer",
+        "price": 8.5,
+        "item_photo": "https://example.com/images/item_jalapeno_poppers.jpg"
+      },
+      {
+        "item_name": "Brownie Sundae",
+        "category": "Dessert",
+        "price": 8.0,
+        "item_photo": "https://example.com/images/item_brownie_sundae.jpg"
+      },
+      {
+        "item_name": "Gelato (Various Flavors)",
+        "category": "Dessert",
+        "price": 6.5,
+        "item_photo": "https://example.com/images/item_gelato.jpg"
+      }
+    ]
+  },
+  {
+    "restaurant_name": "Burger Barn",
+    "location": {
+      "address": "222 Birch Lane, Countryside",
+      "latitude": 34.0522,
+      "longitude": -118.2437
+    },
+    "avg_ratings": 4.3,
+    "restaurant_photo": "https://example.com/images/restaurant_burger_barn.jpg",
+    "menu": [
+      {
+        "item_name": "Classic Cheeseburger",
+        "category": "Main Course",
+        "price": 12.0,
+        "item_photo": "https://example.com/images/item_classic_cheeseburger.jpg"
+      },
+      {
+        "item_name": "Bacon Burger",
+        "category": "Main Course",
+        "price": 13.5,
+        "item_photo": "https://example.com/images/item_bacon_burger.jpg"
+      },
+      {
+        "item_name": "Veggie Burger",
+        "category": "Main Course",
+        "price": 11.0,
+        "item_photo": "https://example.com/images/item_veggie_burger.jpg"
+      },
+      {
+        "item_name": "French Fries",
+        "category": "Appetizer",
+        "price": 4.0,
+        "item_photo": "https://example.com/images/item_french_fries.jpg"
+      },
+      {
+        "item_name": "Onion Rings",
+        "category": "Appetizer",
+        "price": 5.5,
+        "item_photo": "https://example.com/images/item_onion_rings.jpg"
+      },
+      {
+        "item_name": "Chicken Nuggets",
+        "category": "Appetizer",
+        "price": 7.0,
+        "item_photo": "https://example.com/images/item_chicken_nuggets.jpg"
+      },
+      {
+        "item_name": "Milkshake (Chocolate)",
+        "category": "Dessert",
+        "price": 6.0,
+        "item_photo": "https://example.com/images/item_chocolate_milkshake.jpg"
+      },
+      {
+        "item_name": "Apple Turnover",
+        "category": "Dessert",
+        "price": 4.5,
+        "item_photo": "https://example.com/images/item_apple_turnover.jpg"
+      },
+      {
+        "item_name": "Ice Cream Cone",
+        "category": "Dessert",
+        "price": 3.0,
+        "item_photo": "https://example.com/images/item_ice_cream_cone.jpg"
+      },
+      {
+        "item_name": "Mushroom Swiss Burger",
+        "category": "Main Course",
+        "price": 14.0,
+        "item_photo": "https://example.com/images/item_mushroom_swiss_burger.jpg"
+      },
+      {
+        "item_name": "Spicy Chicken Sandwich",
+        "category": "Main Course",
+        "price": 12.5,
+        "item_photo": "https://example.com/images/item_spicy_chicken_sandwich.jpg"
+      },
+      {
+        "item_name": "Sweet Potato Fries",
+        "category": "Appetizer",
+        "price": 5.0,
+        "item_photo": "https://example.com/images/item_sweet_potato_fries.jpg"
+      },
+      {
+        "item_name": "Coleslaw",
+        "category": "Appetizer",
+        "price": 3.5,
+        "item_photo": "https://example.com/images/item_coleslaw.jpg"
+      },
+      {
+        "item_name": "Strawberry Milkshake",
+        "category": "Dessert",
+        "price": 6.0,
+        "item_photo": "https://example.com/images/item_strawberry_milkshake.jpg"
+      },
+      {
+        "item_name": "Brownie",
+        "category": "Dessert",
+        "price": 4.0,
+        "item_photo": "https://example.com/images/item_brownie_burger.jpg"
+      }
+    ]
+  },
+  {
+    "restaurant_name": "Mediterranean Grill",
+    "location": {
+      "address": "333 Cedar Street, Lakeside",
+      "latitude": 34.0522,
+      "longitude": -118.2437
+    },
+    "avg_ratings": 4.6,
+    "restaurant_photo": "https://example.com/images/restaurant_mediterranean_grill.jpg",
+    "menu": [
+      {
+        "item_name": "Chicken Shawarma Plate",
+        "category": "Main Course",
+        "price": 16.0,
+        "item_photo": "https://example.com/images/item_chicken_shawarma_plate.jpg"
+      },
+      {
+        "item_name": "Beef Gyro Plate",
+        "category": "Main Course",
+        "price": 17.5,
+        "item_photo": "https://example.com/images/item_beef_gyro_plate.jpg"
+      },
+      {
+        "item_name": "Falafel Plate",
+        "category": "Main Course",
+        "price": 14.0,
+        "item_photo": "https://example.com/images/item_falafel_plate.jpg"
+      },
+      {
+        "item_name": "Hummus with Pita",
+        "category": "Appetizer",
+        "price": 8.0,
+        "item_photo": "https://example.com/images/item_hummus_pita.jpg"
+      },
+      {
+        "item_name": "Tabbouleh Salad",
+        "category": "Appetizer",
+        "price": 9.0,
+        "item_photo": "https://example.com/images/item_tabbouleh_salad.jpg"
+      },
+      {
+        "item_name": "Baba Ghanoush",
+        "category": "Appetizer",
+        "price": 8.5,
+        "item_photo": "https://example.com/images/item_baba_ghanoush.jpg"
+      },
+      {
+        "item_name": "Baklava",
+        "category": "Dessert",
+        "price": 6.0,
+        "item_photo": "https://example.com/images/item_baklava.jpg"
+      },
+      {
+        "item_name": "Rice Pudding",
+        "category": "Dessert",
+        "price": 5.5,
+        "item_photo": "https://example.com/images/item_rice_pudding.jpg"
+      },
+      {
+        "item_name": "Turkish Coffee",
+        "category": "Dessert",
+        "price": 4.0,
+        "item_photo": "https://example.com/images/item_turkish_coffee.jpg"
+      },
+      {
+        "item_name": "Lamb Kebab",
+        "category": "Main Course",
+        "price": 20.0,
+        "item_photo": "https://example.com/images/item_lamb_kebab.jpg"
+      },
+      {
+        "item_name": "Veggie Kebab",
+        "category": "Main Course",
+        "price": 15.0,
+        "item_photo": "https://example.com/images/item_veggie_kebab.jpg"
+      },
+      {
+        "item_name": "Dolmades",
+        "category": "Appetizer",
+        "price": 7.0,
+        "item_photo": "https://example.com/images/item_dolmades.jpg"
+      },
+      {
+        "item_name": "Fattoush Salad",
+        "category": "Appetizer",
+        "price": 10.0,
+        "item_photo": "https://example.com/images/item_fattoush_salad.jpg"
+      },
+      {
+        "item_name": "Kunafa",
+        "category": "Dessert",
+        "price": 7.0,
+        "item_photo": "https://example.com/images/item_kunafa.jpg"
+      },
+      {
+        "item_name": "Dates with Walnuts",
+        "category": "Dessert",
+        "price": 5.0,
+        "item_photo": "https://example.com/images/item_dates_walnuts.jpg"
+      }
+    ]
+  },
+  {
+    "restaurant_name": "Thai Spice",
+    "location": {
+      "address": "444 Daisy Road, Hilltop",
+      "latitude": 34.0522,
+      "longitude": -118.2437
+    },
+    "avg_ratings": 4.4,
+    "restaurant_photo": "https://example.com/images/restaurant_thai_spice.jpg",
+    "menu": [
+      {
+        "item_name": "Pad Thai (Chicken)",
+        "category": "Main Course",
+        "price": 15.0,
+        "item_photo": "https://example.com/images/item_pad_thai_chicken.jpg"
+      },
+      {
+        "item_name": "Green Curry (Tofu)",
+        "category": "Main Course",
+        "price": 14.5,
+        "item_photo": "https://example.com/images/item_green_curry_tofu.jpg"
+      },
+      {
+        "item_name": "Pineapple Fried Rice (Shrimp)",
+        "category": "Main Course",
+        "price": 17.0,
+        "item_photo": "https://example.com/images/item_pineapple_fried_rice_shrimp.jpg"
+      },
+      {
+        "item_name": "Spring Rolls (Veggie)",
+        "category": "Appetizer",
+        "price": 7.0,
+        "item_photo": "https://example.com/images/item_spring_rolls_thai.jpg"
+      },
+      {
+        "item_name": "Tom Yum Soup",
+        "category": "Appetizer",
+        "price": 8.0,
+        "item_photo": "https://example.com/images/item_tom_yum_soup.jpg"
+      },
+      {
+        "item_name": "Satay Chicken Skewers",
+        "category": "Appetizer",
+        "price": 9.0,
+        "item_photo": "https://example.com/images/item_satay_chicken_skewers.jpg"
+      },
+      {
+        "item_name": "Mango Sticky Rice",
+        "category": "Dessert",
+        "price": 9.5,
+        "item_photo": "https://example.com/images/item_mango_sticky_rice.jpg"
+      },
+      {
+        "item_name": "Fried Banana with Ice Cream",
+        "category": "Dessert",
+        "price": 8.0,
+        "item_photo": "https://example.com/images/item_fried_banana_ice_cream.jpg"
+      },
+      {
+        "item_name": "Thai Iced Tea",
+        "category": "Dessert",
+        "price": 5.0,
+        "item_photo": "https://example.com/images/item_thai_iced_tea.jpg"
+      },
+      {
+        "item_name": "Panang Curry (Beef)",
+        "category": "Main Course",
+        "price": 16.0,
+        "item_photo": "https://example.com/images/item_panang_curry_beef.jpg"
+      },
+      {
+        "item_name": "Drunken Noodles (Pork)",
+        "category": "Main Course",
+        "price": 15.5,
+        "item_photo": "https://example.com/images/item_drunken_noodles_pork.jpg"
+      },
+      {
+        "item_name": "Crispy Wontons",
+        "category": "Appetizer",
+        "price": 6.5,
+        "item_photo": "https://example.com/images/item_crispy_wontons.jpg"
+      },
+      {
+        "item_name": "Larb Gai (Chicken Salad)",
+        "category": "Appetizer",
+        "price": 11.0,
+        "item_photo": "https://example.com/images/item_larb_gai.jpg"
+      },
+      {
+        "item_name": "Coconut Ice Cream",
+        "category": "Dessert",
+        "price": 6.5,
+        "item_photo": "https://example.com/images/item_coconut_ice_cream.jpg"
+      },
+      {
+        "item_name": "Sweet Sticky Rice with Durian",
+        "category": "Dessert",
+        "price": 10.0,
+        "item_photo": "https://example.com/images/item_sweet_sticky_rice_durian.jpg"
+      }
+    ]
+  },
+  {
+    "restaurant_name": "Vegan Garden",
+    "location": {
+      "address": "555 Flower Street, Green Acres",
+      "latitude": 34.0522,
+      "longitude": -118.2437
+    },
+    "avg_ratings": 4.8,
+    "restaurant_photo": "https://example.com/images/restaurant_vegan_garden.jpg",
+    "menu": [
+      {
+        "item_name": "Beyond Burger",
+        "category": "Main Course",
+        "price": 15.0,
+        "item_photo": "https://example.com/images/item_beyond_burger.jpg"
+      },
+      {
+        "item_name": "Lentil Shepherd's Pie",
+        "category": "Main Course",
+        "price": 14.0,
+        "item_photo": "https://example.com/images/item_lentil_shepherds_pie.jpg"
+      },
+      {
+        "item_name": "Tofu Scramble",
+        "category": "Main Course",
+        "price": 12.0,
+        "item_photo": "https://example.com/images/item_tofu_scramble.jpg"
+      },
+      {
+        "item_name": "Avocado Toast",
+        "category": "Appetizer",
+        "price": 9.0,
+        "item_photo": "https://example.com/images/item_avocado_toast.jpg"
+      },
+      {
+        "item_name": "Sweet Potato Fries",
+        "category": "Appetizer",
+        "price": 6.0,
+        "item_photo": "https://example.com/images/item_sweet_potato_fries_vg.jpg"
+      },
+      {
+        "item_name": "Quinoa Salad",
+        "category": "Appetizer",
+        "price": 10.0,
+        "item_photo": "https://example.com/images/item_quinoa_salad.jpg"
+      },
+      {
+        "item_name": "Vegan Chocolate Cake",
+        "category": "Dessert",
+        "price": 8.0,
+        "item_photo": "https://example.com/images/item_vegan_chocolate_cake.jpg"
+      },
+      {
+        "item_name": "Fruit Platter",
+        "category": "Dessert",
+        "price": 7.0,
+        "item_photo": "https://example.com/images/item_fruit_platter.jpg"
+      },
+      {
+        "item_name": "Smoothie Bowl",
+        "category": "Dessert",
+        "price": 10.0,
+        "item_photo": "https://example.com/images/item_smoothie_bowl.jpg"
+      },
+      {
+        "item_name": "Mushroom & Spinach Risotto",
+        "category": "Main Course",
+        "price": 16.0,
+        "item_photo": "https://example.com/images/item_mushroom_spinach_risotto.jpg"
+      },
+      {
+        "item_name": "Black Bean Tacos",
+        "category": "Main Course",
+        "price": 13.0,
+        "item_photo": "https://example.com/images/item_black_bean_tacos.jpg"
+      },
+      {
+        "item_name": "Hummus Veggie Wrap",
+        "category": "Appetizer",
+        "price": 11.0,
+        "item_photo": "https://example.com/images/item_hummus_veggie_wrap.jpg"
+      },
+      {
+        "item_name": "Gazpacho",
+        "category": "Appetizer",
+        "price": 7.5,
+        "item_photo": "https://example.com/images/item_gazpacho.jpg"
+      },
+      {
+        "item_name": "Coconut Cream Pie",
+        "category": "Dessert",
+        "price": 9.0,
+        "item_photo": "https://example.com/images/item_coconut_cream_pie.jpg"
+      },
+      {
+        "item_name": "Matcha Latte (Vegan)",
+        "category": "Dessert",
+        "price": 5.5,
+        "item_photo": "https://example.com/images/item_matcha_latte_vegan.jpg"
+      }
+    ]
+  },
+  {
+    "restaurant_name": "The Seafood Shack",
+    "location": {
+      "address": "666 Ocean Drive, Coastal Town",
+      "latitude": 34.0522,
+      "longitude": -118.2437
+    },
+    "avg_ratings": 4.1,
+    "restaurant_photo": "https://example.com/images/restaurant_seafood_shack.jpg",
+    "menu": [
+      {
+        "item_name": "Fish and Chips",
+        "category": "Main Course",
+        "price": 18.0,
+        "item_photo": "https://example.com/images/item_fish_and_chips.jpg"
+      },
+      {
+        "item_name": "Grilled Shrimp Platter",
+        "category": "Main Course",
+        "price": 22.0,
+        "item_photo": "https://example.com/images/item_grilled_shrimp_platter.jpg"
+      },
+      {
+        "item_name": "Lobster Roll",
+        "category": "Main Course",
+        "price": 28.0,
+        "item_photo": "https://example.com/images/item_lobster_roll.jpg"
+      },
+      {
+        "item_name": "Clam Chowder",
+        "category": "Appetizer",
+        "price": 9.0,
+        "item_photo": "https://example.com/images/item_clam_chowder.jpg"
+      },
+      {
+        "item_name": "Calamari",
+        "category": "Appetizer",
+        "price": 11.0,
+        "item_photo": "https://example.com/images/item_calamari.jpg"
+      },
+      {
+        "item_name": "Oysters on the Half Shell",
+        "category": "Appetizer",
+        "price": 15.0,
+        "item_photo": "https://example.com/images/item_oysters_half_shell.jpg"
+      },
+      {
+        "item_name": "Key Lime Pie",
+        "category": "Dessert",
+        "price": 8.5,
+        "item_photo": "https://example.com/images/item_key_lime_pie.jpg"
+      },
+      {
+        "item_name": "Bread Pudding",
+        "category": "Dessert",
+        "price": 7.0,
+        "item_photo": "https://example.com/images/item_bread_pudding.jpg"
+      },
+      {
+        "item_name": "Blueberry Crumble",
+        "category": "Dessert",
+        "price": 7.5,
+        "item_photo": "https://example.com/images/item_blueberry_crumble.jpg"
+      },
+      {
+        "item_name": "Seafood Pasta",
+        "category": "Main Course",
+        "price": 25.0,
+        "item_photo": "https://example.com/images/item_seafood_pasta.jpg"
+      },
+      {
+        "item_name": "Baked Cod",
+        "category": "Main Course",
+        "price": 19.0,
+        "item_photo": "https://example.com/images/item_baked_cod.jpg"
+      },
+      {
+        "item_name": "Crab Cakes",
+        "category": "Appetizer",
+        "price": 14.0,
+        "item_photo": "https://example.com/images/item_crab_cakes.jpg"
+      },
+      {
+        "item_name": "Shrimp Cocktail",
+        "category": "Appetizer",
+        "price": 13.0,
+        "item_photo": "https://example.com/images/item_shrimp_cocktail.jpg"
+      },
+      {
+        "item_name": "Pecan Pie",
+        "category": "Dessert",
+        "price": 8.0,
+        "item_photo": "https://example.com/images/item_pecan_pie.jpg"
+      },
+      {
+        "item_name": "Chocolate Mousse",
+        "category": "Dessert",
+        "price": 9.0,
+        "item_photo": "https://example.com/images/item_chocolate_mousse.jpg"
+      }
+    ]
+  },
+  {
+    "restaurant_name": "French Bistro",
+    "location": {
+      "address": "777 Rue de la Paix, Parisville",
+      "latitude": 48.8566,
+      "longitude": 2.3522
+    },
+    "avg_ratings": 4.9,
+    "restaurant_photo": "https://example.com/images/restaurant_french_bistro.jpg",
+    "menu": [
+      {
+        "item_name": "Coq au Vin",
+        "category": "Main Course",
+        "price": 28.0,
+        "item_photo": "https://example.com/images/item_coq_au_vin.jpg"
+      },
+      {
+        "item_name": "Steak Frites",
+        "category": "Main Course",
+        "price": 32.0,
+        "item_photo": "https://example.com/images/item_steak_frites.jpg"
+      },
+      {
+        "item_name": "Bouillabaisse",
+        "category": "Main Course",
+        "price": 30.0,
+        "item_photo": "https://example.com/images/item_bouillabaisse.jpg"
+      },
+      {
+        "item_name": "Escargots de Bourgogne",
+        "category": "Appetizer",
+        "price": 15.0,
+        "item_photo": "https://example.com/images/item_escargots.jpg"
+      },
+      {
+        "item_name": "French Onion Soup",
+        "category": "Appetizer",
+        "price": 12.0,
+        "item_photo": "https://example.com/images/item_french_onion_soup.jpg"
+      },
+      {
+        "item_name": "Pâté de Campagne",
+        "category": "Appetizer",
+        "price": 14.0,
+        "item_photo": "https://example.com/images/item_pate_campagne.jpg"
+      },
+      {
+        "item_name": "Crème brûlée",
+        "category": "Dessert",
+        "price": 10.0,
+        "item_photo": "https://example.com/images/item_creme_brulee.jpg"
+      },
+      {
+        "item_name": "Tarte Tatin",
+        "category": "Dessert",
+        "price": 9.0,
+        "item_photo": "https://example.com/images/item_tarte_tatin.jpg"
+      },
+      {
+        "item_name": "Profiteroles",
+        "category": "Dessert",
+        "price": 11.0,
+        "item_photo": "https://example.com/images/item_profiteroles.jpg"
+      },
+      {
+        "item_name": "Duck Confit",
+        "category": "Main Course",
+        "price": 29.0,
+        "item_photo": "https://example.com/images/item_duck_confit.jpg"
+      },
+      {
+        "item_name": "Cassoulet",
+        "category": "Main Course",
+        "price": 26.0,
+        "item_photo": "https://example.com/images/item_cassoulet.jpg"
+      },
+      {
+        "item_name": "Niçoise Salad",
+        "category": "Appetizer",
+        "price": 16.0,
+        "item_photo": "https://example.com/images/item_nicoise_salad.jpg"
+      },
+      {
+        "item_name": "Gougères",
+        "category": "Appetizer",
+        "price": 9.0,
+        "item_photo": "https://example.com/images/item_gougeres.jpg"
+      },
+      {
+        "item_name": "Mille-feuille",
+        "category": "Dessert",
+        "price": 10.5,
+        "item_photo": "https://example.com/images/item_mille_feuille.jpg"
+      },
+      {
+        "item_name": "Chocolate Mousse",
+        "category": "Dessert",
+        "price": 9.5,
+        "item_photo": "https://example.com/images/item_chocolate_mousse_french.jpg"
+      }
+    ]
+  },
+  {
+    "restaurant_name": "Mexican Fiesta",
+    "location": {
+      "address": "888 Cactus Road, Desert City",
+      "latitude": 34.0522,
+      "longitude": -118.2437
+    },
+    "avg_ratings": 4.2,
+    "restaurant_photo": "https://example.com/images/restaurant_mexican_fiesta.jpg",
+    "menu": [
+      {
+        "item_name": "Chicken Fajitas",
+        "category": "Main Course",
+        "price": 19.0,
+        "item_photo": "https://example.com/images/item_chicken_fajitas.jpg"
+      },
+      {
+        "item_name": "Beef Burrito",
+        "category": "Main Course",
+        "price": 16.0,
+        "item_photo": "https://example.com/images/item_beef_burrito.jpg"
+      },
+      {
+        "item_name": "Enchiladas Verdes",
+        "category": "Main Course",
+        "price": 15.0,
+        "item_photo": "https://example.com/images/item_enchiladas_verdes.jpg"
+      },
+      {
+        "item_name": "Guacamole & Chips",
+        "category": "Appetizer",
+        "price": 10.0,
+        "item_photo": "https://example.com/images/item_guacamole_chips.jpg"
+      },
+      {
+        "item_name": "Nachos Supreme",
+        "category": "Appetizer",
+        "price": 13.0,
+        "item_photo": "https://example.com/images/item_nachos_supreme.jpg"
+      },
+      {
+        "item_name": "Queso Fundido",
+        "category": "Appetizer",
+        "price": 11.0,
+        "item_photo": "https://example.com/images/item_queso_fundido.jpg"
+      },
+      {
+        "item_name": "Churros with Chocolate Sauce",
+        "category": "Dessert",
+        "price": 8.0,
+        "item_photo": "https://example.com/images/item_churros_chocolate.jpg"
+      },
+      {
+        "item_name": "Fried Ice Cream",
+        "category": "Dessert",
+        "price": 9.0,
+        "item_photo": "https://example.com/images/item_fried_ice_cream.jpg"
+      },
+      {
+        "item_name": "Tres Leches Cake",
+        "category": "Dessert",
+        "price": 7.5,
+        "item_photo": "https://example.com/images/item_tres_leches_cake.jpg"
+      },
+      {
+        "item_name": "Carnitas Tacos",
+        "category": "Main Course",
+        "price": 17.0,
+        "item_photo": "https://example.com/images/item_carnitas_tacos.jpg"
+      },
+      {
+        "item_name": "Chiles Rellenos",
+        "category": "Main Course",
+        "price": 18.0,
+        "item_photo": "https://example.com/images/item_chiles_rellenos.jpg"
+      },
+      {
+        "item_name": "Elote (Grilled Corn)",
+        "category": "Appetizer",
+        "price": 6.0,
+        "item_photo": "https://example.com/images/item_elote.jpg"
+      },
+      {
+        "item_name": "Sopa de Tortilla",
+        "category": "Appetizer",
+        "price": 8.5,
+        "item_photo": "https://example.com/images/item_sopa_de_tortilla.jpg"
+      },
+      {
+        "item_name": "Flan",
+        "category": "Dessert",
+        "price": 6.5,
+        "item_photo": "https://example.com/images/item_flan.jpg"
+      },
+      {
+        "item_name": "Margarita (Non-alcoholic)",
+        "category": "Dessert",
+        "price": 7.0,
+        "item_photo": "https://example.com/images/item_margarita_na.jpg"
+      }
+    ]
+  },
+  {
+    "restaurant_name": "Italian Trattoria",
+    "location": {
+      "address": "999 Vine Street, Little Italy",
+      "latitude": 41.8902,
+      "longitude": 12.4922
+    },
+    "avg_ratings": 4.7,
+    "restaurant_photo": "https://example.com/images/restaurant_italian_trattoria.jpg",
+    "menu": [
+      {
+        "item_name": "Spaghetti Carbonara",
+        "category": "Main Course",
+        "price": 18.0,
+        "item_photo": "https://example.com/images/item_spaghetti_carbonara.jpg"
+      },
+      {
+        "item_name": "Lasagna Bolognese",
+        "category": "Main Course",
+        "price": 17.5,
+        "item_photo": "https://example.com/images/item_lasagna_bolognese.jpg"
+      },
+      {
+        "item_name": "Chicken Parmesan",
+        "category": "Main Course",
+        "price": 20.0,
+        "item_photo": "https://example.com/images/item_chicken_parmesan.jpg"
+      },
+      {
+        "item_name": "Bruschetta",
+        "category": "Appetizer",
+        "price": 9.0,
+        "item_photo": "https://example.com/images/item_bruschetta.jpg"
+      },
+      {
+        "item_name": "Caprese Salad",
+        "category": "Appetizer",
+        "price": 11.0,
+        "item_photo": "https://example.com/images/item_caprese_salad_italian.jpg"
+      },
+      {
+        "item_name": "Fried Zucchini",
+        "category": "Appetizer",
+        "price": 8.0,
+        "item_photo": "https://example.com/images/item_fried_zucchini.jpg"
+      },
+      {
+        "item_name": "Panna Cotta",
+        "category": "Dessert",
+        "price": 7.0,
+        "item_photo": "https://example.com/images/item_panna_cotta.jpg"
+      },
+      {
+        "item_name": "Gelato (Pistachio)",
+        "category": "Dessert",
+        "price": 6.5,
+        "item_photo": "https://example.com/images/item_gelato_pistachio.jpg"
+      },
+      {
+        "item_name": "Affogato",
+        "category": "Dessert",
+        "price": 5.0,
+        "item_photo": "https://example.com/images/item_affogato.jpg"
+      },
+      {
+        "item_name": "Fettuccine Alfredo",
+        "category": "Main Course",
+        "price": 17.0,
+        "item_photo": "https://example.com/images/item_fettuccine_alfredo.jpg"
+      },
+      {
+        "item_name": "Shrimp Scampi",
+        "category": "Main Course",
+        "price": 21.0,
+        "item_photo": "https://example.com/images/item_shrimp_scampi_italian.jpg"
+      },
+      {
+        "item_name": "Arancini",
+        "category": "Appetizer",
+        "price": 10.0,
+        "item_photo": "https://example.com/images/item_arancini.jpg"
+      },
+      {
+        "item_name": "Minestrone Soup",
+        "category": "Appetizer",
+        "price": 8.5,
+        "item_photo": "https://example.com/images/item_minestrone_soup.jpg"
+      },
+      {
+        "item_name": "Lemon Ricotta Cake",
+        "category": "Dessert",
+        "price": 9.0,
+        "item_photo": "https://example.com/images/item_lemon_ricotta_cake.jpg"
+      },
+      {
+        "item_name": "Espresso",
+        "category": "Dessert",
+        "price": 3.0,
+        "item_photo": "https://example.com/images/item_espresso.jpg"
+      }
+    ]
+  },
+  {
+    "restaurant_name": "Japanese Ramen House",
+    "location": {
+      "address": "111 Cherry Street, Anime City",
+      "latitude": 35.6895,
+      "longitude": 139.6917
+    },
+    "avg_ratings": 4.5,
+    "restaurant_photo": "https://example.com/images/restaurant_japanese_ramen_house.jpg",
+    "menu": [
+      {
+        "item_name": "Tonkotsu Ramen",
+        "category": "Main Course",
+        "price": 16.0,
+        "item_photo": "https://example.com/images/item_tonkotsu_ramen.jpg"
+      },
+      {
+        "item_name": "Miso Ramen",
+        "category": "Main Course",
+        "price": 15.0,
+        "item_photo": "https://example.com/images/item_miso_ramen.jpg"
+      },
+      {
+        "item_name": "Shoyu Ramen",
+        "category": "Main Course",
+        "price": 14.5,
+        "item_photo": "https://example.com/images/item_shoyu_ramen.jpg"
+      },
+      {
+        "item_name": "Pork Gyoza",
+        "category": "Appetizer",
+        "price": 7.0,
+        "item_photo": "https://example.com/images/item_pork_gyoza.jpg"
+      },
+      {
+        "item_name": "Chicken Karaage",
+        "category": "Appetizer",
+        "price": 8.0,
+        "item_photo": "https://example.com/images/item_chicken_karaage.jpg"
+      },
+      {
+        "item_name": "Takoyaki",
+        "category": "Appetizer",
+        "price": 7.5,
+        "item_photo": "https://example.com/images/item_takoyaki.jpg"
+      },
+      {
+        "item_name": "Matcha Cheesecake",
+        "category": "Dessert",
+        "price": 9.0,
+        "item_photo": "https://example.com/images/item_matcha_cheesecake_jr.jpg"
+      },
+      {
+        "item_name": "Mochi Ice Cream",
+        "category": "Dessert",
+        "price": 6.0,
+        "item_photo": "https://example.com/images/item_mochi_ice_cream.jpg"
+      },
+      {
+        "item_name": "Dango",
+        "category": "Dessert",
+        "price": 5.0,
+        "item_photo": "https://example.com/images/item_dango.jpg"
+      },
+      {
+        "item_name": "Spicy Miso Ramen",
+        "category": "Main Course",
+        "price": 16.5,
+        "item_photo": "https://example.com/images/item_spicy_miso_ramen.jpg"
+      },
+      {
+        "item_name": "Vegetable Ramen",
+        "category": "Main Course",
+        "price": 14.0,
+        "item_photo": "https://example.com/images/item_vegetable_ramen.jpg"
+      },
+      {
+        "item_name": "Kimchi",
+        "category": "Appetizer",
+        "price": 4.0,
+        "item_photo": "https://example.com/images/item_kimchi.jpg"
+      },
+      {
+        "item_name": "Agedashi Tofu (Ramen House)",
+        "category": "Appetizer",
+        "price": 7.5,
+        "item_photo": "https://example.com/images/item_agedashi_tofu_rh.jpg"
+      },
+      {
+        "item_name": "Red Bean Paste Taiyaki",
+        "category": "Dessert",
+        "price": 6.5,
+        "item_photo": "https://example.com/images/item_red_bean_taiyaki.jpg"
+      },
+      {
+        "item_name": "Ramune (Japanese Soda)",
+        "category": "Dessert",
+        "price": 4.0,
+        "item_photo": "https://example.com/images/item_ramune.jpg"
+      }
+    ]
+  },
+  {
+    "restaurant_name": "Greek Taverna",
+    "location": {
+      "address": "222 Olive Street, Olympia Heights",
+      "latitude": 37.9838,
+      "longitude": 23.7275
+    },
+    "avg_ratings": 4.6,
+    "restaurant_photo": "https://example.com/images/restaurant_greek_taverna.jpg",
+    "menu": [
+      {
+        "item_name": "Souvlaki (Pork)",
+        "category": "Main Course",
+        "price": 16.0,
+        "item_photo": "https://example.com/images/item_souvlaki_pork.jpg"
+      },
+      {
+        "item_name": "Moussaka",
+        "category": "Main Course",
+        "price": 18.0,
+        "item_photo": "https://example.com/images/item_moussaka.jpg"
+      },
+      {
+        "item_name": "Pastitsio",
+        "category": "Main Course",
+        "price": 17.0,
+        "item_photo": "https://example.com/images/item_pastitsio.jpg"
+      },
+      {
+        "item_name": "Tzatziki with Pita",
+        "category": "Appetizer",
+        "price": 9.0,
+        "item_photo": "https://example.com/images/item_tzatziki_pita.jpg"
+      },
+      {
+        "item_name": "Spanakopita",
+        "category": "Appetizer",
+        "price": 10.0,
+        "item_photo": "https://example.com/images/item_spanakopita.jpg"
+      },
+      {
+        "item_name": "Greek Salad",
+        "category": "Appetizer",
+        "price": 12.0,
+        "item_photo": "https://example.com/images/item_greek_salad.jpg"
+      },
+      {
+        "item_name": "Galaktoboureko",
+        "category": "Dessert",
+        "price": 7.0,
+        "item_photo": "https://example.com/images/item_galaktoboureko.jpg"
+      },
+      {
+        "item_name": "Loukoumades",
+        "category": "Dessert",
+        "price": 6.5,
+        "item_photo": "https://example.com/images/item_loukoumades.jpg"
+      },
+      {
+        "item_name": "Greek Yogurt with Honey",
+        "category": "Dessert",
+        "price": 5.0,
+        "item_photo": "https://example.com/images/item_greek_yogurt_honey.jpg"
+      },
+      {
+        "item_name": "Gyro Plate (Chicken)",
+        "category": "Main Course",
+        "price": 16.5,
+        "item_photo": "https://example.com/images/item_gyro_plate_chicken.jpg"
+      },
+      {
+        "item_name": "Lamb Kleftiko",
+        "category": "Main Course",
+        "price": 22.0,
+        "item_photo": "https://example.com/images/item_lamb_kleftiko.jpg"
+      },
+      {
+        "item_name": "Saganaki (Fried Cheese)",
+        "category": "Appetizer",
+        "price": 13.0,
+        "item_photo": "https://example.com/images/item_saganaki.jpg"
+      },
+      {
+        "item_name": "Octopus Grilled",
+        "category": "Appetizer",
+        "price": 18.0,
+        "item_photo": "https://example.com/images/item_octopus_grilled.jpg"
+      },
+      {
+        "item_name": "Kataifi",
+        "category": "Dessert",
+        "price": 7.5,
+        "item_photo": "https://example.com/images/item_kataifi.jpg"
+      },
+      {
+        "item_name": "Frappe",
+        "category": "Dessert",
+        "price": 4.0,
+        "item_photo": "https://example.com/images/item_frappe.jpg"
+      }
+    ]
+  },
+  {
+    "restaurant_name": "Korean BBQ House",
+    "location": {
+      "address": "333 Maple Avenue, Seoul Street",
+      "latitude": 37.5665,
+      "longitude": 126.978
+    },
+    "avg_ratings": 4.8,
+    "restaurant_photo": "https://example.com/images/restaurant_korean_bbq_house.jpg",
+    "menu": [
+      {
+        "item_name": "Bulgogi (Beef)",
+        "category": "Main Course",
+        "price": 25.0,
+        "item_photo": "https://example.com/images/item_bulgogi_beef.jpg"
+      },
+      {
+        "item_name": "Samgyeopsal (Pork Belly)",
+        "category": "Main Course",
+        "price": 22.0,
+        "item_photo": "https://example.com/images/item_samgyeopsal.jpg"
+      },
+      {
+        "item_name": "Bibimbap",
+        "category": "Main Course",
+        "price": 18.0,
+        "item_photo": "https://example.com/images/item_bibimbap.jpg"
+      },
+      {
+        "item_name": "Kimchi Pancakes",
+        "category": "Appetizer",
+        "price": 10.0,
+        "item_photo": "https://example.com/images/item_kimchi_pancakes.jpg"
+      },
+      {
+        "item_name": "Japchae (Glass Noodles)",
+        "category": "Appetizer",
+        "price": 12.0,
+        "item_photo": "https://example.com/images/item_japchae.jpg"
+      },
+      {
+        "item_name": "Tteokbokki (Spicy Rice Cakes)",
+        "category": "Appetizer",
+        "price": 11.0,
+        "item_photo": "https://example.com/images/item_tteokbokki.jpg"
+      },
+      {
+        "item_name": "Bingsu (Patbingsu)",
+        "category": "Dessert",
+        "price": 14.0,
+        "item_photo": "https://example.com/images/item_bingsu_patbingsu.jpg"
+      },
+      {
+        "item_name": "Hotteok (Sweet Pancakes)",
+        "category": "Dessert",
+        "price": 6.0,
+        "item_photo": "https://example.com/images/item_hotteok.jpg"
+      },
+      {
+        "item_name": "Soju",
+        "category": "Dessert",
+        "price": 9.0,
+        "item_photo": "https://example.com/images/item_soju.jpg"
+      },
+      {
+        "item_name": "Galbi (Marinated Short Ribs)",
+        "category": "Main Course",
+        "price": 28.0,
+        "item_photo": "https://example.com/images/item_galbi.jpg"
+      },
+      {
+        "item_name": "Kimchi Jjigae (Kimchi Stew)",
+        "category": "Main Course",
+        "price": 19.0,
+        "item_photo": "https://example.com/images/item_kimchi_jjigae.jpg"
+      },
+      {
+        "item_name": "Mandu (Dumplings)",
+        "category": "Appetizer",
+        "price": 8.0,
+        "item_photo": "https://example.com/images/item_mandu.jpg"
+      },
+      {
+        "item_name": "Kimbap",
+        "category": "Appetizer",
+        "price": 10.0,
+        "item_photo": "https://example.com/images/item_kimbap.jpg"
+      },
+      {
+        "item_name": "Yakgwa (Honey Cookies)",
+        "category": "Dessert",
+        "price": 5.0,
+        "item_photo": "https://example.com/images/item_yakgwa.jpg"
+      },
+      {
+        "item_name": "Sikhye (Sweet Rice Drink)",
+        "category": "Dessert",
+        "price": 4.5,
+        "item_photo": "https://example.com/images/item_sikhye.jpg"
+      }
+    ]
+  },
+  {
+    "restaurant_name": "Ethiopian Cuisine",
+    "location": {
+      "address": "444 Spice Road, Addis Ababaville",
+      "latitude": 9.0305,
+      "longitude": 38.7407
+    },
+    "avg_ratings": 4.3,
+    "restaurant_photo": "https://example.com/images/restaurant_ethiopian_cuisine.jpg",
+    "menu": [
+      {
+        "item_name": "Doro Wat (Chicken Stew)",
+        "category": "Main Course",
+        "price": 18.0,
+        "item_photo": "https://example.com/images/item_doro_wat.jpg"
+      },
+      {
+        "item_name": "Kitfo (Minced Beef)",
+        "category": "Main Course",
+        "price": 20.0,
+        "item_photo": "https://example.com/images/item_kitfo.jpg"
+      },
+      {
+        "item_name": "Shiro Wat (Chickpea Stew)",
+        "category": "Main Course",
+        "price": 16.0,
+        "item_photo": "https://example.com/images/item_shiro_wat.jpg"
+      },
+      {
+        "item_name": "Injera (Flatbread)",
+        "category": "Appetizer",
+        "price": 4.0,
+        "item_photo": "https://example.com/images/item_injera.jpg"
+      },
+      {
+        "item_name": "Sambusa (Lentil Pastry)",
+        "category": "Appetizer",
+        "price": 7.0,
+        "item_photo": "https://example.com/images/item_sambusa.jpg"
+      },
+      {
+        "item_name": "Azifa (Lentil Salad)",
+        "category": "Appetizer",
+        "price": 9.0,
+        "item_photo": "https://example.com/images/item_azifa.jpg"
+      },
+      {
+        "item_name": "Honey Wine (Tej)",
+        "category": "Dessert",
+        "price": 10.0,
+        "item_photo": "https://example.com/images/item_tej.jpg"
+      },
+      {
+        "item_name": "Coffee Ceremony",
+        "category": "Dessert",
+        "price": 15.0,
+        "item_photo": "https://example.com/images/item_coffee_ceremony.jpg"
+      },
+      {
+        "item_name": "Avocado Juice",
+        "category": "Dessert",
+        "price": 6.0,
+        "item_photo": "https://example.com/images/item_avocado_juice.jpg"
+      },
+      {
+        "item_name": "Tibs (Sautéed Meat)",
+        "category": "Main Course",
+        "price": 19.0,
+        "item_photo": "https://example.com/images/item_tibs.jpg"
+      },
+      {
+        "item_name": "Gomen (Collard Greens)",
+        "category": "Main Course",
+        "price": 13.0,
+        "item_photo": "https://example.com/images/item_gomen.jpg"
+      },
+      {
+        "item_name": "Fasolia (Green Beans & Carrots)",
+        "category": "Appetizer",
+        "price": 8.0,
+        "item_photo": "https://example.com/images/item_fasolia.jpg"
+      },
+      {
+        "item_name": "Firfir (Torn Injera with Sauce)",
+        "category": "Appetizer",
+        "price": 12.0,
+        "item_photo": "https://example.com/images/item_firfir.jpg"
+      },
+      {
+        "item_name": "Kolo (Roasted Barley)",
+        "category": "Dessert",
+        "price": 5.0,
+        "item_photo": "https://example.com/images/item_kolo.jpg"
+      },
+      {
+        "item_name": "Spriss (Mixed Juice)",
+        "category": "Dessert",
+        "price": 7.0,
+        "item_photo": "https://example.com/images/item_spriss.jpg"
+      }
+    ]
+  },
+  {
+    "restaurant_name": "Brazilian Steakhouse",
+    "location": {
+      "address": "555 Rodizio Road, Carnivore City",
+      "latitude": -23.5505,
+      "longitude": -46.6333
+    },
+    "avg_ratings": 4.9,
+    "restaurant_photo": "https://example.com/images/restaurant_brazilian_steakhouse.jpg",
+    "menu": [
+      {
+        "item_name": "Picanha (Top Sirloin)",
+        "category": "Main Course",
+        "price": 35.0,
+        "item_photo": "https://example.com/images/item_picanha.jpg"
+      },
+      {
+        "item_name": "Fraldinha (Bottom Sirloin)",
+        "category": "Main Course",
+        "price": 30.0,
+        "item_photo": "https://example.com/images/item_fraldinha.jpg"
+      },
+      {
+        "item_name": "Alcatra (Top Sirloin Cap)",
+        "category": "Main Course",
+        "price": 32.0,
+        "item_photo": "https://example.com/images/item_alcatra.jpg"
+      },
+      {
+        "item_name": "Pão de Queijo (Cheese Bread)",
+        "category": "Appetizer",
+        "price": 8.0,
+        "item_photo": "https://example.com/images/item_pao_de_queijo.jpg"
+      },
+      {
+        "item_name": "Feijoada (Black Bean Stew)",
+        "category": "Appetizer",
+        "price": 15.0,
+        "item_photo": "https://example.com/images/item_feijoada.jpg"
+      },
+      {
+        "item_name": "Salad Bar",
+        "category": "Appetizer",
+        "price": 12.0,
+        "item_photo": "https://example.com/images/item_salad_bar.jpg"
+      },
+      {
+        "item_name": "Brigadeiro",
+        "category": "Dessert",
+        "price": 7.0,
+        "item_photo": "https://example.com/images/item_brigadeiro.jpg"
+      },
+      {
+        "item_name": "Passion Fruit Mousse",
+        "category": "Dessert",
+        "price": 8.0,
+        "item_photo": "https://example.com/images/item_passion_fruit_mousse.jpg"
+      },
+      {
+        "item_name": "Brazilian Coffee",
+        "category": "Dessert",
+        "price": 5.0,
+        "item_photo": "https://example.com/images/item_brazilian_coffee.jpg"
+      },
+      {
+        "item_name": "Costela (Beef Ribs)",
+        "category": "Main Course",
+        "price": 33.0,
+        "item_photo": "https://example.com/images/item_costela.jpg"
+      },
+      {
+        "item_name": "Linguica (Sausage)",
+        "category": "Main Course",
+        "price": 20.0,
+        "item_photo": "https://example.com/images/item_linguica.jpg"
+      },
+      {
+        "item_name": "Fried Bananas",
+        "category": "Appetizer",
+        "price": 6.0,
+        "item_photo": "https://example.com/images/item_fried_bananas.jpg"
+      },
+      {
+        "item_name": "Polenta Fries",
+        "category": "Appetizer",
+        "price": 7.0,
+        "item_photo": "https://example.com/images/item_polenta_fries.jpg"
+      },
+      {
+        "item_name": "Quindim",
+        "category": "Dessert",
+        "price": 7.5,
+        "item_photo": "https://example.com/images/item_quindim.jpg"
+      },
+      {
+        "item_name": "Açaí Bowl",
+        "category": "Dessert",
+        "price": 11.0,
+        "item_photo": "https://example.com/images/item_acai_bowl.jpg"
+      }
+    ]
+  },
+  {
+    "restaurant_name": "Vietnamese Pho House",
+    "location": {
+      "address": "666 Noodle Alley, Saigon Heights",
+      "latitude": 10.8231,
+      "longitude": 106.6297
+    },
+    "avg_ratings": 4.5,
+    "restaurant_photo": "https://example.com/images/restaurant_vietnamese_pho_house.jpg",
+    "menu": [
+      {
+        "item_name": "Pho Bo (Beef Noodle Soup)",
+        "category": "Main Course",
+        "price": 14.0,
+        "item_photo": "https://example.com/images/item_pho_bo.jpg"
+      },
+      {
+        "item_name": "Pho Ga (Chicken Noodle Soup)",
+        "category": "Main Course",
+        "price": 13.0,
+        "item_photo": "https://example.com/images/item_pho_ga.jpg"
+      },
+      {
+        "item_name": "Bun Cha (Grilled Pork Noodles)",
+        "category": "Main Course",
+        "price": 16.0,
+        "item_photo": "https://example.com/images/item_bun_cha.jpg"
+      },
+      {
+        "item_name": "Fresh Spring Rolls (Goi Cuon)",
+        "category": "Appetizer",
+        "price": 8.0,
+        "item_photo": "https://example.com/images/item_fresh_spring_rolls.jpg"
+      },
+      {
+        "item_name": "Crispy Egg Rolls (Cha Gio)",
+        "category": "Appetizer",
+        "price": 7.0,
+        "item_photo": "https://example.com/images/item_crispy_egg_rolls.jpg"
+      },
+      {
+        "item_name": "Papaya Salad",
+        "category": "Appetizer",
+        "price": 9.0,
+        "item_photo": "https://example.com/images/item_papaya_salad.jpg"
+      },
+      {
+        "item_name": "Vietnamese Coffee (Iced)",
+        "category": "Dessert",
+        "price": 5.0,
+        "item_photo": "https://example.com/images/item_vietnamese_coffee_iced.jpg"
+      },
+      {
+        "item_name": "Che (Sweet Dessert Soup)",
+        "category": "Dessert",
+        "price": 6.0,
+        "item_photo": "https://example.com/images/item_che.jpg"
+      },
+      {
+        "item_name": "Banh Flan (Caramel Custard)",
+        "category": "Dessert",
+        "price": 5.5,
+        "item_photo": "https://example.com/images/item_banh_flan.jpg"
+      },
+      {
+        "item_name": "Bun Bo Hue (Spicy Beef Noodle Soup)",
+        "category": "Main Course",
+        "price": 15.0,
+        "item_photo": "https://example.com/images/item_bun_bo_hue.jpg"
+      },
+      {
+        "item_name": "Com Tam (Broken Rice Plate)",
+        "category": "Main Course",
+        "price": 17.0,
+        "item_photo": "https://example.com/images/item_com_tam.jpg"
+      },
+      {
+        "item_name": "Banh Mi (Pork)",
+        "category": "Appetizer",
+        "price": 10.0,
+        "item_photo": "https://example.com/images/item_banh_mi.jpg"
+      },
+      {
+        "item_name": "Goi Ga (Chicken Salad)",
+        "category": "Appetizer",
+        "price": 11.0,
+        "item_photo": "https://example.com/images/item_goi_ga.jpg"
+      },
+      {
+        "item_name": "Durian Sticky Rice",
+        "category": "Dessert",
+        "price": 9.5,
+        "item_photo": "https://example.com/images/item_durian_sticky_rice.jpg"
+      },
+      {
+        "item_name": "Salty Plum Soda",
+        "category": "Dessert",
+        "price": 4.0,
+        "item_photo": "https://example.com/images/item_salty_plum_soda.jpg"
+      }
+    ]
+  },
+  {
+    "restaurant_name": "Spanish Tapas Bar",
+    "location": {
+      "address": "777 Sangria Street, Barcelona Borough",
+      "latitude": 41.3851,
+      "longitude": 2.1734
+    },
+    "avg_ratings": 4.7,
+    "restaurant_photo": "https://example.com/images/restaurant_spanish_tapas_bar.jpg",
+    "menu": [
+      {
+        "item_name": "Patatas Bravas",
+        "category": "Appetizer",
+        "price": 8.0,
+        "item_photo": "https://example.com/images/item_patatas_bravas.jpg"
+      },
+      {
+        "item_name": "Gambas al Ajillo (Garlic Shrimp)",
+        "category": "Appetizer",
+        "price": 14.0,
+        "item_photo": "https://example.com/images/item_gambas_al_ajillo.jpg"
+      },
+      {
+        "item_name": "Tortilla Española",
+        "category": "Appetizer",
+        "price": 9.0,
+        "item_photo": "https://example.com/images/item_tortilla_espanola.jpg"
+      },
+      {
+        "item_name": "Paella Valenciana",
+        "category": "Main Course",
+        "price": 25.0,
+        "item_photo": "https://example.com/images/item_paella_valenciana.jpg"
+      },
+      {
+        "item_name": "Churros with Chocolate",
+        "category": "Dessert",
+        "price": 8.0,
+        "item_photo": "https://example.com/images/item_churros_chocolate_spanish.jpg"
+      },
+      {
+        "item_name": "Crema Catalana",
+        "category": "Dessert",
+        "price": 7.0,
+        "item_photo": "https://example.com/images/item_crema_catalana.jpg"
+      },
+      {
+        "item_name": "Manchego Cheese with Quince Paste",
+        "category": "Appetizer",
+        "price": 12.0,
+        "item_photo": "https://example.com/images/item_manchego_quince.jpg"
+      },
+      {
+        "item_name": "Albondigas (Meatballs)",
+        "category": "Main Course",
+        "price": 13.0,
+        "item_photo": "https://example.com/images/item_albondigas.jpg"
+      },
+      {
+        "item_name": "Pimientos de Padron",
+        "category": "Appetizer",
+        "price": 7.5,
+        "item_photo": "https://example.com/images/item_pimientos_de_padron.jpg"
+      },
+      {
+        "item_name": "Pulpo a la Gallega (Galician Octopus)",
+        "category": "Main Course",
+        "price": 22.0,
+        "item_photo": "https://example.com/images/item_pulpo_gallega.jpg"
+      },
+      {
+        "item_name": "Croquetas de Jamón",
+        "category": "Appetizer",
+        "price": 9.5,
+        "item_photo": "https://example.com/images/item_croquetas_jamon.jpg"
+      },
+      {
+        "item_name": "Gazpacho",
+        "category": "Appetizer",
+        "price": 8.0,
+        "item_photo": "https://example.com/images/item_gazpacho_spanish.jpg"
+      },
+      {
+        "item_name": "Tarta de Santiago",
+        "category": "Dessert",
+        "price": 8.5,
+        "item_photo": "https://example.com/images/item_tarta_de_santiago.jpg"
+      },
+      {
+        "item_name": "Flan (Spanish)",
+        "category": "Dessert",
+        "price": 7.0,
+        "item_photo": "https://example.com/images/item_flan_spanish.jpg"
+      },
+      {
+        "item_name": "Sangria (Pitcher)",
+        "category": "Dessert",
+        "price": 28.0,
+        "item_photo": "https://example.com/images/item_sangria_pitcher.jpg"
+      }
+    ]
+  },
+  {
+    "restaurant_name": "Indian Street Food",
+    "location": {
+      "address": "888 Spice Lane, Mumbai Market",
+      "latitude": 19.076,
+      "longitude": 72.8777
+    },
+    "avg_ratings": 4.4,
+    "restaurant_photo": "https://example.com/images/restaurant_indian_street_food.jpg",
+    "menu": [
+      {
+        "item_name": "Pani Puri",
+        "category": "Appetizer",
+        "price": 6.0,
+        "item_photo": "https://example.com/images/item_pani_puri_isf.jpg"
+      },
+      {
+        "item_name": "Vada Pav",
+        "category": "Main Course",
+        "price": 5.0,
+        "item_photo": "https://example.com/images/item_vada_pav.jpg"
+      },
+      {
+        "item_name": "Pav Bhaji",
+        "category": "Main Course",
+        "price": 10.0,
+        "item_photo": "https://example.com/images/item_pav_bhaji.jpg"
+      },
+      {
+        "item_name": "Dabeli",
+        "category": "Appetizer",
+        "price": 5.5,
+        "item_photo": "https://example.com/images/item_dabeli.jpg"
+      },
+      {
+        "item_name": "Samosa Chaat",
+        "category": "Appetizer",
+        "price": 8.0,
+        "item_photo": "https://example.com/images/item_samosa_chaat.jpg"
+      },
+      {
+        "item_name": "Chole Bhature",
+        "category": "Main Course",
+        "price": 12.0,
+        "item_photo": "https://example.com/images/item_chole_bhature.jpg"
+      },
+      {
+        "item_name": "Falooda",
+        "category": "Dessert",
+        "price": 9.0,
+        "item_photo": "https://example.com/images/item_falooda.jpg"
+      },
+      {
+        "item_name": "Kulfi",
+        "category": "Dessert",
+        "price": 7.0,
+        "item_photo": "https://example.com/images/item_kulfi.jpg"
+      },
+      {
+        "item_name": "Masala Chai",
+        "category": "Dessert",
+        "price": 4.0,
+        "item_photo": "https://example.com/images/item_masala_chai.jpg"
+      },
+      {
+        "item_name": "Frankie (Chicken)",
+        "category": "Main Course",
+        "price": 9.0,
+        "item_photo": "https://example.com/images/item_frankie_chicken.jpg"
+      },
+      {
+        "item_name": "Ragda Pattice",
+        "category": "Appetizer",
+        "price": 7.0,
+        "item_photo": "https://example.com/images/item_ragda_pattice.jpg"
+      },
+      {
+        "item_name": "Dhokla",
+        "category": "Appetizer",
+        "price": 6.5,
+        "item_photo": "https://example.com/images/item_dhokla.jpg"
+      },
+      {
+        "item_name": "Jalebi (Crispy Sweet)",
+        "category": "Dessert",
+        "price": 5.0,
+        "item_photo": "https://example.com/images/item_jalebi_isf.jpg"
+      },
+      {
+        "item_name": "Gola (Shaved Ice)",
+        "category": "Dessert",
+        "price": 4.5,
+        "item_photo": "https://example.com/images/item_gola.jpg"
+      },
+      {
+        "item_name": "Aam Panna (Raw Mango Drink)",
+        "category": "Dessert",
+        "price": 4.0,
+        "item_photo": "https://example.com/images/item_aam_panna.jpg"
+      }
+    ]
+  },
+  {
+    "restaurant_name": "Classic American Diner",
+    "location": {
+      "address": "999 Route 66, Retroville",
+      "latitude": 34.0522,
+      "longitude": -118.2437
+    },
+    "avg_ratings": 3.9,
+    "restaurant_photo": "https://example.com/images/restaurant_american_diner.jpg",
+    "menu": [
+      {
+        "item_name": "Cheeseburger Deluxe",
+        "category": "Main Course",
+        "price": 13.0,
+        "item_photo": "https://example.com/images/item_cheeseburger_deluxe.jpg"
+      },
+      {
+        "item_name": "Club Sandwich",
+        "category": "Main Course",
+        "price": 12.0,
+        "item_photo": "https://example.com/images/item_club_sandwich.jpg"
+      },
+      {
+        "item_name": "Meatloaf Dinner",
+        "category": "Main Course",
+        "price": 15.0,
+        "item_photo": "https://example.com/images/item_meatloaf_dinner.jpg"
+      },
+      {
+        "item_name": "Fries and Gravy",
+        "category": "Appetizer",
+        "price": 6.0,
+        "item_photo": "https://example.com/images/item_fries_gravy.jpg"
+      },
+      {
+        "item_name": "Onion Rings (Diner)",
+        "category": "Appetizer",
+        "price": 5.5,
+        "item_photo": "https://example.com/images/item_onion_rings_diner.jpg"
+      },
+      {
+        "item_name": "Chili Cheese Fries",
+        "category": "Appetizer",
+        "price": 9.0,
+        "item_photo": "https://example.com/images/item_chili_cheese_fries.jpg"
+      },
+      {
+        "item_name": "Apple Pie a la Mode",
+        "category": "Dessert",
+        "price": 8.0,
+        "item_photo": "https://example.com/images/item_apple_pie_a_la_mode.jpg"
+      },
+      {
+        "item_name": "Chocolate Milkshake (Diner)",
+        "category": "Dessert",
+        "price": 6.0,
+        "item_photo": "https://example.com/images/item_chocolate_milkshake_diner.jpg"
+      },
+      {
+        "item_name": "Banana Split",
+        "category": "Dessert",
+        "price": 10.0,
+        "item_photo": "https://example.com/images/item_banana_split.jpg"
+      },
+      {
+        "item_name": "Grilled Cheese & Tomato Soup",
+        "category": "Main Course",
+        "price": 11.0,
+        "item_photo": "https://example.com/images/item_grilled_cheese_soup.jpg"
+      },
+      {
+        "item_name": "BLT Sandwich",
+        "category": "Main Course",
+        "price": 10.5,
+        "item_photo": "https://example.com/images/item_blt_sandwich.jpg"
+      },
+      {
+        "item_name": "Mozzarella Sticks (Diner)",
+        "category": "Appetizer",
+        "price": 8.0,
+        "item_photo": "https://example.com/images/item_mozzarella_sticks_diner.jpg"
+      },
+      {
+        "item_name": "Chicken Fried Steak",
+        "category": "Main Course",
+        "price": 16.0,
+        "item_photo": "https://example.com/images/item_chicken_fried_steak.jpg"
+      },
+      {
+        "item_name": "Pancakes with Syrup",
+        "category": "Dessert",
+        "price": 9.0,
+        "item_photo": "https://example.com/images/item_pancakes_syrup.jpg"
+      },
+      {
+        "item_name": "Cherry Pie",
+        "category": "Dessert",
+        "price": 7.0,
+        "item_photo": "https://example.com/images/item_cherry_pie.jpg"
+      }
+    ]
+  },
+  {
+    "restaurant_name": "Chinese Dim Sum",
+    "location": {
+      "address": "123 Dragon Street, Chinatown",
+      "latitude": 34.0522,
+      "longitude": -118.2437
+    },
+    "avg_ratings": 4.6,
+    "restaurant_photo": "https://example.com/images/restaurant_chinese_dim_sum.jpg",
+    "menu": [
+      {
+        "item_name": "Har Gow (Shrimp Dumplings)",
+        "category": "Appetizer",
+        "price": 7.0,
+        "item_photo": "https://example.com/images/item_har_gow.jpg"
+      },
+      {
+        "item_name": "Siu Mai (Pork Dumplings)",
+        "category": "Appetizer",
+        "price": 6.5,
+        "item_photo": "https://example.com/images/item_siu_mai.jpg"
+      },
+      {
+        "item_name": "Char Siu Bao (BBQ Pork Buns)",
+        "category": "Main Course",
+        "price": 5.0,
+        "item_photo": "https://example.com/images/item_char_siu_bao.jpg"
+      },
+      {
+        "item_name": "Cheung Fun (Rice Noodle Rolls)",
+        "category": "Main Course",
+        "price": 9.0,
+        "item_photo": "https://example.com/images/item_cheung_fun.jpg"
+      },
+      {
+        "item_name": "Lo Bak Go (Turnip Cake)",
+        "category": "Appetizer",
+        "price": 8.0,
+        "item_photo": "https://example.com/images/item_lo_bak_go.jpg"
+      },
+      {
+        "item_name": "Congee (Preserved Egg & Pork)",
+        "category": "Main Course",
+        "price": 11.0,
+        "item_photo": "https://example.com/images/item_congee.jpg"
+      },
+      {
+        "item_name": "Egg Tart",
+        "category": "Dessert",
+        "price": 4.0,
+        "item_photo": "https://example.com/images/item_egg_tart.jpg"
+      },
+      {
+        "item_name": "Sesame Balls",
+        "category": "Dessert",
+        "price": 5.0,
+        "item_photo": "https://example.com/images/item_sesame_balls.jpg"
+      },
+      {
+        "item_name": "Mango Pudding",
+        "category": "Dessert",
+        "price": 6.0,
+        "item_photo": "https://example.com/images/item_mango_pudding.jpg"
+      },
+      {
+        "item_name": "Xiao Long Bao (Soup Dumplings)",
+        "category": "Appetizer",
+        "price": 10.0,
+        "item_photo": "https://example.com/images/item_xiao_long_bao.jpg"
+      },
+      {
+        "item_name": "Wonton Noodle Soup",
+        "category": "Main Course",
+        "price": 12.0,
+        "item_photo": "https://example.com/images/item_wonton_noodle_soup.jpg"
+      },
+      {
+        "item_name": "Sticky Rice in Lotus Leaf",
+        "category": "Main Course",
+        "price": 9.5,
+        "item_photo": "https://example.com/images/item_sticky_rice_lotus_leaf.jpg"
+      },
+      {
+        "item_name": "Jian Dui (Fried Sesame Balls)",
+        "category": "Dessert",
+        "price": 5.5,
+        "item_photo": "https://example.com/images/item_jian_dui.jpg"
+      },
+      {
+        "item_name": "Steamed Sponge Cake (Ma Lai Go)",
+        "category": "Dessert",
+        "price": 4.5,
+        "item_photo": "https://example.com/images/item_ma_lai_go.jpg"
+      },
+      {
+        "item_name": "Chrysanthemum Tea",
+        "category": "Dessert",
+        "price": 3.0,
+        "item_photo": "https://example.com/images/item_chrysanthemum_tea.jpg"
+      }
+    ]
+  },
+  {
+    "restaurant_name": "Peruvian Fusion",
+    "location": {
+      "address": "456 Inca Trail, Lima Heights",
+      "latitude": -12.0464,
+      "longitude": -77.0428
+    },
+    "avg_ratings": 4.7,
+    "restaurant_photo": "https://example.com/images/restaurant_peruvian_fusion.jpg",
+    "menu": [
+      {
+        "item_name": "Lomo Saltado",
+        "category": "Main Course",
+        "price": 22.0,
+        "item_photo": "https://example.com/images/item_lomo_saltado.jpg"
+      },
+      {
+        "item_name": "Ceviche Clasico",
+        "category": "Main Course",
+        "price": 20.0,
+        "item_photo": "https://example.com/images/item_ceviche_clasico.jpg"
+      },
+      {
+        "item_name": "Aji de Gallina",
+        "category": "Main Course",
+        "price": 18.0,
+        "item_photo": "https://example.com/images/item_aji_de_gallina.jpg"
+      },
+      {
+        "item_name": "Papas a la Huancaina",
+        "category": "Appetizer",
+        "price": 10.0,
+        "item_photo": "https://example.com/images/item_papas_a_la_huancaina.jpg"
+      },
+      {
+        "item_name": "Choclo con Queso",
+        "category": "Appetizer",
+        "price": 8.0,
+        "item_photo": "https://example.com/images/item_choclo_con_queso.jpg"
+      },
+      {
+        "item_name": "Anticuchos (Beef Skewers)",
+        "category": "Appetizer",
+        "price": 12.0,
+        "item_photo": "https://example.com/images/item_anticuchos.jpg"
+      },
+      {
+        "item_name": "Alfajores",
+        "category": "Dessert",
+        "price": 7.0,
+        "item_photo": "https://example.com/images/item_alfajores.jpg"
+      },
+      {
+        "item_name": "Arroz con Leche",
+        "category": "Dessert",
+        "price": 6.0,
+        "item_photo": "https://example.com/images/item_arroz_con_leche.jpg"
+      },
+      {
+        "item_name": "Picarones (Sweet Potato Donuts)",
+        "category": "Dessert",
+        "price": 8.5,
+        "item_photo": "https://example.com/images/item_picarones.jpg"
+      },
+      {
+        "item_name": "Arroz con Pato (Duck with Rice)",
+        "category": "Main Course",
+        "price": 24.0,
+        "item_photo": "https://example.com/images/item_arroz_con_pato.jpg"
+      },
+      {
+        "item_name": "Pollo a la Brasa (Rotisserie Chicken)",
+        "category": "Main Course",
+        "price": 19.0,
+        "item_photo": "https://example.com/images/item_pollo_a_la_brasa.jpg"
+      },
+      {
+        "item_name": "Leche de Tigre (Ceviche Marinade)",
+        "category": "Appetizer",
+        "price": 6.0,
+        "item_photo": "https://example.com/images/item_leche_de_tigre.jpg"
+      },
+      {
+        "item_name": "Yuca Frita",
+        "category": "Appetizer",
+        "price": 7.0,
+        "item_photo": "https://example.com/images/item_yuca_frita.jpg"
+      },
+      {
+        "item_name": "Mazamorra Morada",
+        "category": "Dessert",
+        "price": 7.5,
+        "item_photo": "https://example.com/images/item_mazamorra_morada.jpg"
+      },
+      {
+        "item_name": "Chicha Morada (Purple Corn Drink)",
+        "category": "Dessert",
+        "price": 5.0,
+        "item_photo": "https://example.com/images/item_chicha_morada.jpg"
+      }
+    ]
+  },
+  {
+    "restaurant_name": "Moroccan Spice Kitchen",
+    "location": {
+      "address": "789 Medina Market, Marrakech Oasis",
+      "latitude": 31.6295,
+      "longitude": -7.9811
+    },
+    "avg_ratings": 4.5,
+    "restaurant_photo": "https://example.com/images/restaurant_moroccan_spice_kitchen.jpg",
+    "menu": [
+      {
+        "item_name": "Chicken Tagine with Preserved Lemon",
+        "category": "Main Course",
+        "price": 20.0,
+        "item_photo": "https://example.com/images/item_chicken_tagine.jpg"
+      },
+      {
+        "item_name": "Lamb Tagine with Prunes",
+        "category": "Main Course",
+        "price": 24.0,
+        "item_photo": "https://example.com/images/item_lamb_tagine.jpg"
+      },
+      {
+        "item_name": "Couscous with Seven Vegetables",
+        "category": "Main Course",
+        "price": 18.0,
+        "item_photo": "https://example.com/images/item_couscous_seven_vegetables.jpg"
+      },
+      {
+        "item_name": "Harira Soup",
+        "category": "Appetizer",
+        "price": 9.0,
+        "item_photo": "https://example.com/images/item_harira_soup.jpg"
+      },
+      {
+        "item_name": "Zaalouk (Eggplant Salad)",
+        "category": "Appetizer",
+        "price": 8.0,
+        "item_photo": "https://example.com/images/item_zaalouk.jpg"
+      },
+      {
+        "item_name": "Moroccan Olives & Bread",
+        "category": "Appetizer",
+        "price": 7.0,
+        "item_photo": "https://example.com/images/item_moroccan_olives_bread.jpg"
+      },
+      {
+        "item_name": "Mint Tea",
+        "category": "Dessert",
+        "price": 5.0,
+        "item_photo": "https://example.com/images/item_mint_tea.jpg"
+      },
+      {
+        "item_name": "Chebakia (Honey Sesame Cookies)",
+        "category": "Dessert",
+        "price": 6.5,
+        "item_photo": "https://example.com/images/item_chebakia.jpg"
+      },
+      {
+        "item_name": "Dates (Assorted)",
+        "category": "Dessert",
+        "price": 5.0,
+        "item_photo": "https://example.com/images/item_dates_assorted.jpg"
+      },
+      {
+        "item_name": "Kefta Tagine (Meatball Tagine)",
+        "category": "Main Course",
+        "price": 19.0,
+        "item_photo": "https://example.com/images/item_kefta_tagine.jpg"
+      },
+      {
+        "item_name": "Fish Tagine",
+        "category": "Main Course",
+        "price": 21.0,
+        "item_photo": "https://example.com/images/item_fish_tagine.jpg"
+      },
+      {
+        "item_name": "Taktouka (Pepper & Tomato Salad)",
+        "category": "Appetizer",
+        "price": 9.5,
+        "item_photo": "https://example.com/images/item_taktouka.jpg"
+      },
+      {
+        "item_name": "Briouat (Savory Pastries)",
+        "category": "Appetizer",
+        "price": 10.0,
+        "item_photo": "https://example.com/images/item_briouat.jpg"
+      },
+      {
+        "item_name": "Sellou (Sweet Pastry Mix)",
+        "category": "Dessert",
+        "price": 8.0,
+        "item_photo": "https://example.com/images/item_sellou.jpg"
+      },
+      {
+        "item_name": "Orange Blossom Water Drink",
+        "category": "Dessert",
+        "price": 4.0,
+        "item_photo": "https://example.com/images/item_orange_blossom_drink.jpg"
+      }
+    ]
+  },
+  {
+    "restaurant_name": "Belgian Waffle House",
+    "location": {
+      "address": "101 Waffle Street, Brussels Square",
+      "latitude": 50.8503,
+      "longitude": 4.3517
+    },
+    "avg_ratings": 4.2,
+    "restaurant_photo": "https://example.com/images/restaurant_belgian_waffle_house.jpg",
+    "menu": [
+      {
+        "item_name": "Liège Waffle with Strawberries & Cream",
+        "category": "Main Course",
+        "price": 12.0,
+        "item_photo": "https://example.com/images/item_liege_waffle_strawberries.jpg"
+      },
+      {
+        "item_name": "Brussels Waffle with Chocolate Sauce",
+        "category": "Main Course",
+        "price": 11.0,
+        "item_photo": "https://example.com/images/item_brussels_waffle_chocolate.jpg"
+      },
+      {
+        "item_name": "Savory Waffle with Fried Chicken",
+        "category": "Main Course",
+        "price": 15.0,
+        "item_photo": "https://example.com/images/item_savory_waffle_chicken.jpg"
+      },
+      {
+        "item_name": "Frites with Andalous Sauce",
+        "category": "Appetizer",
+        "price": 7.0,
+        "item_photo": "https://example.com/images/item_frites_andalous.jpg"
+      },
+      {
+        "item_name": "Vol-au-vent",
+        "category": "Appetizer",
+        "price": 10.0,
+        "item_photo": "https://example.com/images/item_vol_au_vent.jpg"
+      },
+      {
+        "item_name": "Croquettes aux Crevettes",
+        "category": "Appetizer",
+        "price": 13.0,
+        "item_photo": "https://example.com/images/item_croquettes_crevettes.jpg"
+      },
+      {
+        "item_name": "Speculoos Ice Cream",
+        "category": "Dessert",
+        "price": 8.0,
+        "item_photo": "https://example.com/images/item_speculoos_ice_cream.jpg"
+      },
+      {
+        "item_name": "Chocolat Chaud",
+        "category": "Dessert",
+        "price": 6.0,
+        "item_photo": "https://example.com/images/item_chocolat_chaud.jpg"
+      },
+      {
+        "item_name": "Belgian Beer (Non-alcoholic options)",
+        "category": "Dessert",
+        "price": 7.0,
+        "item_photo": "https://example.com/images/item_belgian_beer_na.jpg"
+      },
+      {
+        "item_name": "Waffle with Bananas & Nutella",
+        "category": "Main Course",
+        "price": 13.0,
+        "item_photo": "https://example.com/images/item_waffle_bananas_nutella.jpg"
+      },
+      {
+        "item_name": "Ham & Cheese Waffle",
+        "category": "Main Course",
+        "price": 14.0,
+        "item_photo": "https://example.com/images/item_ham_cheese_waffle.jpg"
+      },
+      {
+        "item_name": "Meatballs in Tomato Sauce (Boulets)",
+        "category": "Appetizer",
+        "price": 11.0,
+        "item_photo": "https://example.com/images/item_boulets.jpg"
+      },
+      {
+        "item_name": "Carbonnade Flamande",
+        "category": "Main Course",
+        "price": 20.0,
+        "item_photo": "https://example.com/images/item_carbonnade_flamande.jpg"
+      },
+      {
+        "item_name": "Belgian Chocolate Mousse",
+        "category": "Dessert",
+        "price": 9.0,
+        "item_photo": "https://example.com/images/item_belgian_chocolate_mousse.jpg"
+      },
+      {
+        "item_name": "Gaufre de Liège Plain",
+        "category": "Dessert",
+        "price": 9.0,
+        "item_photo": "https://example.com/images/item_gaufre_de_liege_plain.jpg"
+      }
+    ]
+  },
+  {
+    "restaurant_name": "Irish Pub & Grill",
+    "location": {
+      "address": "222 Shamrock Road, Dublin Town",
+      "latitude": 53.3498,
+      "longitude": -6.2603
+    },
+    "avg_ratings": 4.1,
+    "restaurant_photo": "https://example.com/images/restaurant_irish_pub.jpg",
+    "menu": [
+      {
+        "item_name": "Shepherd's Pie",
+        "category": "Main Course",
+        "price": 17.0,
+        "item_photo": "https://example.com/images/item_shepherds_pie.jpg"
+      },
+      {
+        "item_name": "Fish and Chips (Irish)",
+        "category": "Main Course",
+        "price": 18.0,
+        "item_photo": "https://example.com/images/item_fish_and_chips_irish.jpg"
+      },
+      {
+        "item_name": "Bangers and Mash",
+        "category": "Main Course",
+        "price": 16.0,
+        "item_photo": "https://example.com/images/item_bangers_and_mash.jpg"
+      },
+      {
+        "item_name": "Boxty (Potato Pancakes)",
+        "category": "Appetizer",
+        "price": 9.0,
+        "item_photo": "https://example.com/images/item_boxty.jpg"
+      },
+      {
+        "item_name": "Colcannon",
+        "category": "Appetizer",
+        "price": 7.0,
+        "item_photo": "https://example.com/images/item_colcannon.jpg"
+      },
+      {
+        "item_name": "Potato Leek Soup",
+        "category": "Appetizer",
+        "price": 8.0,
+        "item_photo": "https://example.com/images/item_potato_leek_soup.jpg"
+      },
+      {
+        "item_name": "Guinness Chocolate Cake",
+        "category": "Dessert",
+        "price": 9.0,
+        "item_photo": "https://example.com/images/item_guinness_chocolate_cake.jpg"
+      },
+      {
+        "item_name": "Irish Coffee",
+        "category": "Dessert",
+        "price": 8.0,
+        "item_photo": "https://example.com/images/item_irish_coffee.jpg"
+      },
+      {
+        "item_name": "Bread and Butter Pudding",
+        "category": "Dessert",
+        "price": 7.5,
+        "item_photo": "https://example.com/images/item_bread_butter_pudding.jpg"
+      },
+      {
+        "item_name": "Beef and Guinness Stew",
+        "category": "Main Course",
+        "price": 19.0,
+        "item_photo": "https://example.com/images/item_beef_guinness_stew.jpg"
+      },
+      {
+        "item_name": "Corned Beef and Cabbage",
+        "category": "Main Course",
+        "price": 20.0,
+        "item_photo": "https://example.com/images/item_corned_beef_cabbage.jpg"
+      },
+      {
+        "item_name": "Soda Bread with Butter",
+        "category": "Appetizer",
+        "price": 5.0,
+        "item_photo": "https://example.com/images/item_soda_bread.jpg"
+      },
+      {
+        "item_name": "Black Pudding (Appetizer)",
+        "category": "Appetizer",
+        "price": 10.0,
+        "item_photo": "https://example.com/images/item_black_pudding.jpg"
+      },
+      {
+        "item_name": "Whiskey Cake",
+        "category": "Dessert",
+        "price": 8.5,
+        "item_photo": "https://example.com/images/item_whiskey_cake.jpg"
+      },
+      {
+        "item_name": "Baileys Cheesecake",
+        "category": "Dessert",
+        "price": 9.5,
+        "item_photo": "https://example.com/images/item_baileys_cheesecake.jpg"
+      }
+    ]
+  },
+  {
+    "restaurant_name": "German Beer Hall",
+    "location": {
+      "address": "333 Oktoberfest Lane, Munich Platz",
+      "latitude": 48.1351,
+      "longitude": 11.582
+    },
+    "avg_ratings": 4.3,
+    "restaurant_photo": "https://example.com/images/restaurant_german_beer_hall.jpg",
+    "menu": [
+      {
+        "item_name": "Schweinshaxe (Pork Knuckle)",
+        "category": "Main Course",
+        "price": 25.0,
+        "item_photo": "https://example.com/images/item_schweinshaxe.jpg"
+      },
+      {
+        "item_name": "Bratwurst & Sauerkraut",
+        "category": "Main Course",
+        "price": 16.0,
+        "item_photo": "https://example.com/images/item_bratwurst_sauerkraut.jpg"
+      },
+      {
+        "item_name": "Wiener Schnitzel",
+        "category": "Main Course",
+        "price": 20.0,
+        "item_photo": "https://example.com/images/item_wiener_schnitzel.jpg"
+      },
+      {
+        "item_name": "Pretzel with Obatzda",
+        "category": "Appetizer",
+        "price": 9.0,
+        "item_photo": "https://example.com/images/item_pretzel_obatzda.jpg"
+      },
+      {
+        "item_name": "Kartoffelsalat (Potato Salad)",
+        "category": "Appetizer",
+        "price": 7.0,
+        "item_photo": "https://example.com/images/item_kartoffelsalat.jpg"
+      },
+      {
+        "item_name": "Leberkäse with Fried Egg",
+        "category": "Appetizer",
+        "price": 12.0,
+        "item_photo": "https://example.com/images/item_leberkase_fried_egg.jpg"
+      },
+      {
+        "item_name": "Apfelstrudel",
+        "category": "Dessert",
+        "price": 8.0,
+        "item_photo": "https://example.com/images/item_apfelstrudel.jpg"
+      },
+      {
+        "item_name": "Black Forest Cake",
+        "category": "Dessert",
+        "price": 9.0,
+        "item_photo": "https://example.com/images/item_black_forest_cake.jpg"
+      },
+      {
+        "item_name": "Beer (Various German Ales/Lagars)",
+        "category": "Dessert",
+        "price": 7.0,
+        "item_photo": "https://example.com/images/item_german_beer.jpg"
+      },
+      {
+        "item_name": "Sauerbraten",
+        "category": "Main Course",
+        "price": 22.0,
+        "item_photo": "https://example.com/images/item_sauerbraten.jpg"
+      },
+      {
+        "item_name": "Currywurst",
+        "category": "Main Course",
+        "price": 14.0,
+        "item_photo": "https://example.com/images/item_currywurst.jpg"
+      },
+      {
+        "item_name": "Weisswurst with Sweet Mustard",
+        "category": "Appetizer",
+        "price": 10.0,
+        "item_photo": "https://example.com/images/item_weisswurst.jpg"
+      },
+      {
+        "item_name": "Goulash Soup",
+        "category": "Appetizer",
+        "price": 9.5,
+        "item_photo": "https://example.com/images/item_goulash_soup.jpg"
+      },
+      {
+        "item_name": "Kaiserschmarrn (Shredded Pancake)",
+        "category": "Dessert",
+        "price": 11.0,
+        "item_photo": "https://example.com/images/item_kaiserschmarrn.jpg"
+      },
+      {
+        "item_name": "Glühwein (Mulled Wine, seasonal)",
+        "category": "Dessert",
+        "price": 6.0,
+        "item_photo": "https://example.com/images/item_gluhwein.jpg"
+      }
+    ]
+  },
+  {
+    "restaurant_name": "Argentinian Steakhouse",
+    "location": {
+      "address": "444 Gaucho Grill, Buenos Aires Plaza",
+      "latitude": -34.6037,
+      "longitude": -58.3816
+    },
+    "avg_ratings": 4.9,
+    "restaurant_photo": "https://example.com/images/restaurant_argentinian_steakhouse.jpg",
+    "menu": [
+      {
+        "item_name": "Bife de Chorizo (Sirloin)",
+        "category": "Main Course",
+        "price": 38.0,
+        "item_photo": "https://example.com/images/item_bife_de_chorizo.jpg"
+      },
+      {
+        "item_name": "Ojo de Bife (Ribeye)",
+        "category": "Main Course",
+        "price": 42.0,
+        "item_photo": "https://example.com/images/item_ojo_de_bife.jpg"
+      },
+      {
+        "item_name": "Vacío (Flank Steak)",
+        "category": "Main Course",
+        "price": 35.0,
+        "item_photo": "https://example.com/images/item_vacio.jpg"
+      },
+      {
+        "item_name": "Empanadas (Beef)",
+        "category": "Appetizer",
+        "price": 8.0,
+        "item_photo": "https://example.com/images/item_empanadas_beef.jpg"
+      },
+      {
+        "item_name": "Provoleta (Grilled Provolone)",
+        "category": "Appetizer",
+        "price": 12.0,
+        "item_photo": "https://example.com/images/item_provoleta.jpg"
+      },
+      {
+        "item_name": "Choripan",
+        "category": "Appetizer",
+        "price": 10.0,
+        "item_photo": "https://example.com/images/item_choripan.jpg"
+      },
+      {
+        "item_name": "Dulce de Leche Pancake",
+        "category": "Dessert",
+        "price": 9.0,
+        "item_photo": "https://example.com/images/item_dulce_de_leche_pancake.jpg"
+      },
+      {
+        "item_name": "Flan Mixto",
+        "category": "Dessert",
+        "price": 8.0,
+        "item_photo": "https://example.com/images/item_flan_mixto.jpg"
+      },
+      {
+        "item_name": "Argentinian Malbec (Glass)",
+        "category": "Dessert",
+        "price": 15.0,
+        "item_photo": "https://example.com/images/item_malbec.jpg"
+      },
+      {
+        "item_name": "Asado de Tira (Short Ribs)",
+        "category": "Main Course",
+        "price": 36.0,
+        "item_photo": "https://example.com/images/item_asado_de_tira.jpg"
+      },
+      {
+        "item_name": "Mollejas (Sweetbreads)",
+        "category": "Appetizer",
+        "price": 16.0,
+        "item_photo": "https://example.com/images/item_mollejas.jpg"
+      },
+      {
+        "item_name": "Chimichurri Sauce",
+        "category": "Appetizer",
+        "price": 3.0,
+        "item_photo": "https://example.com/images/item_chimichurri.jpg"
+      },
+      {
+        "item_name": "Mixed Grill Platter",
+        "category": "Main Course",
+        "price": 60.0,
+        "item_photo": "https://example.com/images/item_mixed_grill_platter.jpg"
+      },
+      {
+        "item_name": "Helado Artesanal (Artisanal Ice Cream)",
+        "category": "Dessert",
+        "price": 7.0,
+        "item_photo": "https://example.com/images/item_helado_artesanal.jpg"
+      },
+      {
+        "item_name": "Submarino (Hot Chocolate)",
+        "category": "Dessert",
+        "price": 6.5,
+        "item_photo": "https://example.com/images/item_submarino.jpg"
+      }
+    ]
+  },
+  {
+    "restaurant_name": "Canadian Poutine Place",
+    "location": {
+      "address": "555 Maple Leaf Lane, Quebec City",
+      "latitude": 46.8139,
+      "longitude": -71.208
+    },
+    "avg_ratings": 4.0,
+    "restaurant_photo": "https://example.com/images/restaurant_canadian_poutine_place.jpg",
+    "menu": [
+      {
+        "item_name": "Classic Poutine",
+        "category": "Main Course",
+        "price": 12.0,
+        "item_photo": "https://example.com/images/item_classic_poutine.jpg"
+      },
+      {
+        "item_name": "Smoked Meat Poutine",
+        "category": "Main Course",
+        "price": 15.0,
+        "item_photo": "https://example.com/images/item_smoked_meat_poutine.jpg"
+      },
+      {
+        "item_name": "Breakfast Poutine",
+        "category": "Main Course",
+        "price": 14.0,
+        "item_photo": "https://example.com/images/item_breakfast_poutine.jpg"
+      },
+      {
+        "item_name": "Tourtière (Meat Pie)",
+        "category": "Appetizer",
+        "price": 11.0,
+        "item_photo": "https://example.com/images/item_tourtiere.jpg"
+      },
+      {
+        "item_name": "Caesar Salad (Canadian)",
+        "category": "Appetizer",
+        "price": 9.0,
+        "item_photo": "https://example.com/images/item_caesar_salad_canadian.jpg"
+      },
+      {
+        "item_name": "Maple Bacon Wrapped Scallops",
+        "category": "Appetizer",
+        "price": 16.0,
+        "item_photo": "https://example.com/images/item_maple_bacon_scallops.jpg"
+      },
+      {
+        "item_name": "Nanaimo Bar",
+        "category": "Dessert",
+        "price": 7.0,
+        "item_photo": "https://example.com/images/item_nanaimo_bar.jpg"
+      },
+      {
+        "item_name": "Butter Tart",
+        "category": "Dessert",
+        "price": 5.0,
+        "item_photo": "https://example.com/images/item_butter_tart.jpg"
+      },
+      {
+        "item_name": "Maple Syrup Pie",
+        "category": "Dessert",
+        "price": 8.0,
+        "item_photo": "https://example.com/images/item_maple_syrup_pie.jpg"
+      },
+      {
+        "item_name": "Pulled Pork Poutine",
+        "category": "Main Course",
+        "price": 16.0,
+        "item_photo": "https://example.com/images/item_pulled_pork_poutine.jpg"
+      },
+      {
+        "item_name": "Montreal Smoked Meat Sandwich",
+        "category": "Main Course",
+        "price": 13.0,
+        "item_photo": "https://example.com/images/item_montreal_smoked_meat_sandwich.jpg"
+      },
+      {
+        "item_name": "BeaverTails",
+        "category": "Dessert",
+        "price": 9.0,
+        "item_photo": "https://example.com/images/item_beaver_tails.jpg"
+      },
+      {
+        "item_name": "Poutine with Chicken & Peas",
+        "category": "Main Course",
+        "price": 14.5,
+        "item_photo": "https://example.com/images/item_poutine_chicken_peas.jpg"
+      },
+      {
+        "item_name": "Ketchup Chips",
+        "category": "Appetizer",
+        "price": 4.0,
+        "item_photo": "https://example.com/images/item_ketchup_chips.jpg"
+      },
+      {
+        "item_name": "Tim Hortons Double-Double (Coffee)",
+        "category": "Dessert",
+        "price": 3.0,
+        "item_photo": "https://example.com/images/item_tim_hortons_double_double.jpg"
+      }
+    ]
+  },
+  {
+    "restaurant_name": "Australian Bush Tucker Grill",
+    "location": {
+      "address": "666 Outback Road, Sydney Harbour",
+      "latitude": -33.8688,
+      "longitude": 151.2093
+    },
+    "avg_ratings": 4.2,
+    "restaurant_photo": "https://example.com/images/restaurant_australian_bush_tucker_grill.jpg",
+    "menu": [
+      {
+        "item_name": "Kangaroo Steak",
+        "category": "Main Course",
+        "price": 28.0,
+        "item_photo": "https://example.com/images/item_kangaroo_steak.jpg"
+      },
+      {
+        "item_name": "Barramundi Fillet (Grilled)",
+        "category": "Main Course",
+        "price": 26.0,
+        "item_photo": "https://example.com/images/item_barramundi_fillet.jpg"
+      },
+      {
+        "item_name": "Crocodile Skewers",
+        "category": "Main Course",
+        "price": 30.0,
+        "item_photo": "https://example.com/images/item_crocodile_skewers.jpg"
+      },
+      {
+        "item_name": "Bush Tomato Bruschetta",
+        "category": "Appetizer",
+        "price": 10.0,
+        "item_photo": "https://example.com/images/item_bush_tomato_bruschetta.jpg"
+      },
+      {
+        "item_name": "Wattleseed Damper with Bush Chutney",
+        "category": "Appetizer",
+        "price": 9.0,
+        "item_photo": "https://example.com/images/item_wattleseed_damper.jpg"
+      },
+      {
+        "item_name": "Emu Sausage Roll",
+        "category": "Appetizer",
+        "price": 12.0,
+        "item_photo": "https://example.com/images/item_emu_sausage_roll.jpg"
+      },
+      {
+        "item_name": "Lamington",
+        "category": "Dessert",
+        "price": 6.0,
+        "item_photo": "https://example.com/images/item_lamington.jpg"
+      },
+      {
+        "item_name": "Pavlova",
+        "category": "Dessert",
+        "price": 8.0,
+        "item_photo": "https://example.com/images/item_pavlova.jpg"
+      },
+      {
+        "item_name": "Tim Tam Slam",
+        "category": "Dessert",
+        "price": 5.0,
+        "item_photo": "https://example.com/images/item_tim_tam_slam.jpg"
+      },
+      {
+        "item_name": "Wallaby Stew",
+        "category": "Main Course",
+        "price": 25.0,
+        "item_photo": "https://example.com/images/item_wallaby_stew.jpg"
+      },
+      {
+        "item_name": "Grilled Prawns with Lemon Myrtle",
+        "category": "Main Course",
+        "price": 27.0,
+        "item_photo": "https://example.com/images/item_grilled_prawns_lemon_myrtle.jpg"
+      },
+      {
+        "item_name": "Vegemite Toast (Appetizer/Snack)",
+        "category": "Appetizer",
+        "price": 4.0,
+        "item_photo": "https://example.com/images/item_vegemite_toast.jpg"
+      },
+      {
+        "item_name": "Saltbush Lamb Ribs",
+        "category": "Main Course",
+        "price": 29.0,
+        "item_photo": "https://example.com/images/item_saltbush_lamb_ribs.jpg"
+      },
+      {
+        "item_name": "Anzac Biscuits",
+        "category": "Dessert",
+        "price": 4.5,
+        "item_photo": "https://example.com/images/item_anzac_biscuits.jpg"
+      },
+      {
+        "item_name": "Bundaberg Ginger Beer",
+        "category": "Dessert",
+        "price": 5.5,
+        "item_photo": "https://example.com/images/item_bundaberg_ginger_beer.jpg"
+      }
+    ]
+  },
+  {
+    "restaurant_name": "South African Braai House",
+    "location": {
+      "address": "777 Safari Road, Cape Town Grill",
+      "latitude": -33.9249,
+      "longitude": 18.4241
+    },
+    "avg_ratings": 4.6,
+    "restaurant_photo": "https://example.com/images/restaurant_south_african_braai_house.jpg",
+    "menu": [
+      {
+        "item_name": "Boerewors Roll",
+        "category": "Main Course",
+        "price": 15.0,
+        "item_photo": "https://example.com/images/item_boerewors_roll.jpg"
+      },
+      {
+        "item_name": "Lamb Chops (Braai)",
+        "category": "Main Course",
+        "price": 28.0,
+        "item_photo": "https://example.com/images/item_lamb_chops_braai.jpg"
+      },
+      {
+        "item_name": "Peri-Peri Chicken",
+        "category": "Main Course",
+        "price": 20.0,
+        "item_photo": "https://example.com/images/item_peri_peri_chicken.jpg"
+      },
+      {
+        "item_name": "Biltong (Dried Meat)",
+        "category": "Appetizer",
+        "price": 10.0,
+        "item_photo": "https://example.com/images/item_biltong.jpg"
+      },
+      {
+        "item_name": "Droëwors (Dried Sausage)",
+        "category": "Appetizer",
+        "price": 9.0,
+        "item_photo": "https://example.com/images/item_droewors.jpg"
+      },
+      {
+        "item_name": "Pap and Chakalaka",
+        "category": "Appetizer",
+        "price": 8.0,
+        "item_photo": "https://example.com/images/item_pap_chakalaka.jpg"
+      },
+      {
+        "item_name": "Malva Pudding",
+        "category": "Dessert",
+        "price": 8.0,
+        "item_photo": "https://example.com/images/item_malva_pudding.jpg"
+      },
+      {
+        "item_name": "Koeksisters (Sweet Syrup Pastry)",
+        "category": "Dessert",
+        "price": 7.0,
+        "item_photo": "https://example.com/images/item_koeksisters.jpg"
+      },
+      {
+        "item_name": "Amarula Cream Liqueur (Dessert)",
+        "category": "Dessert",
+        "price": 12.0,
+        "item_photo": "https://example.com/images/item_amarula.jpg"
+      },
+      {
+        "item_name": "Springbok (Grilled)",
+        "category": "Main Course",
+        "price": 32.0,
+        "item_photo": "https://example.com/images/item_springbok.jpg"
+      },
+      {
+        "item_name": "Bunny Chow (Chicken)",
+        "category": "Main Course",
+        "price": 16.0,
+        "item_photo": "https://example.com/images/item_bunny_chow_chicken.jpg"
+      },
+      {
+        "item_name": "Vetkoek (Fried Dough)",
+        "category": "Appetizer",
+        "price": 6.0,
+        "item_photo": "https://example.com/images/item_vetkoek.jpg"
+      },
+      {
+        "item_name": "Snoek Braai (Fish)",
+        "category": "Main Course",
+        "price": 24.0,
+        "item_photo": "https://example.com/images/item_snoek_braai.jpg"
+      },
+      {
+        "item_name": "Melktert (Milk Tart)",
+        "category": "Dessert",
+        "price": 7.5,
+        "item_photo": "https://example.com/images/item_melktert.jpg"
+      },
+      {
+        "item_name": "Rooibos Tea",
+        "category": "Dessert",
+        "price": 4.0,
+        "item_photo": "https://example.com/images/item_rooibos_tea.jpg"
+      }
+    ]
+  },
+  {
+    "restaurant_name": "New Zealand Hangi Feast",
+    "location": {
+      "address": "888 Maori Way, Rotorua Retreat",
+      "latitude": -38.1368,
+      "longitude": 176.2504
+    },
+    "avg_ratings": 4.5,
+    "restaurant_photo": "https://example.com/images/restaurant_new_zealand_hangi_feast.jpg",
+    "menu": [
+      {
+        "item_name": "Hangi Cooked Lamb",
+        "category": "Main Course",
+        "price": 25.0,
+        "item_photo": "https://example.com/images/item_hangi_cooked_lamb.jpg"
+      },
+      {
+        "item_name": "Hangi Cooked Chicken",
+        "category": "Main Course",
+        "price": 22.0,
+        "item_photo": "https://example.com/images/item_hangi_cooked_chicken.jpg"
+      },
+      {
+        "item_name": "Kumara (Sweet Potato)",
+        "category": "Appetizer",
+        "price": 7.0,
+        "item_photo": "https://example.com/images/item_kumara.jpg"
+      },
+      {
+        "item_name": "Puha (Native Greens)",
+        "category": "Appetizer",
+        "price": 8.0,
+        "item_photo": "https://example.com/images/item_puha.jpg"
+      },
+      {
+        "item_name": "Rewena Paraoa (Maori Bread)",
+        "category": "Appetizer",
+        "price": 6.0,
+        "item_photo": "https://example.com/images/item_rewena_paraoa.jpg"
+      },
+      {
+        "item_name": "Hāngi Style Fish",
+        "category": "Main Course",
+        "price": 23.0,
+        "item_photo": "https://example.com/images/item_hangi_fish.jpg"
+      },
+      {
+        "item_name": "Paua Fritters",
+        "category": "Appetizer",
+        "price": 14.0,
+        "item_photo": "https://example.com/images/item_paua_fritters.jpg"
+      },
+      {
+        "item_name": "Pavlova (NZ Style)",
+        "category": "Dessert",
+        "price": 9.0,
+        "item_photo": "https://example.com/images/item_pavlova_nz.jpg"
+      },
+      {
+        "item_name": "Hokey Pokey Ice Cream",
+        "category": "Dessert",
+        "price": 7.0,
+        "item_photo": "https://example.com/images/item_hokey_pokey_ice_cream.jpg"
+      },
+      {
+        "item_name": "Manuka Honey Desserts",
+        "category": "Dessert",
+        "price": 10.0,
+        "item_photo": "https://example.com/images/item_manuka_honey_desserts.jpg"
+      },
+      {
+        "item_name": "Whitebait Fritters (Seasonal)",
+        "category": "Appetizer",
+        "price": 18.0,
+        "item_photo": "https://example.com/images/item_whitebait_fritters.jpg"
+      },
+      {
+        "item_name": "Mussel Fritters",
+        "category": "Appetizer",
+        "price": 12.0,
+        "item_photo": "https://example.com/images/item_mussel_fritters.jpg"
+      },
+      {
+        "item_name": "Kiwi Fruit Crumble",
+        "category": "Dessert",
+        "price": 8.5,
+        "item_photo": "https://example.com/images/item_kiwi_fruit_crumble.jpg"
+      },
+      {
+        "item_name": "Flat White Coffee",
+        "category": "Dessert",
+        "price": 5.0,
+        "item_photo": "https://example.com/images/item_flat_white_coffee.jpg"
+      },
+      {
+        "item_name": "L&P (Lemon & Paeroa Soda)",
+        "category": "Dessert",
+        "price": 4.0,
+        "item_photo": "https://example.com/images/item_lp_soda.jpg"
+      }
+    ]
+  },
+  {
+    "restaurant_name": "Egyptian Koshary Spot",
+    "location": {
+      "address": "999 Nile Street, Cairo Central",
+      "latitude": 30.0444,
+      "longitude": 31.2357
+    },
+    "avg_ratings": 4.1,
+    "restaurant_photo": "https://example.com/images/restaurant_egyptian_koshary_spot.jpg",
+    "menu": [
+      {
+        "item_name": "Koshary (Large)",
+        "category": "Main Course",
+        "price": 12.0,
+        "item_photo": "https://example.com/images/item_koshary_large.jpg"
+      },
+      {
+        "item_name": "Koshary (Medium)",
+        "category": "Main Course",
+        "price": 10.0,
+        "item_photo": "https://example.com/images/item_koshary_medium.jpg"
+      },
+      {
+        "item_name": "Ful Medames (Fava Beans)",
+        "category": "Main Course",
+        "price": 8.0,
+        "item_photo": "https://example.com/images/item_ful_medames.jpg"
+      },
+      {
+        "item_name": "Ta'ameya (Egyptian Falafel)",
+        "category": "Appetizer",
+        "price": 6.0,
+        "item_photo": "https://example.com/images/item_taameya.jpg"
+      },
+      {
+        "item_name": "Baba Ghanoush (Egyptian)",
+        "category": "Appetizer",
+        "price": 7.0,
+        "item_photo": "https://example.com/images/item_baba_ghanoush_egyptian.jpg"
+      },
+      {
+        "item_name": "Molokhia Soup",
+        "category": "Appetizer",
+        "price": 9.0,
+        "item_photo": "https://example.com/images/item_molokhia_soup.jpg"
+      },
+      {
+        "item_name": "Om Ali (Bread Pudding)",
+        "category": "Dessert",
+        "price": 8.0,
+        "item_photo": "https://example.com/images/item_om_ali.jpg"
+      },
+      {
+        "item_name": "Roz bi Laban (Rice Pudding)",
+        "category": "Dessert",
+        "price": 7.0,
+        "item_photo": "https://example.com/images/item_roz_bi_laban.jpg"
+      },
+      {
+        "item_name": "Karkadeh (Hibiscus Tea)",
+        "category": "Dessert",
+        "price": 4.0,
+        "item_photo": "https://example.com/images/item_karkadeh.jpg"
+      },
+      {
+        "item_name": "Hawawshi (Egyptian Meat Pie)",
+        "category": "Main Course",
+        "price": 14.0,
+        "item_photo": "https://example.com/images/item_hawawshi.jpg"
+      },
+      {
+        "item_name": "Macarona bechamel (Baked Pasta)",
+        "category": "Main Course",
+        "price": 13.0,
+        "item_photo": "https://example.com/images/item_macarona_bechamel.jpg"
+      },
+      {
+        "item_name": "Shanklish (Spiced Cheese Salad)",
+        "category": "Appetizer",
+        "price": 9.5,
+        "item_photo": "https://example.com/images/item_shanklish.jpg"
+      },
+      {
+        "item_name": "Sayadeya (Fish and Rice)",
+        "category": "Main Course",
+        "price": 18.0,
+        "item_photo": "https://example.com/images/item_sayadeya.jpg"
+      },
+      {
+        "item_name": "Basbousa (Semolina Cake)",
+        "category": "Dessert",
+        "price": 6.5,
+        "item_photo": "https://example.com/images/item_basbousa.jpg"
+      },
+      {
+        "item_name": "Sahlab (Warm Milk Drink)",
+        "category": "Dessert",
+        "price": 5.0,
+        "item_photo": "https://example.com/images/item_sahlab.jpg"
+      }
+    ]
+  },
+  {
+    "restaurant_name": "Indonesian Nasi Goreng House",
+    "location": {
+      "address": "123 Bali Breeze Lane, Jakarta City",
+      "latitude": -6.2088,
+      "longitude": 106.8456
+    },
+    "avg_ratings": 4.4,
+    "restaurant_photo": "https://example.com/images/restaurant_indonesian_nasi_goreng_house.jpg",
+    "menu": [
+      {
+        "item_name": "Nasi Goreng Special",
+        "category": "Main Course",
+        "price": 13.0,
+        "item_photo": "https://example.com/images/item_nasi_goreng_special.jpg"
+      },
+      {
+        "item_name": "Mie Goreng",
+        "category": "Main Course",
+        "price": 12.0,
+        "item_photo": "https://example.com/images/item_mie_goreng.jpg"
+      },
+      {
+        "item_name": "Satay Ayam (Chicken Skewers)",
+        "category": "Main Course",
+        "price": 15.0,
+        "item_photo": "https://example.com/images/item_satay_ayam.jpg"
+      },
+      {
+        "item_name": "Gado-Gado (Vegetable Salad)",
+        "category": "Appetizer",
+        "price": 10.0,
+        "item_photo": "https://example.com/images/item_gado_gado.jpg"
+      },
+      {
+        "item_name": "Lumpia (Spring Rolls)",
+        "category": "Appetizer",
+        "price": 7.0,
+        "item_photo": "https://example.com/images/item_lumpia.jpg"
+      },
+      {
+        "item_name": "Perkedel Jagung (Corn Fritters)",
+        "category": "Appetizer",
+        "price": 8.0,
+        "item_photo": "https://example.com/images/item_perkedel_jagung.jpg"
+      },
+      {
+        "item_name": "Es Cendol",
+        "category": "Dessert",
+        "price": 6.0,
+        "item_photo": "https://example.com/images/item_es_cendol.jpg"
+      },
+      {
+        "item_name": "Pisang Goreng (Fried Banana)",
+        "category": "Dessert",
+        "price": 5.5,
+        "item_photo": "https://example.com/images/item_pisang_goreng.jpg"
+      },
+      {
+        "item_name": "Kopi Luwak (Coffee)",
+        "category": "Dessert",
+        "price": 20.0,
+        "item_photo": "https://example.com/images/item_kopi_luwak.jpg"
+      },
+      {
+        "item_name": "Rendang Sapi (Beef Stew)",
+        "category": "Main Course",
+        "price": 18.0,
+        "item_photo": "https://example.com/images/item_rendang_sapi.jpg"
+      },
+      {
+        "item_name": "Ayam Goreng (Fried Chicken)",
+        "category": "Main Course",
+        "price": 14.0,
+        "item_photo": "https://example.com/images/item_ayam_goreng.jpg"
+      },
+      {
+        "item_name": "Sop Buntut (Oxtail Soup)",
+        "category": "Appetizer",
+        "price": 16.0,
+        "item_photo": "https://example.com/images/item_sop_buntut.jpg"
+      },
+      {
+        "item_name": "Martabak Manis (Sweet Pancake)",
+        "category": "Dessert",
+        "price": 11.0,
+        "item_photo": "https://example.com/images/item_martabak_manis.jpg"
+      },
+      {
+        "item_name": "Klepon (Glutinous Rice Balls)",
+        "category": "Dessert",
+        "price": 5.0,
+        "item_photo": "https://example.com/images/item_klepon.jpg"
+      },
+      {
+        "item_name": "Teh Botol (Bottled Tea)",
+        "category": "Dessert",
+        "price": 3.0,
+        "item_photo": "https://example.com/images/item_teh_botol.jpg"
+      }
+    ]
+  }
+]
