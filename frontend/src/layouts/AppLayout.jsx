@@ -1,4 +1,3 @@
-import React from "react";
 import { Outlet } from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -6,11 +5,11 @@ import Footer from "../components/Footer";
 const AppLayout = () => {
   return (
     <>
-      <Header />
-      <main>
+      <div className="min-h-screen flex flex-col text-white">
+        <Header />
         <Outlet />
-      </main>
-      <Footer />
+        <Footer />
+      </div>
     </>
   );
 };
