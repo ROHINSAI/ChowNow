@@ -12,7 +12,7 @@ const categories = [
 
 const CategoryList = ({ onSelect }) => {
   return (
-    <div className="flex flex-wrap gap-3 mt-4 ml-102">
+    <div className="flex justify-center gap-3 mt-4">
       {categories.map((category) => (
         <CategoryButton
           key={category}

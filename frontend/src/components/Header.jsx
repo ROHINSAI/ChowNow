@@ -27,7 +27,7 @@ function Header() {
             />
             <RoundedButton
               text="Login"
-              to="/login"
+              to="/signin"
               bgColor="bg-[#422121]"
               textColor="text-[#f9dede]"
             />
