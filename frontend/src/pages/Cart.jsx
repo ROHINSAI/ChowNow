@@ -1,5 +1,139 @@
-function Cart() {
-  return <div>cart</div>;
-}
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { incrementQuantity, decrementQuantity } from "../components/cartSlice";
+import { useNavigate } from "react-router-dom";
+const Cart = () => {
+  const cartItems = useSelector((state) => state.cart.items);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const items = Object.values(cartItems);
+
+  if (items.length === 0) {
+    return <div className="text-white p-6">Your cart is empty.</div>;
+  }
+
+  // Calculate subtotal
+  const subtotal = items.reduce(
+    (total, item) => total + item.price * item.quantity,
+    0
+  );
+  const deliveryFee = 30;
+  const total = subtotal + deliveryFee;
+
+  function handleClick() {
+    navigate("/Order");
+  }
+
+  return (
+    <div className="bg-[#1a0f0f] text-white p-6 min-h-screen w-1/2 mx-auto">
+      <h2 className="text-3xl font-bold mb-8">Your Cart</h2>
+
+      {/* Restaurant Name */}
+      <div className="mb-4">
+        <p className="text-base font-medium text-[#F5F5F5]">
+          From The Burger Joint
+        </p>
+      </div>
+
+      {/* Cart Items */}
+      <div className="space-y-6 mb-8">
+        {items.map((item) => (
+          <div key={item.id} className="flex items-center justify-between">
+            {/* Item Image and Details */}
+            <div className="flex items-center space-x-4">
+              <img
+                src={item.photo}
+                alt={item.name}
+                className="w-14 h-14 object-cover rounded-md"
+              />
+              <div>
+                <p className="text-sm text-white font-medium">
+                  {item.quantity}x {item.name}
+                </p>
+                <p className="text-xs text-gray-400">{item.category}</p>
+              </div>
+            </div>
+
+            {/* Quantity Controls */}
+            <div className="flex items-center gap-3 bg-[#3c1e1e] rounded-full px-3 py-1.5">
+              <button
+                onClick={() => dispatch(decrementQuantity(item.id))}
+                className="w-6 h-6 flex items-center justify-center text-white font-bold rounded-full bg-[#5c2e2e]"
+              >
+                −
+              </button>
+              <span className="min-w-[20px] text-center text-sm">
+                {item.quantity}
+              </span>
+              <button
+                onClick={() => dispatch(incrementQuantity(item.id))}
+                className="w-6 h-6 flex items-center justify-center text-white font-bold rounded-full bg-[#5c2e2e]"
+              >
+                +
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Promocode Input (Optional) */}
+      <input
+        type="text"
+        placeholder="Enter promocode"
+        className="w-full bg-[#3c1e1e] text-white placeholder:text-[#aaa] border border-[#5c2e2e] rounded-md px-4 py-3 mb-6"
+      />
+
+      {/* Delivery Details */}
+      <div className="mb-8">
+        <h3 className="text-xl font-bold mb-4">Delivery Details</h3>
+
+        {/* Address */}
+        <div className="flex items-center justify-between py-3 border-b border-[#444]">
+          <div>
+            <p className="text-sm font-medium">Delivery Address</p>
+            <p className="text-xs text-gray-400">123 Elm Street, Apt 4B</p>
+          </div>
+          <span className="text-gray-400">›</span>
+        </div>
+
+        {/* Time */}
+        <div className="flex items-center justify-between py-3 border-b border-[#444]">
+          <div>
+            <p className="text-sm font-medium">Delivery Time</p>
+            <p className="text-xs text-gray-400">ASAP</p>
+          </div>
+          <span className="text-gray-400">›</span>
+        </div>
+
+        {/* Delivery Fee */}
+        <div className="flex items-center justify-between py-3">
+          <p className="text-sm font-medium">Delivery Fee</p>
+          <p className="text-sm font-medium">₹{deliveryFee.toFixed(2)}</p>
+        </div>
+      </div>
+
+      {/* Price Summary */}
+      <div className="space-y-3 mb-8">
+        <div className="flex justify-between items-center">
+          <p className="text-base">Subtotal</p>
+          <p className="text-base">₹{subtotal.toFixed(2)}</p>
+        </div>
+        <div className="flex justify-between items-center text-lg font-bold">
+          <p>Total</p>
+          <p>₹{total.toFixed(2)}</p>
+        </div>
+      </div>
+
+      {/* Checkout Button */}
+      <button
+        className="w-full bg-[#F93838] hover:bg-[#e22e2e] transition-colors text-white py-4 rounded-xl font-semibold text-lg"
+        onClick={handleClick}
+      >
+        Proceed to Checkout
+      </button>
+    </div>
+  );
+};
 
 export default Cart;
