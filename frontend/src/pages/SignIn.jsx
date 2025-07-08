@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const SignIn = () => {
   const [username, setUsername] = useState("");
@@ -26,9 +26,14 @@ const SignIn = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[#1a0f0f] text-white">
-      <form onSubmit={handleSignIn} className="w-full max-w-sm space-y-6">
-        <h2 className="text-2xl font-bold text-center">Welcome back</h2>
+    <div className="flex-1 flex flex-col items-center justify-center bg-[#1a0f0f] text-white">
+      <form
+        onSubmit={handleSignIn}
+        className="w-full max-w-sm space-y-6"
+      >
+        <h2 className="text-2xl font-bold text-center">
+          Welcome back
+        </h2>
 
         <div>
           <label className="block text-sm">Username</label>
@@ -52,7 +57,9 @@ const SignIn = () => {
           />
         </div>
 
-        {error && <p className="text-red-500 text-sm">{error}</p>}
+        {error && (
+          <p className="text-red-500 text-sm">{error}</p>
+        )}
 
         <button
           type="submit"
@@ -61,6 +68,15 @@ const SignIn = () => {
           Continue
         </button>
       </form>
+      <p className="mt-6 text-center text-gray-400">
+        Don't have an account?{" "}
+        <Link
+          to="/signup"
+          className="font-medium text-blue-500 hover:text-blue-400"
+        >
+          Sign Up
+        </Link>
+      </p>
     </div>
   );
 };
