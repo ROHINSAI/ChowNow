@@ -1,4 +1,3 @@
-// components/RestaurantCarousel.jsx
 import React from "react";
 import restaurants from "../data/restaurants.json";
 import { useNavigate } from "react-router-dom";
@@ -7,20 +6,18 @@ const RestaurantCarousel = ({ title }) => {
   let displayedRestaurants = [];
   const navigate = useNavigate();
   if (title === "Featured Restaurants") {
-    // pick any random 4
     displayedRestaurants = [...restaurants]
       .sort(() => 0.5 - Math.random())
       .slice(0, 4);
   } else if (title === "Top Rated Near You") {
-    // sort by avg_ratings descending
     displayedRestaurants = [...restaurants]
       .sort((a, b) => b.avg_ratings - a.avg_ratings)
       .slice(0, 4);
   } else if (title === "All Restaurants") {
     displayedRestaurants = [...restaurants];
   }
-  function handleClick() {
-    navigate("/menu");
+  function handleClick(id) {
+    navigate(`/menu/${id}`);
   }
   return (
     <div className="mt-8">
@@ -43,7 +40,10 @@ const RestaurantCarousel = ({ title }) => {
               className="w-full h-36 object-cover rounded-xl"
             />
             <div className="mt-2 text-white">
-              <h3 className="font-medium text-base" onClick={handleClick}>
+              <h3
+                className="font-medium text-base"
+                onClick={() => handleClick(restaurant.id)}
+              >
                 {restaurant.restaurant_name}
               </h3>
               <p className="text-sm text-[#d8baba]">

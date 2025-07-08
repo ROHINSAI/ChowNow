@@ -1,62 +1,68 @@
-function SignIn() {
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+const SignIn = () => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+
+  const navigate = useNavigate();
+
+  const handleSignIn = (e) => {
+    e.preventDefault();
+
+    const storedUser = JSON.parse(localStorage.getItem("user"));
+    if (
+      !storedUser ||
+      storedUser.username !== username ||
+      storedUser.password !== password
+    ) {
+      setError("Invalid username or password");
+      return;
+    }
+
+    setError("");
+    navigate("/");
+  };
+
   return (
-    <div className="flex-grow flex flex-col items-center justify-center">
-      <div className="w-full max-w-md">
-        <h1 className="text-3xl font-bold text-center mb-8">
-          Sign In to your account
-        </h1>
-        <form className="space-y-6">
-          <div>
-            <label
-              htmlFor="email"
-              className="block text-sm font-medium text-gray-300"
-            >
-              Email
-            </label>
-            <input
-              type="email"
-              name="email"
-              id="email"
-              className="mt-1 block w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-md text-white shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-              placeholder="Email"
-            />
-          </div>
-          <div>
-            <label
-              htmlFor="password"
-              className="block text-sm font-medium text-gray-300"
-            >
-              Password
-            </label>
-            <input
-              type="password"
-              name="password"
-              id="password"
-              className="mt-1 block w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-md text-white shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-              placeholder="Password"
-            />
-          </div>
-          <div>
-            <button
-              type="submit"
-              className="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-            >
-              Sign In
-            </button>
-          </div>
-        </form>
-        <p className="mt-6 text-center text-gray-400">
-          Dont have an account?{" "}
-          <a
-            href="signUp"
-            className="font-medium text-blue-500 hover:text-blue-400"
-          >
-            Sign Up
-          </a>
-        </p>
-      </div>
+    <div className="min-h-screen flex items-center justify-center bg-[#1a0f0f] text-white">
+      <form onSubmit={handleSignIn} className="w-full max-w-sm space-y-6">
+        <h2 className="text-2xl font-bold text-center">Welcome back</h2>
+
+        <div>
+          <label className="block text-sm">Username</label>
+          <input
+            type="text"
+            placeholder="Enter username"
+            className="w-full px-4 py-2 mt-1 bg-[#3c1e1e] border border-[#5c2e2e] rounded-md focus:outline-none"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+        </div>
+
+        <div>
+          <label className="block text-sm">Password</label>
+          <input
+            type="password"
+            placeholder="Enter password"
+            className="w-full px-4 py-2 mt-1 bg-[#3c1e1e] border border-[#5c2e2e] rounded-md focus:outline-none"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
+
+        {error && <p className="text-red-500 text-sm">{error}</p>}
+
+        <button
+          type="submit"
+          className="w-full bg-[#F93838] hover:bg-[#e22e2e] text-white py-3 rounded-full font-semibold"
+        >
+          Continue
+        </button>
+      </form>
     </div>
   );
-}
+};
 
 export default SignIn;

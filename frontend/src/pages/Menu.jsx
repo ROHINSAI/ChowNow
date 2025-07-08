@@ -1,5 +1,11 @@
+import RestaurantHeader from "../components/RestaurantHeader";
+
 function Menu() {
-  return <div>Menu</div>;
+  return (
+    <div>
+      <RestaurantHeader />
+    </div>
+  );
 }
 
 export default Menu;

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { FaSearch } from "react-icons/fa";
 
 const SearchBar = ({
-  variant = "bar", // "bar", "inline", or "button"
+  variant = "bar",
   value,
   onChange,
   onSubmit,
@@ -25,7 +25,7 @@ const SearchBar = ({
     "flex items-center bg-[#552727] text-[#f9dede] rounded-xl px-4 py-2 font-medium";
   const sizeClasses =
     variant === "bar"
-      ? "w-full max-w-2xl" // for main bar look
+      ? "w-full max-w-2xl"
       : variant === "inline"
       ? "w-60"
       : "w-40";
@@ -46,7 +46,6 @@ const SearchBar = ({
     </form>
   );
 
-  // Center align if variant is bar
   if (variant === "bar") {
     return <div className="flex justify-center my-4">{searchInput}</div>;
   }

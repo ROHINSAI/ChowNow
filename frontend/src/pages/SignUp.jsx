@@ -1,77 +1,80 @@
-function SignUp() {
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+const SignUp = () => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirm, setConfirm] = useState("");
+  const [error, setError] = useState("");
+
+  const navigate = useNavigate();
+
+  const handleSignUp = (e) => {
+    e.preventDefault();
+
+    if (username.length < 3)
+      return setError("Username must be at least 3 characters.");
+    if (password.length < 8)
+      return setError("Password must be at least 8 characters.");
+    if (password !== confirm) return setError("Passwords do not match.");
+
+    const newUser = { username, password };
+    localStorage.setItem("user", JSON.stringify(newUser));
+
+    setError("");
+    alert("Signup successful!");
+    navigate("/signin");
+  };
+
   return (
-    <main className="flex-grow flex flex-col items-center justify-center">
-      <div className="w-full max-w-md">
-        <h1 className="text-3xl font-bold text-center mb-8">
-          Create your account
-        </h1>
-        <form className="space-y-6">
-          <div>
-            <label
-              htmlFor="email"
-              className="block text-sm font-medium text-gray-300"
-            >
-              Email
-            </label>
-            <input
-              type="email"
-              name="email"
-              id="email"
-              className="mt-1 block w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-md text-white shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-              placeholder="Email"
-            />
-          </div>
-          <div>
-            <label
-              htmlFor="password"
-              className="block text-sm font-medium text-gray-300"
-            >
-              Password
-            </label>
-            <input
-              type="password"
-              name="password"
-              id="password"
-              className="mt-1 block w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-md text-white shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-              placeholder="Password"
-            />
-          </div>
-          <div>
-            <label
-              htmlFor="confirm-password"
-              className="block text-sm font-medium text-gray-300"
-            >
-              Confirm Password
-            </label>
-            <input
-              type="password"
-              name="confirm-password"
-              id="confirm-password"
-              className="mt-1 block w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-md text-white shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-              placeholder="Confirm Password"
-            />
-          </div>
-          <div>
-            <button
-              type="submit"
-              className="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-            >
-              Sign up
-            </button>
-          </div>
-        </form>
-        <p className="mt-6 text-center text-gray-400">
-          Already have an account?{" "}
-          <a
-            href="signIn"
-            className="font-medium text-blue-500 hover:text-blue-400"
-          >
-            Log in
-          </a>
-        </p>
-      </div>
-    </main>
+    <div className="min-h-screen flex items-center justify-center bg-[#1a0f0f] text-white">
+      <form onSubmit={handleSignUp} className="w-full max-w-sm space-y-6">
+        <h2 className="text-2xl font-bold text-center">Create Account</h2>
+
+        <div>
+          <label className="block text-sm">Username</label>
+          <input
+            type="text"
+            placeholder="Enter username"
+            className="w-full px-4 py-2 mt-1 bg-[#3c1e1e] border border-[#5c2e2e] rounded-md focus:outline-none"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+        </div>
+
+        <div>
+          <label className="block text-sm">Password</label>
+          <input
+            type="password"
+            placeholder="Enter password"
+            className="w-full px-4 py-2 mt-1 bg-[#3c1e1e] border border-[#5c2e2e] rounded-md focus:outline-none"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
+
+        <div>
+          <label className="block text-sm">Confirm Password</label>
+          <input
+            type="password"
+            placeholder="Re-enter password"
+            className="w-full px-4 py-2 mt-1 bg-[#3c1e1e] border border-[#5c2e2e] rounded-md focus:outline-none"
+            value={confirm}
+            onChange={(e) => setConfirm(e.target.value)}
+          />
+        </div>
+
+        {error && <p className="text-red-500 text-sm">{error}</p>}
+
+        <button
+          type="submit"
+          className="w-full bg-[#F93838] hover:bg-[#e22e2e] text-white py-3 rounded-full font-semibold"
+        >
+          Sign Up
+        </button>
+      </form>
+    </div>
   );
-}
+};
 
 export default SignUp;
