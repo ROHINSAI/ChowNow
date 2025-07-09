@@ -1,6 +1,12 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from "react-router-dom";
 import AppLayout from "./layouts/AppLayout";
+import PrivateRoute from "./components/PrivateRoute";
+import { Toaster } from "react-hot-toast";
 
 import Home from "./pages/Home";
 import Menu from "./pages/Menu";
@@ -13,15 +19,18 @@ import Order from "./pages/Order";
 const App = () => {
   return (
     <Router>
+      <Toaster />
       <Routes>
         <Route element={<AppLayout />}>
           <Route path="/" element={<Home />} />
           <Route path="/menu/:id" element={<Menu />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/user" element={<User />} />
-          <Route path="/Order" element={<Order />} />
           <Route path="/signin" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />
+          <Route element={<PrivateRoute />}>
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/user" element={<User />} />
+            <Route path="/Order" element={<Order />} />
+          </Route>
         </Route>
       </Routes>
     </Router>

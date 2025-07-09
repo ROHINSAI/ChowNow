@@ -1,7 +1,8 @@
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import RoundedButton from "./Button";
 import SearchBar from "./Searchbar";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import { logout } from "./authSlice";
 
 function Header() {
   const location = useLocation();
@@ -9,6 +10,22 @@ function Header() {
   const isHome = path === "/";
   const cartItems = useSelector((state) => state.cart.items);
   const cartItemCount = Object.keys(cartItems).length;
+  const { userInfo } = useSelector((state) => state.auth);
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const logoutHandler = async () => {
+    try {
+      await fetch("http://localhost:3000/api/users/logout", {
+        method: "POST",
+      });
+      dispatch(logout());
+      navigate("/signin");
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
     <header className="flex justify-between items-center p-4 border-b border-gray-700/50">
@@ -28,12 +45,24 @@ function Header() {
               bgColor="bg-red-600"
               textColor="text-white"
             />
-            <RoundedButton
-              text="Login"
-              to="/signin"
-              bgColor="bg-[#422121]"
-              textColor="text-[#f9dede]"
-            />
+            {userInfo ? (
+              <div className="flex items-center space-x-4">
+                <span>{userInfo.name}</span>
+                <button
+                  onClick={logoutHandler}
+                  className="text-white"
+                >
+                  Logout
+                </button>
+              </div>
+            ) : (
+              <RoundedButton
+                text="Login"
+                to="/signin"
+                bgColor="bg-[#422121]"
+                textColor="text-[#f9dede]"
+              />
+            )}
           </>
         ) : (
           <>

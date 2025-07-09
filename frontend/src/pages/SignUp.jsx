@@ -1,30 +1,47 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setCredentials } from "../components/authSlice";
 
 const SignUp = () => {
-  const [username, setUsername] = useState("");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirm, setConfirm] = useState("");
   const [error, setError] = useState("");
 
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-  const handleSignUp = (e) => {
+  const handleSignUp = async (e) => {
     e.preventDefault();
 
-    if (username.length < 3)
-      return setError("Username must be at least 3 characters.");
-    if (password.length < 8)
-      return setError("Password must be at least 8 characters.");
-    if (password !== confirm)
-      return setError("Passwords do not match.");
-
-    const newUser = { username, password };
-    localStorage.setItem("user", JSON.stringify(newUser));
-
-    setError("");
-    alert("Signup successful!");
-    navigate("/signin");
+    if (password !== confirm) {
+      setError("Passwords do not match");
+      return;
+    }
+    try {
+      const res = await fetch(
+        "http://localhost:3000/api/users",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ name, email, password }),
+        }
+      );
+      const data = await res.json();
+      if (res.ok) {
+        dispatch(setCredentials(data));
+        navigate("/");
+      } else {
+        setError(data.message);
+      }
+    } catch (err) {
+      console.error(err);
+      setError("Something went wrong");
+    }
   };
 
   return (
@@ -38,13 +55,23 @@ const SignUp = () => {
         </h2>
 
         <div>
-          <label className="block text-sm">Username</label>
+          <label className="block text-sm">Name</label>
           <input
             type="text"
-            placeholder="Enter username"
+            placeholder="Enter name"
             className="w-full px-4 py-2 mt-1 bg-[#3c1e1e] border border-[#5c2e2e] rounded-md focus:outline-none"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+        </div>
+        <div>
+          <label className="block text-sm">Email</label>
+          <input
+            type="email"
+            placeholder="Enter email"
+            className="w-full px-4 py-2 mt-1 bg-[#3c1e1e] border border-[#5c2e2e] rounded-md focus:outline-none"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
         </div>
 
