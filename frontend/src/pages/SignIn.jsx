@@ -1,28 +1,40 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setCredentials } from "../components/authSlice";
 
 const SignIn = () => {
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-  const handleSignIn = (e) => {
+  const handleSignIn = async (e) => {
     e.preventDefault();
-
-    const storedUser = JSON.parse(localStorage.getItem("user"));
-    if (
-      !storedUser ||
-      storedUser.username !== username ||
-      storedUser.password !== password
-    ) {
-      setError("Invalid username or password");
-      return;
+    try {
+      const res = await fetch(
+        "http://localhost:3000/api/users/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email, password }),
+        }
+      );
+      const data = await res.json();
+      if (res.ok) {
+        dispatch(setCredentials(data));
+        navigate("/");
+      } else {
+        setError(data.message);
+      }
+    } catch (error) {
+      console.error(error);
+      setError("Something went wrong");
     }
-
-    setError("");
-    navigate("/");
   };
 
   return (
@@ -36,13 +48,13 @@ const SignIn = () => {
         </h2>
 
         <div>
-          <label className="block text-sm">Username</label>
+          <label className="block text-sm">Email</label>
           <input
-            type="text"
-            placeholder="Enter username"
+            type="email"
+            placeholder="Enter email"
             className="w-full px-4 py-2 mt-1 bg-[#3c1e1e] border border-[#5c2e2e] rounded-md focus:outline-none"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
         </div>
 
