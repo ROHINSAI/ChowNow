@@ -12,11 +12,15 @@
 
 - Favorites for Restaurants
 
-- Order History -> Schema Changes, '/user' UI changes, Rating + Review
+- Order History -> Schema Changes, - done, in order.jsx it renders all orders but displays only latest one
+
+'/user' UI changes,
+
+Rating + Review
 
 - Order Analytics -> Total Orders, Total expenditure
 
-- Dummy Order
+- Dummy Order - done
 
 - users
   - name

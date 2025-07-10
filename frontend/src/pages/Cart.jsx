@@ -1,11 +1,17 @@
 import { useSelector, useDispatch } from "react-redux";
-import { incrementQuantity, decrementQuantity } from "../components/cartSlice";
+import {
+  clearCart,
+  incrementQuantity,
+  decrementQuantity,
+} from "../components/cartSlice";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { fetchUserProfile } from "../components/authSlice";
 
 const Cart = () => {
   const cartItems = useSelector((state) => state.cart.items);
+  const items = Object.values(cartItems);
+  console.log(cartItems);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -20,9 +26,39 @@ const Cart = () => {
 
     loadProfile();
   }, [dispatch]);
-  const { userInfo } = useSelector((state) => state.auth);
 
-  const items = Object.values(cartItems);
+  const handleClick = async () => {
+    try {
+      const restaurantId = items[0]?.restaurantId; // get it from first item
+
+      const response = await fetch("http://localhost:3000/api/orders", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+        body: JSON.stringify({
+          restaurant: restaurantId,
+          items: items.map((item) => ({
+            _id: item._id,
+            name: item.name,
+            photo: item.photo,
+            quantity: item.quantity,
+          })),
+        }),
+      });
+
+      if (!response.ok) throw new Error("Order creation failed");
+
+      const data = await response.json();
+      console.log("Order success:", data);
+      dispatch(clearCart());
+      navigate("/Order");
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
+  const { userInfo } = useSelector((state) => state.auth);
 
   if (items.length === 0) {
     return (
@@ -62,10 +98,6 @@ const Cart = () => {
   );
   const deliveryFee = 30;
   const total = subtotal + deliveryFee;
-
-  function handleClick() {
-    navigate("/Order");
-  }
 
   return (
     <div className="bg-[#1a0f0f] text-white p-6 min-h-screen w-1/2 mx-auto">

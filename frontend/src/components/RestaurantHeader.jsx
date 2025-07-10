@@ -41,7 +41,9 @@ const RestaurantHeader = () => {
       </div>
 
       <div className="mt-6 text-white">
-        {activeTab === "Menu" && <MenuComponent menu={restaurant.menu} />}
+        {activeTab === "Menu" && (
+          <MenuComponent menu={restaurant.menu} restaurantId={restaurant.id} />
+        )}
         {activeTab === "Info" && <InfoComponent info={restaurant.info} />}
         {activeTab === "Reviews" && (
           <ReviewsComponent reviews={restaurant.reviews} />
