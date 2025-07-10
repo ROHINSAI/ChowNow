@@ -47,11 +47,13 @@ function Header() {
             />
             {userInfo ? (
               <div className="flex items-center space-x-4">
-                <span>{userInfo.name}</span>
-                <button
-                  onClick={logoutHandler}
-                  className="text-white"
-                >
+                <img
+                  src={userInfo.photo}
+                  alt={userInfo.name || "User Avatar"}
+                  className="w-10 h-10 rounded-full object-cover"
+                  onClick={handleProfileClick}
+                />
+                <button onClick={logoutHandler} className="text-white">
                   Logout
                 </button>
               </div>

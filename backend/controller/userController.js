@@ -6,32 +6,37 @@ const bcrypt = require("bcryptjs");
 // @route   POST /api/users
 // @access  Public
 const registerUser = async (req, res) => {
-  const { name, email, password, address } = req.body;
+  const { name, email, password, address, photo } = req.body;
 
-  const userExists = await User.findOne({ email });
+  try {
+    const userExists = await User.findOne({ email });
 
-  if (userExists) {
-    res.status(400).json({ message: "User already exists" });
-    return;
-  }
+    if (userExists) {
+      return res.status(400).json({ message: "User already exists" });
+    }
 
-  const user = await User.create({
-    name,
-    email,
-    password,
-    address,
-  });
-
-  if (user) {
-    generateToken(res, user._id);
-    res.status(201).json({
-      _id: user._id,
-      name: user.name,
-      email: user.email,
-      address: user.address,
+    const user = await User.create({
+      name,
+      email,
+      password,
+      address,
+      photo,
     });
-  } else {
-    res.status(400).json({ message: "Invalid user data" });
+
+    if (user) {
+      generateToken(res, user._id);
+      res.status(201).json({
+        _id: user._id,
+        name: user.name,
+        email: user.email,
+        address: user.address,
+        photo: user.displayPhotoUrl, // virtual fallback avatar if missing
+      });
+    } else {
+      res.status(400).json({ message: "Invalid user data" });
+    }
+  } catch (error) {
+    res.status(500).json({ message: "Server error", error: error.message });
   }
 };
 
@@ -41,23 +46,23 @@ const registerUser = async (req, res) => {
 const loginUser = async (req, res) => {
   const { email, password } = req.body;
 
-  const user = await User.findOne({ email });
-  const passwordMatch = await bcrypt.compare(
-    password,
-    user.password
-  );
+  try {
+    const user = await User.findOne({ email });
 
-  if (user && passwordMatch) {
-    generateToken(res, user._id);
-    res.json({
-      _id: user._id,
-      name: user.name,
-      email: user.email,
-    });
-  } else {
-    res
-      .status(401)
-      .json({ message: "Invalid email or password" });
+    if (user && (await bcrypt.compare(password, user.password))) {
+      generateToken(res, user._id);
+      res.json({
+        _id: user._id,
+        name: user.name,
+        email: user.email,
+        address: user.address,
+        photo: user.displayPhotoUrl, // virtual fallback avatar if missing
+      });
+    } else {
+      res.status(401).json({ message: "Invalid email or password" });
+    }
+  } catch (error) {
+    res.status(500).json({ message: "Server error", error: error.message });
   }
 };
 
