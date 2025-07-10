@@ -21,6 +21,24 @@ const userSchema = new mongoose.Schema({
     required: true,
     minlength: 6,
   },
+  phone: { type: String, default: null },
+  address: { type: String, default: null },
+  ordersHistory: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Order",
+    },
+  ],
+  role: {
+    type: String,
+    enum: ["user", "admin", "owner"],
+    default: "user",
+  },
+  restaurantOwned: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Restaurant",
+    default: null,
+  },
   createdAt: {
     type: Date,
     default: Date.now,
