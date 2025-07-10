@@ -21,13 +21,26 @@ const userSchema = new mongoose.Schema({
     required: true,
     minlength: 6,
   },
-  address: {
+
+
+  phone: { type: String, default: null },
+  address: { type: String, default: null },
+  ordersHistory: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Order",
+    },
+  ],
+  role: {
     type: String,
-    required: true,
+    enum: ["user", "admin", "owner"],
+    default: "user",
   },
-  photo: {
-    type: String,
-    default: null, // photo can be null or custom URL
+  restaurantOwned: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Restaurant",
+    default: null,
+
   },
   createdAt: {
     type: Date,
