@@ -26,14 +26,14 @@
   - location
     - lat
     - long
-  - numberOfRatings
   - pictures
   - menu
-    - name
-      - name
+    - cuisine-name
+      - item-name
       - price
+      - [rating-id]
+      - [review-id]
       - discount
-      - rating
       - description
       - picture
       - numberOfRatings
