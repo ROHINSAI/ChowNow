@@ -1,7 +1,7 @@
 # Things to Do
 
 - Search Bar Implementation in Home Page
-- Address Bar in SignUp Page
+- Address Bar in SignUp Page - done but error handling is there
 - Default Avatar When Logged In
 - Address in Cart Page
 - AutoFill '/user' Page with Name, Phone, Email, Address

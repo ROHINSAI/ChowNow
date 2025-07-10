@@ -8,6 +8,7 @@ const SignUp = () => {
   const [email, setEmail] = useState("");
   const [address, setAddress] = useState("");
   const [password, setPassword] = useState("");
+  const [photo, setPhoto] = useState("");
   const [confirm, setConfirm] = useState("");
   const [error, setError] = useState("");
 
@@ -22,21 +23,19 @@ const SignUp = () => {
       return;
     }
     try {
-      const res = await fetch(
-        "http://localhost:3000/api/users",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            name,
-            email,
-            password,
-            address,
-          }),
-        }
-      );
+      const res = await fetch("http://localhost:3000/api/users", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          password,
+          address,
+          photo,
+        }),
+      });
       const data = await res.json();
       if (res.ok) {
         dispatch(setCredentials(data));
@@ -52,13 +51,8 @@ const SignUp = () => {
 
   return (
     <div className="flex-1 flex flex-col items-center justify-center bg-[#1a0f0f] text-white">
-      <form
-        onSubmit={handleSignUp}
-        className="w-full max-w-sm space-y-6"
-      >
-        <h2 className="text-2xl font-bold text-center">
-          Create Account
-        </h2>
+      <form onSubmit={handleSignUp} className="w-full max-w-sm space-y-6">
+        <h2 className="text-2xl font-bold text-center">Create Account</h2>
 
         <div>
           <label className="block text-sm">Name</label>
@@ -102,9 +96,7 @@ const SignUp = () => {
         </div>
 
         <div>
-          <label className="block text-sm">
-            Confirm Password
-          </label>
+          <label className="block text-sm">Confirm Password</label>
           <input
             type="password"
             placeholder="Re-enter password"
@@ -113,10 +105,18 @@ const SignUp = () => {
             onChange={(e) => setConfirm(e.target.value)}
           />
         </div>
+        <div>
+          <label className="block text-sm">Photo (Optional)</label>
+          <input
+            type="Photo"
+            placeholder="Enter Image URL"
+            className="w-full px-4 py-2 mt-1 bg-[#3c1e1e] border border-[#5c2e2e] rounded-md focus:outline-none"
+            value={photo}
+            onChange={(e) => setPhoto(e.target.value)}
+          />
+        </div>
 
-        {error && (
-          <p className="text-red-500 text-sm">{error}</p>
-        )}
+        {error && <p className="text-red-500 text-sm">{error}</p>}
 
         <button
           type="submit"

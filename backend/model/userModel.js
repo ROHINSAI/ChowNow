@@ -21,6 +21,14 @@ const userSchema = new mongoose.Schema({
     required: true,
     minlength: 6,
   },
+  address: {
+    type: String,
+    required: true,
+  },
+  photo: {
+    type: String,
+    default: null, // photo can be null or custom URL
+  },
   createdAt: {
     type: Date,
     default: Date.now,
@@ -36,6 +44,22 @@ userSchema.pre("save", async function (next) {
   this.password = await bcrypt.hash(this.password, salt);
   next();
 });
+
+// Virtual getter for profile image (fallback to initials if no custom photo)
+userSchema.virtual("displayPhotoUrl").get(function () {
+  if (this.photo) {
+    return this.photo;
+  }
+
+  const name = this.name || "User";
+  return `https://api.dicebear.com/9.x/initials/svg?seed=${encodeURIComponent(
+    name
+  )}`;
+});
+
+// Enable virtuals in JSON output (important!)
+userSchema.set("toJSON", { virtuals: true });
+userSchema.set("toObject", { virtuals: true });
 
 const User = mongoose.model("User", userSchema);
 
