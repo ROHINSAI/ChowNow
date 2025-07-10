@@ -6,7 +6,7 @@ const bcrypt = require("bcryptjs");
 // @route   POST /api/users
 // @access  Public
 const registerUser = async (req, res) => {
-  const { name, email, password } = req.body;
+  const { name, email, password, address } = req.body;
 
   const userExists = await User.findOne({ email });
 
@@ -19,6 +19,7 @@ const registerUser = async (req, res) => {
     name,
     email,
     password,
+    address,
   });
 
   if (user) {
@@ -27,6 +28,7 @@ const registerUser = async (req, res) => {
       _id: user._id,
       name: user.name,
       email: user.email,
+      address: user.address,
     });
   } else {
     res.status(400).json({ message: "Invalid user data" });

@@ -3,6 +3,7 @@ const morgan = require("morgan");
 const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser");
 const userRoutes = require("./routes/userRoutes");
+const restaurantRoutes = require("./routes/restaurantRoutes");
 const cors = require("cors");
 require("dotenv").config(); // Add this at the very top
 
@@ -31,6 +32,7 @@ mongoose
 
 // Routes
 app.use("/api/users", userRoutes);
+app.use("/api/restaurants", restaurantRoutes);
 
 app.get("/", (req, res) => {
   res.send("Hello, world!");

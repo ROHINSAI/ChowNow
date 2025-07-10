@@ -6,6 +6,7 @@ import { setCredentials } from "../components/authSlice";
 const SignUp = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [address, setAddress] = useState("");
   const [password, setPassword] = useState("");
   const [confirm, setConfirm] = useState("");
   const [error, setError] = useState("");
@@ -28,7 +29,12 @@ const SignUp = () => {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ name, email, password }),
+          body: JSON.stringify({
+            name,
+            email,
+            password,
+            address,
+          }),
         }
       );
       const data = await res.json();
@@ -74,7 +80,16 @@ const SignUp = () => {
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
-
+        <div>
+          <label className="block text-sm">Address</label>
+          <input
+            type="text"
+            placeholder="Enter address"
+            className="w-full px-4 py-2 mt-1 bg-[#3c1e1e] border border-[#5c2e2e] rounded-md focus:outline-none"
+            value={address}
+            onChange={(e) => setAddress(e.target.value)}
+          />
+        </div>
         <div>
           <label className="block text-sm">Password</label>
           <input

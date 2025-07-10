@@ -1,0 +1,58 @@
+# Things to Do
+
+- Search Bar Implementation in Home Page
+- Address Bar in SignUp Page
+- Default Avatar When Logged In
+- Address in Cart Page
+- AutoFill '/user' Page with Name, Phone, Email, Address
+- Favorites for Restaurants
+- Order History -> Schema Changes, '/user' UI changes, Rating + Review
+- Order Analytics -> Total Orders, Total expenditure
+- Dummy Order
+
+- users
+  - name
+  - email
+  - phone
+  - address
+  - password
+  - createdAt
+  - ordersHistory
+  - role
+  - restaurant-owned
+- restaurants
+  - name
+  - description
+  - location
+    - lat
+    - long
+  - numberOfRatings
+  - pictures
+  - menu
+    - name
+      - name
+      - price
+      - discount
+      - rating
+      - description
+      - picture
+      - numberOfRatings
+  - contact
+    - address
+    - phone
+    - email
+- orders
+  - restaurant-id
+  - user-id
+  - item-id
+  - order-date
+- rating for items
+  - user-id
+  - item-id
+  - int
+  - createdAt
+- review for items
+  - user-id
+  - item-id
+  - string
+  - created-At
