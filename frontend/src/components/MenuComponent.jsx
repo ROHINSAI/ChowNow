@@ -1,11 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
-import {
-  addToCart,
-  incrementQuantity,
-  decrementQuantity,
-} from "./cartSlice";
+import { addToCart, incrementQuantity, decrementQuantity } from "./cartSlice";
 
-function MenuComponent({ menu }) {
+function MenuComponent({ menu, restaurantId }) {
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cart.items);
 
@@ -14,9 +10,7 @@ function MenuComponent({ menu }) {
       <div className="max-w-4xl mx-auto">
         {Object.entries(menu).map(([category, items]) => (
           <div key={category} className="mb-8">
-            <h2 className="text-2xl font-bold mb-4 capitalize">
-              {category}
-            </h2>
+            <h2 className="text-2xl font-bold mb-4 capitalize">{category}</h2>
 
             {items.map((item) => {
               const inCart = cartItems[item.id];
@@ -28,27 +22,32 @@ function MenuComponent({ menu }) {
                 >
                   <div className="flex-1 pr-4">
                     <div className="flex items-center mb-1">
-                      <p className="text-lg font-semibold">
-                        {item.name}
-                      </p>
+                      <p className="text-lg font-semibold">{item.name}</p>
                       <span className="ml-2 text-sm text-gray-400">
-                        {item.avg_rating.toFixed(1)} (
-                        {item.no_of_ratings} ratings)
+                        {item.avg_rating.toFixed(1)} ({item.no_of_ratings}{" "}
+                        ratings)
                       </span>
                     </div>
                     <p className="text-gray-400 text-sm mb-2">
                       {item.description}
                     </p>
                     <div className="flex items-center space-x-4">
-                      <p className="text-lg font-bold">
-                        ₹{item.price}
-                      </p>
+                      <p className="text-lg font-bold">₹{item.price}</p>
 
                       {!inCart ? (
                         <button
-                          onClick={() =>
-                            dispatch(addToCart(item))
-                          }
+                          onClick={() => {
+                            console.log("Dispatching item:", {
+                              ...item,
+                              restaurantId,
+                            });
+                            dispatch(
+                              addToCart({
+                                ...item,
+                                restaurantId,
+                              })
+                            );
+                          }}
                           className="bg-[#884040] text-white text-sm font-semibold px-4 py-2 rounded-xl"
                         >
                           Add to Cart
@@ -56,22 +55,14 @@ function MenuComponent({ menu }) {
                       ) : (
                         <div className="flex items-center space-x-2 bg-[#884040] rounded-xl px-3 py-1">
                           <button
-                            onClick={() =>
-                              dispatch(
-                                decrementQuantity(item.id)
-                              )
-                            }
+                            onClick={() => dispatch(decrementQuantity(item.id))}
                             className="px-2 text-lg font-bold"
                           >
                             –
                           </button>
                           <span>{inCart.quantity}</span>
                           <button
-                            onClick={() =>
-                              dispatch(
-                                incrementQuantity(item.id)
-                              )
-                            }
+                            onClick={() => dispatch(incrementQuantity(item.id))}
                             className="px-2 text-lg font-bold"
                           >
                             +
