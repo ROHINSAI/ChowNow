@@ -22,7 +22,6 @@ const userSchema = new mongoose.Schema({
     minlength: 6,
   },
 
-
   phone: { type: String, default: null },
   address: { type: String, default: null },
   ordersHistory: [
@@ -40,7 +39,6 @@ const userSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "Restaurant",
     default: null,
-
   },
   createdAt: {
     type: Date,

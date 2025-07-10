@@ -1,8 +1,26 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Modal from "../components/Modal"; // Assuming Modal component exists
+import Modal from "../components/Modal";
+import { useSelector, useDispatch } from "react-redux";
+import { setCredentials } from "../components/authSlice";
+import { fetchUserProfile } from "../components/authSlice";
 
 const User = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    const loadProfile = async () => {
+      try {
+        await dispatch(fetchUserProfile());
+      } catch (err) {
+        console.error("Failed to fetch user profile:", err);
+      }
+    };
+
+    loadProfile();
+  }, [dispatch]);
+  const { userInfo } = useSelector((state) => state.auth);
+  const navigate = useNavigate();
+
   const [name, setName] = useState("");
   const [isNameSubmitted, setIsNameSubmitted] = useState(false);
 
@@ -12,60 +30,95 @@ const User = () => {
   const [email, setEmail] = useState("");
   const [isEmailSubmitted, setIsEmailSubmitted] = useState(false);
 
+  const [originalUser, setOriginalUser] = useState(null);
   const [showModal, setShowModal] = useState(false);
-  const navigate = useNavigate();
 
-  // Handler for Name submission
+  useEffect(() => {
+    if (userInfo) {
+      setOriginalUser(userInfo);
+
+      if (userInfo.name) {
+        setName(userInfo.name);
+        setIsNameSubmitted(true);
+      }
+
+      if (userInfo.phone) {
+        setPhone(userInfo.phone);
+        setIsPhoneSubmitted(true);
+      }
+
+      if (userInfo.email) {
+        setEmail(userInfo.email);
+        setIsEmailSubmitted(true);
+      }
+    }
+  }, [userInfo]);
+
+  // Update profile on server
+  const updateProfile = async () => {
+    try {
+      const response = await fetch("http://localhost:3000/api/users/profile", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+        body: JSON.stringify({ name, phone, email }),
+      });
+
+      if (!response.ok) throw new Error("Failed to update profile");
+
+      const updatedData = await response.json();
+      dispatch(setCredentials(updatedData));
+      setOriginalUser(updatedData); // reset to new saved data
+      alert("Profile updated successfully");
+    } catch (error) {
+      console.error("Profile update failed:", error);
+    }
+  };
+
+  // Handlers (Enter key to save)
   const handleNameSubmit = (e) => {
-    if (e.key === "Enter" && name.trim()) {
-      setIsNameSubmitted(true);
-    }
+    if (e.key === "Enter" && name.trim()) setIsNameSubmitted(true);
   };
-
-  // Handler for Phone submission
   const handlePhoneSubmit = (e) => {
-    if (e.key === "Enter" && phone.trim()) {
-      setIsPhoneSubmitted(true);
-    }
+    if (e.key === "Enter" && phone.trim()) setIsPhoneSubmitted(true);
   };
-
-  // Handler for Email submission
   const handleEmailSubmit = (e) => {
-    if (e.key === "Enter" && email.trim()) {
-      setIsEmailSubmitted(true);
-    }
+    if (e.key === "Enter" && email.trim()) setIsEmailSubmitted(true);
   };
 
-  // Handler for editing Name
-  const handleEditName = () => {
-    setIsNameSubmitted(false);
-  };
+  // Edit mode
+  const handleEditName = () => setIsNameSubmitted(false);
+  const handleEditPhone = () => setIsPhoneSubmitted(false);
+  const handleEditEmail = () => setIsEmailSubmitted(false);
 
-  // Handler for editing Phone
-  const handleEditPhone = () => {
-    setIsPhoneSubmitted(false);
-  };
+  // Restore values if user navigates away without entering anything
+  useEffect(() => {
+    const handleBeforeUnload = () => {
+      if (originalUser) {
+        if (!isNameSubmitted) setName(originalUser.name || "");
+        if (!isPhoneSubmitted) setPhone(originalUser.phone || "");
+        if (!isEmailSubmitted) setEmail(originalUser.email || "");
+      }
+    };
 
-  // Handler for editing Email
-  const handleEditEmail = () => {
-    setIsEmailSubmitted(false);
-  };
+    window.addEventListener("beforeunload", handleBeforeUnload);
+    return () => window.removeEventListener("beforeunload", handleBeforeUnload);
+  }, [isNameSubmitted, isPhoneSubmitted, isEmailSubmitted, originalUser]);
 
   return (
     <div className="min-h-screen bg-[#1c0f0f] text-white p-6 space-y-8 w-full mx-auto rounded-lg">
-      {" "}
-      {/* Added rounded-lg */}
       <div>
         <h2 className="text-3xl font-bold">Account</h2>
         <p className="text-sm text-gray-400 mt-1">
           Manage your account settings and preferences
         </p>
       </div>
-      {/* Personal Information */}
+
       <div className="space-y-4 p-4  rounded-lg shadow-md">
-        {" "}
-        {/* Added rounded-lg and shadow */}
         <h3 className="text-xl font-semibold">Personal Information</h3>
+
         {/* Name */}
         <div>
           <label className="block text-sm">Name</label>
@@ -90,6 +143,7 @@ const User = () => {
             />
           )}
         </div>
+
         {/* Phone */}
         <div>
           <label className="block text-sm">Phone</label>
@@ -114,6 +168,7 @@ const User = () => {
             />
           )}
         </div>
+
         {/* Email */}
         <div>
           <label className="block text-sm">Email</label>
@@ -139,10 +194,8 @@ const User = () => {
           )}
         </div>
       </div>
-      {/* Favorites */}
+
       <div className="space-y-3 p-4 rounded-lg shadow-md">
-        {" "}
-        {/* Added rounded-lg and shadow */}
         <h3 className="text-xl font-semibold">Favorites</h3>
         <div
           className="flex w-1/2 rounded-full items-center justify-between p-3  bg-[#3b1f1f] hover:bg-[#5e2e2e] cursor-pointer"
@@ -163,17 +216,24 @@ const User = () => {
           </div>
         </div>
       </div>
-      {/* Payment */}
+
       <div className="space-y-3 p-4  rounded-lg shadow-md">
-        {" "}
-        {/* Added rounded-lg and shadow */}
         <h3 className="text-xl font-semibold">Payment Methods</h3>
         <div className="p-3 bg-[#3b1f1f] rounded-full w-1/2">
           💳 Visa ending in 1234
         </div>
       </div>
-      {/* Modal */}
+
       {showModal && <Modal onClose={() => setShowModal(false)} />}
+
+      <div className="w-1/2 mt-6">
+        <button
+          onClick={updateProfile}
+          className="w-full py-2 bg-green-600 hover:bg-green-700 text-white rounded-full"
+        >
+          Save Changes
+        </button>
+      </div>
     </div>
   );
 };

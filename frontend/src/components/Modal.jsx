@@ -1,7 +1,22 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchUserProfile } from "./authSlice";
 
 const Modal = ({ onClose }) => {
-  const [addresses, setAddresses] = useState(["123 Elm Street, Apt 4B"]);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    const loadProfile = async () => {
+      try {
+        await dispatch(fetchUserProfile());
+      } catch (err) {
+        console.error("Failed to fetch user profile:", err);
+      }
+    };
+
+    loadProfile();
+  }, [dispatch]);
+  const { userInfo } = useSelector((state) => state.auth);
+  const [addresses, setAddresses] = useState([`${userInfo.address}`]);
   const [newAddress, setNewAddress] = useState("");
 
   const addAddress = () => {

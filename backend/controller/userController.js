@@ -77,8 +77,52 @@ const logoutUser = (req, res) => {
   res.status(200).json({ message: "Logged out successfully" });
 };
 
+const getUserProfile = async (req, res) => {
+  const user = req.user;
+
+  if (user) {
+    res.json({
+      _id: user._id,
+      name: user.name,
+      email: user.email,
+      address: user.address,
+      phone: user.phone,
+      role: user.role,
+      photo: user.displayPhotoUrl, // Use the virtual
+      restaurantOwned: user.restaurantOwned || null,
+      createdAt: user.createdAt,
+    });
+  } else {
+    res.status(404).json({ message: "User not found" });
+  }
+};
+const updateUserProfile = async (req, res) => {
+  const user = await User.findById(req.user._id);
+
+  if (user) {
+    user.name = req.body.name || user.name;
+    user.phone = req.body.phone || user.phone;
+    user.email = req.body.email || user.email;
+
+    const updatedUser = await user.save();
+
+    res.json({
+      _id: updatedUser._id,
+      name: updatedUser.name,
+      email: updatedUser.email,
+      phone: updatedUser.phone,
+      address: updatedUser.address,
+      photo: updatedUser.photo,
+    });
+  } else {
+    res.status(404).json({ message: "User not found" });
+  }
+};
+
 module.exports = {
   registerUser,
   loginUser,
   logoutUser,
+  getUserProfile,
+  updateUserProfile,
 };

@@ -1,13 +1,21 @@
 # Things to Do
 
 - Search Bar Implementation in Home Page
-- Address Bar in SignUp Page - done but error handling is there
-- Default Avatar When Logged In
-- Address in Cart Page
-- AutoFill '/user' Page with Name, Phone, Email, Address
+
+- Address Bar in SignUp Page - done but error handling is there i mean if there is no address show enter address
+
+- Default Avatar When Logged In - done but if profile updated and coming it's glitching for once and eventhough i upload profile url it is not showing photo
+
+- Address in Cart Page - done
+
+- AutoFill '/user' Page with Name, Phone, Email, Address - done but edit and delete feature for address is balance
+
 - Favorites for Restaurants
+
 - Order History -> Schema Changes, '/user' UI changes, Rating + Review
+
 - Order Analytics -> Total Orders, Total expenditure
+
 - Dummy Order
 
 - users
