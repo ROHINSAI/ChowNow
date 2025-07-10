@@ -24,9 +24,7 @@ const RestaurantCarousel = ({ title }) => {
 
   return (
     <div className="mt-8 ">
-      <h2 className="text-2xl font-bold text-white mb-4">
-        {title}
-      </h2>
+      <h2 className="text-2xl font-bold text-white mb-4">{title}</h2>
       <div
         className={
           title === "All Restaurants"

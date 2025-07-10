@@ -3,6 +3,7 @@ import RoundedButton from "./Button";
 import SearchBar from "./Searchbar";
 import { useLocation, useNavigate } from "react-router-dom";
 import { logout } from "./authSlice";
+import { fetchUserProfile } from "./authSlice";
 
 function Header() {
   const location = useLocation();
@@ -24,6 +25,14 @@ function Header() {
       navigate("/signin");
     } catch (error) {
       console.error(error);
+    }
+  };
+  const handleProfileClick = async () => {
+    try {
+      await dispatch(fetchUserProfile());
+      navigate("/user");
+    } catch (err) {
+      console.error("Failed to fetch user profile:", err);
     }
   };
 
