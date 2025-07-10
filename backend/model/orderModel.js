@@ -17,6 +17,7 @@ const orderSchema = new mongoose.Schema({
       name: String,
       photo: String,
       quantity: Number,
+      price: Number,
     },
   ],
   orderDate: { type: Date, default: Date.now },

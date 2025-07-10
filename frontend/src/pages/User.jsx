@@ -4,6 +4,7 @@ import Modal from "../components/Modal";
 import { useSelector, useDispatch } from "react-redux";
 import { setCredentials } from "../components/authSlice";
 import { fetchUserProfile } from "../components/authSlice";
+import RoundedButton from "../components/Button";
 
 const User = () => {
   const dispatch = useDispatch();
@@ -18,6 +19,25 @@ const User = () => {
 
     loadProfile();
   }, [dispatch]);
+
+  const [orders, setOrders] = useState([]);
+
+  useEffect(() => {
+    const fetchOrders = async () => {
+      try {
+        const res = await fetch("http://localhost:3000/api/orders/myorders", {
+          credentials: "include",
+        });
+        if (!res.ok) throw new Error("Failed to fetch orders");
+        const data = await res.json();
+        setOrders(data.reverse()); // latest first
+      } catch (err) {
+        console.error(err);
+      }
+    };
+
+    fetchOrders();
+  }, []);
   const { userInfo } = useSelector((state) => state.auth);
   const navigate = useNavigate();
 
@@ -109,11 +129,14 @@ const User = () => {
 
   return (
     <div className="min-h-screen bg-[#1c0f0f] text-white p-6 space-y-8 w-full mx-auto rounded-lg">
-      <div>
-        <h2 className="text-3xl font-bold">Account</h2>
-        <p className="text-sm text-gray-400 mt-1">
-          Manage your account settings and preferences
-        </p>
+      <div className="flex">
+        <div>
+          <h2 className="text-3xl font-bold ">Account</h2>
+          <p className="text-sm text-gray-400 mt-1">
+            Manage your account settings and preferences
+          </p>
+        </div>
+        <RoundedButton text={"Dashboard"} to={"/userDashboard"} />
       </div>
 
       <div className="space-y-4 p-4  rounded-lg shadow-md">
@@ -193,6 +216,49 @@ const User = () => {
             />
           )}
         </div>
+      </div>
+      {/* Order History */}
+      <div className="space-y-3 p-4 rounded-lg shadow-md">
+        <h3 className="text-xl font-semibold mb-4">Order History</h3>
+        {orders.length === 0 ? (
+          <p className="text-gray-400">No recent orders.</p>
+        ) : (
+          <div className="space-y-4">
+            {orders.slice(0, 2).map((order) => (
+              <div
+                key={order._id}
+                className="flex items-center justify-between"
+              >
+                <div className="flex items-center gap-4">
+                  <img
+                    src={order.items[0]?.photo || "/default-food.jpg"}
+                    alt="Food"
+                    className="w-14 h-14 object-cover rounded-md"
+                  />
+                  <div>
+                    <p className="font-semibold">
+                      {typeof order.restaurant === "object"
+                        ? order.restaurant?.name
+                        : order.restaurant}
+                    </p>
+                    <p className="text-sm text-gray-400">
+                      Order #{order._id.slice(-8)}
+                    </p>
+                  </div>
+                </div>
+                <button className="bg-[#5e2e2e] text-white px-4 py-1 rounded-full hover:bg-red-700">
+                  Reorder
+                </button>
+              </div>
+            ))}
+            <div
+              className="text-right text-sm text-red-400 mt-2 hover:underline cursor-pointer"
+              onClick={() => navigate("/orderhistory")}
+            >
+              See All →
+            </div>
+          </div>
+        )}
       </div>
 
       <div className="space-y-3 p-4 rounded-lg shadow-md">

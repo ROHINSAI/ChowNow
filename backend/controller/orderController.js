@@ -34,5 +34,32 @@ const getMyOrders = async (req, res) => {
     res.status(500).json({ message: "Failed to fetch orders" });
   }
 };
+// GET /api/orders/analytics
+const getOrderAnalytics = async (req, res) => {
+  try {
+    const userId = req.user._id;
 
-module.exports = { createOrder, getMyOrders };
+    const orders = await Order.find({ user: userId });
+
+    const numberOfOrders = orders.length;
+    const moneySpent = orders.reduce((sum, order) => {
+      const total = order.items.reduce(
+        (acc, item) => acc + item.quantity * item.price,
+        0
+      );
+      return sum + total;
+    }, 0);
+    const uniqueRestaurants = new Set(orders.map((o) => o.restaurant)).size;
+
+    res.json({
+      numberOfOrders,
+      moneySpent,
+      uniqueRestaurants,
+    });
+  } catch (err) {
+    console.error("Analytics fetch error:", err);
+    res.status(500).json({ message: "Failed to fetch analytics" });
+  }
+};
+
+module.exports = { createOrder, getMyOrders, getOrderAnalytics };

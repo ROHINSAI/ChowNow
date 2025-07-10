@@ -12,13 +12,13 @@
 
 - Favorites for Restaurants
 
-- Order History -> Schema Changes, - done, in order.jsx it renders all orders but displays only latest one
+- Order History -> Schema Changes, - done reorder functionality balance
 
-'/user' UI changes,
+'/user' UI changes, - done
 
 Rating + Review
 
-- Order Analytics -> Total Orders, Total expenditure
+- Order Analytics -> Total Orders, Total expenditure - total orders done
 
 - Dummy Order - done
 

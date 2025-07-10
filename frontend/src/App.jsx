@@ -1,9 +1,5 @@
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import AppLayout from "./layouts/AppLayout";
 import PrivateRoute from "./components/PrivateRoute";
 import { Toaster } from "react-hot-toast";
@@ -15,6 +11,8 @@ import User from "./pages/User";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import Order from "./pages/Order";
+import OrderHistory from "./pages/OrderHistory";
+import UserDashboard from "./pages/UserDashboard";
 
 const App = () => {
   return (
@@ -29,7 +27,9 @@ const App = () => {
           <Route element={<PrivateRoute />}>
             <Route path="/cart" element={<Cart />} />
             <Route path="/user" element={<User />} />
+            <Route path="/userDashboard" element={<UserDashboard />} />
             <Route path="/Order" element={<Order />} />
+            <Route path="/orderhistory" element={<OrderHistory />} />
           </Route>
         </Route>
       </Routes>
