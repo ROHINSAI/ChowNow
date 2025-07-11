@@ -103,3 +103,4 @@ Rating + Review
 - Info and Reviews from Backend, Added getReviewsRatings controller.
 - Removed setRestaurantId, clearRestaurantId in cartSlide, implemented cannot add cart item when already different restaurant is present.
 - Deleted cookie on logout
+<!--  -->
