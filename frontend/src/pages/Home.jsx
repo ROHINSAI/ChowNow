@@ -13,9 +13,7 @@ function Home() {
     setSearchTerm(value);
 
     const filtered = restaurantsData.filter((restaurant) =>
-      restaurant.restaurant_name
-        .toLowerCase()
-        .includes(value.toLowerCase())
+      restaurant.name.toLowerCase().includes(value.toLowerCase())
     );
 
     setSearchResults(filtered);

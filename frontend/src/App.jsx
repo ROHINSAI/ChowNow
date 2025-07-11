@@ -16,6 +16,9 @@ import SignUp from "./pages/SignUp";
 import Order from "./pages/Order";
 import OrderHistory from "./pages/OrderHistory";
 import UserDashboard from "./pages/UserDashboard";
+import SignUpOwner from "./pages/SignUpOwner";
+import RestaurantDashboard from "./pages/RestaurantDashboard";
+import AddRestaurant from "./pages/AddRestaurant";
 
 const App = () => {
   return (
@@ -27,6 +30,7 @@ const App = () => {
           <Route path="/menu/:id" element={<Menu />} />
           <Route path="/signin" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />
+          <Route path="/signupowner" element={<SignUpOwner />} />
           <Route element={<PrivateRoute />}>
             <Route path="/cart" element={<Cart />} />
             <Route path="/user" element={<User />} />
@@ -38,6 +42,14 @@ const App = () => {
             <Route
               path="/orderhistory"
               element={<OrderHistory />}
+            />
+            <Route
+              path="/restaurant-dashboard"
+              element={<RestaurantDashboard />}
+            />
+            <Route
+              path="/add-restaurant"
+              element={<AddRestaurant />}
             />
           </Route>
         </Route>

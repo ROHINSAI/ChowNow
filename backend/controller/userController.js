@@ -7,7 +7,8 @@ const jwt = require("jsonwebtoken");
 // @route   POST /api/users
 // @access  Public
 const registerUser = async (req, res) => {
-  const { name, email, password, address, photo } = req.body;
+  const { name, email, password, address, photo, role } =
+    req.body;
 
   try {
     const userExists = await User.findOne({ email });
@@ -24,6 +25,7 @@ const registerUser = async (req, res) => {
       password,
       address,
       photo,
+      role: role || "user", // default to 'user' if not specified
     });
 
     if (user) {
@@ -33,6 +35,9 @@ const registerUser = async (req, res) => {
         name: user.name,
         email: user.email,
         address: user.address,
+        phone: user.phone,
+        role: user.role,
+        restaurantOwned: user.restaurantOwned || null,
         photo: user.displayPhotoUrl, // virtual fallback avatar if missing
       });
     } else {
@@ -68,6 +73,10 @@ const loginUser = async (req, res) => {
         email: user.email,
         address: user.address,
         photo: user.displayPhotoUrl, // virtual fallback avatar if missing
+        phone: user.phone,
+        role: user.role,
+        restaurantOwned: user.restaurantOwned || null,
+        createdAt: user.createdAt,
       });
     } else {
       return res
@@ -135,6 +144,9 @@ const updateUserProfile = async (req, res) => {
       phone: updatedUser.phone,
       address: updatedUser.address,
       photo: updatedUser.photo,
+      role: updatedUser.role,
+      restaurantOwned: updatedUser.restaurantOwned || null,
+      createdAt: updatedUser.createdAt,
     });
   } else {
     return res.status(404).json({ message: "User not found" });

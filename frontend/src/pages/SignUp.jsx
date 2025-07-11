@@ -149,6 +149,15 @@ const SignUp = () => {
           Sign In
         </Link>
       </p>
+      <p className="mt-6 text-center text-gray-400">
+        Sign Up as Restaurant Owner?{" "}
+        <Link
+          to="/signupowner"
+          className="font-medium text-blue-500 hover:text-blue-400"
+        >
+          Owner Sign Up
+        </Link>
+      </p>
     </div>
   );
 };
