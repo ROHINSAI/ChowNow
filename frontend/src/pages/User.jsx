@@ -2,8 +2,10 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Modal from "../components/Modal";
 import { useSelector, useDispatch } from "react-redux";
-import { setCredentials } from "../components/authSlice";
-import { fetchUserProfile } from "../components/authSlice";
+import {
+  fetchUserProfile,
+  setCredentials,
+} from "../store/authSlice";
 import RoundedButton from "../components/Button";
 
 const User = () => {
@@ -25,9 +27,12 @@ const User = () => {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const res = await fetch("http://localhost:3000/api/orders/myorders", {
-          credentials: "include",
-        });
+        const res = await fetch(
+          "http://localhost:3000/api/orders/myorders",
+          {
+            credentials: "include",
+          }
+        );
         if (!res.ok) throw new Error("Failed to fetch orders");
         const data = await res.json();
         setOrders(data.reverse()); // latest first
@@ -45,10 +50,12 @@ const User = () => {
   const [isNameSubmitted, setIsNameSubmitted] = useState(false);
 
   const [phone, setPhone] = useState("");
-  const [isPhoneSubmitted, setIsPhoneSubmitted] = useState(false);
+  const [isPhoneSubmitted, setIsPhoneSubmitted] =
+    useState(false);
 
   const [email, setEmail] = useState("");
-  const [isEmailSubmitted, setIsEmailSubmitted] = useState(false);
+  const [isEmailSubmitted, setIsEmailSubmitted] =
+    useState(false);
 
   const [originalUser, setOriginalUser] = useState(null);
   const [showModal, setShowModal] = useState(false);
@@ -77,16 +84,20 @@ const User = () => {
   // Update profile on server
   const updateProfile = async () => {
     try {
-      const response = await fetch("http://localhost:3000/api/users/profile", {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        credentials: "include",
-        body: JSON.stringify({ name, phone, email }),
-      });
+      const response = await fetch(
+        "http://localhost:3000/api/users/profile",
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          credentials: "include",
+          body: JSON.stringify({ name, phone, email }),
+        }
+      );
 
-      if (!response.ok) throw new Error("Failed to update profile");
+      if (!response.ok)
+        throw new Error("Failed to update profile");
 
       const updatedData = await response.json();
       dispatch(setCredentials(updatedData));
@@ -99,13 +110,16 @@ const User = () => {
 
   // Handlers (Enter key to save)
   const handleNameSubmit = (e) => {
-    if (e.key === "Enter" && name.trim()) setIsNameSubmitted(true);
+    if (e.key === "Enter" && name.trim())
+      setIsNameSubmitted(true);
   };
   const handlePhoneSubmit = (e) => {
-    if (e.key === "Enter" && phone.trim()) setIsPhoneSubmitted(true);
+    if (e.key === "Enter" && phone.trim())
+      setIsPhoneSubmitted(true);
   };
   const handleEmailSubmit = (e) => {
-    if (e.key === "Enter" && email.trim()) setIsEmailSubmitted(true);
+    if (e.key === "Enter" && email.trim())
+      setIsEmailSubmitted(true);
   };
 
   // Edit mode
@@ -118,14 +132,25 @@ const User = () => {
     const handleBeforeUnload = () => {
       if (originalUser) {
         if (!isNameSubmitted) setName(originalUser.name || "");
-        if (!isPhoneSubmitted) setPhone(originalUser.phone || "");
-        if (!isEmailSubmitted) setEmail(originalUser.email || "");
+        if (!isPhoneSubmitted)
+          setPhone(originalUser.phone || "");
+        if (!isEmailSubmitted)
+          setEmail(originalUser.email || "");
       }
     };
 
     window.addEventListener("beforeunload", handleBeforeUnload);
-    return () => window.removeEventListener("beforeunload", handleBeforeUnload);
-  }, [isNameSubmitted, isPhoneSubmitted, isEmailSubmitted, originalUser]);
+    return () =>
+      window.removeEventListener(
+        "beforeunload",
+        handleBeforeUnload
+      );
+  }, [
+    isNameSubmitted,
+    isPhoneSubmitted,
+    isEmailSubmitted,
+    originalUser,
+  ]);
 
   return (
     <div className="min-h-screen bg-[#1c0f0f] text-white p-6 space-y-8 w-full mx-auto rounded-lg">
@@ -136,11 +161,16 @@ const User = () => {
             Manage your account settings and preferences
           </p>
         </div>
-        <RoundedButton text={"Dashboard"} to={"/userDashboard"} />
+        <RoundedButton
+          text={"Dashboard"}
+          to={"/userDashboard"}
+        />
       </div>
 
       <div className="space-y-4 p-4  rounded-lg shadow-md">
-        <h3 className="text-xl font-semibold">Personal Information</h3>
+        <h3 className="text-xl font-semibold">
+          Personal Information
+        </h3>
 
         {/* Name */}
         <div>
@@ -172,7 +202,9 @@ const User = () => {
           <label className="block text-sm">Phone</label>
           {isPhoneSubmitted ? (
             <div className=" w-1/2 mt-1 flex items-center justify-between bg-[#3b1f1f] border border-[#5e2e2e] rounded-full px-4 py-2">
-              <span className="text-lg font-medium">{phone}</span>
+              <span className="text-lg font-medium">
+                {phone}
+              </span>
               <button
                 onClick={handleEditPhone}
                 className="ml-4 px-3 py-1 bg-red-600 hover:bg-red-700 text-white rounded-md text-sm transition duration-300 ease-in-out mr-4"
@@ -197,7 +229,9 @@ const User = () => {
           <label className="block text-sm">Email</label>
           {isEmailSubmitted ? (
             <div className="w-1/2 mt-1 flex items-center justify-between bg-[#3b1f1f] border border-[#5e2e2e] rounded-full px-4 py-2">
-              <span className="text-lg font-medium">{email}</span>
+              <span className="text-lg font-medium">
+                {email}
+              </span>
               <button
                 onClick={handleEditEmail}
                 className="ml-4 px-3 py-1 bg-red-600 hover:bg-red-700 text-white rounded-md text-sm transition duration-300 ease-in-out mr-4"
@@ -219,7 +253,9 @@ const User = () => {
       </div>
       {/* Order History */}
       <div className="space-y-3 p-4 rounded-lg shadow-md">
-        <h3 className="text-xl font-semibold mb-4">Order History</h3>
+        <h3 className="text-xl font-semibold mb-4">
+          Order History
+        </h3>
         {orders.length === 0 ? (
           <p className="text-gray-400">No recent orders.</p>
         ) : (
@@ -231,7 +267,10 @@ const User = () => {
               >
                 <div className="flex items-center gap-4">
                   <img
-                    src={order.items[0]?.photo || "/default-food.jpg"}
+                    src={
+                      order.items[0]?.photo ||
+                      "/default-food.jpg"
+                    }
                     alt="Food"
                     className="w-14 h-14 object-cover rounded-md"
                   />
@@ -284,13 +323,17 @@ const User = () => {
       </div>
 
       <div className="space-y-3 p-4  rounded-lg shadow-md">
-        <h3 className="text-xl font-semibold">Payment Methods</h3>
+        <h3 className="text-xl font-semibold">
+          Payment Methods
+        </h3>
         <div className="p-3 bg-[#3b1f1f] rounded-full w-1/2">
           💳 Visa ending in 1234
         </div>
       </div>
 
-      {showModal && <Modal onClose={() => setShowModal(false)} />}
+      {showModal && (
+        <Modal onClose={() => setShowModal(false)} />
+      )}
 
       <div className="w-1/2 mt-6">
         <button

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { setCredentials } from "../components/authSlice";
+import { setCredentials } from "../store/authSlice";
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
@@ -14,14 +14,17 @@ const SignIn = () => {
   const handleSignIn = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch("http://localhost:3000/api/users/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        credentials: "include",
-        body: JSON.stringify({ email, password }),
-      });
+      const res = await fetch(
+        "http://localhost:3000/api/users/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          credentials: "include",
+          body: JSON.stringify({ email, password }),
+        }
+      );
       const data = await res.json();
       if (res.ok) {
         dispatch(setCredentials(data));
@@ -37,8 +40,13 @@ const SignIn = () => {
 
   return (
     <div className="flex-1 flex flex-col items-center justify-center bg-[#1a0f0f] text-white">
-      <form onSubmit={handleSignIn} className="w-full max-w-sm space-y-6">
-        <h2 className="text-2xl font-bold text-center">Welcome back</h2>
+      <form
+        onSubmit={handleSignIn}
+        className="w-full max-w-sm space-y-6"
+      >
+        <h2 className="text-2xl font-bold text-center">
+          Welcome back
+        </h2>
 
         <div>
           <label className="block text-sm">Email</label>
@@ -62,7 +70,9 @@ const SignIn = () => {
           />
         </div>
 
-        {error && <p className="text-red-500 text-sm">{error}</p>}
+        {error && (
+          <p className="text-red-500 text-sm">{error}</p>
+        )}
 
         <button
           type="submit"

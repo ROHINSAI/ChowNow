@@ -12,7 +12,9 @@ const registerUser = async (req, res) => {
     const userExists = await User.findOne({ email });
 
     if (userExists) {
-      return res.status(400).json({ message: "User already exists" });
+      return res
+        .status(400)
+        .json({ message: "User already exists" });
     }
 
     const user = await User.create({
@@ -25,7 +27,7 @@ const registerUser = async (req, res) => {
 
     if (user) {
       generateToken(res, user._id);
-      res.status(201).json({
+      return res.status(201).json({
         _id: user._id,
         name: user.name,
         email: user.email,
@@ -33,10 +35,14 @@ const registerUser = async (req, res) => {
         photo: user.displayPhotoUrl, // virtual fallback avatar if missing
       });
     } else {
-      res.status(400).json({ message: "Invalid user data" });
+      return res
+        .status(400)
+        .json({ message: "Invalid user data" });
     }
   } catch (error) {
-    res.status(500).json({ message: "Server error", error: error.message });
+    return res
+      .status(500)
+      .json({ message: "Server error", error: error.message });
   }
 };
 
@@ -48,10 +54,14 @@ const loginUser = async (req, res) => {
 
   try {
     const user = await User.findOne({ email });
+    const passwordMatch = await bcrypt.compare(
+      password,
+      user.password
+    );
 
-    if (user && (await bcrypt.compare(password, user.password))) {
+    if (user && passwordMatch) {
       generateToken(res, user._id);
-      res.json({
+      return res.json({
         _id: user._id,
         name: user.name,
         email: user.email,
@@ -59,10 +69,14 @@ const loginUser = async (req, res) => {
         photo: user.displayPhotoUrl, // virtual fallback avatar if missing
       });
     } else {
-      res.status(401).json({ message: "Invalid email or password" });
+      return res
+        .status(401)
+        .json({ message: "Invalid email or password" });
     }
   } catch (error) {
-    res.status(500).json({ message: "Server error", error: error.message });
+    return res
+      .status(500)
+      .json({ message: "Server error", error: error.message });
   }
 };
 
@@ -74,14 +88,19 @@ const logoutUser = (req, res) => {
     httpOnly: true,
     expires: new Date(0),
   });
-  res.status(200).json({ message: "Logged out successfully" });
+  return res
+    .status(200)
+    .json({ message: "Logged out successfully" });
 };
 
+// @desc    Get user profile
+// @route   GET /api/users/profile
+// @access  Private
 const getUserProfile = async (req, res) => {
   const user = req.user;
 
   if (user) {
-    res.json({
+    return res.json({
       _id: user._id,
       name: user.name,
       email: user.email,
@@ -96,6 +115,7 @@ const getUserProfile = async (req, res) => {
     res.status(404).json({ message: "User not found" });
   }
 };
+
 const updateUserProfile = async (req, res) => {
   const user = await User.findById(req.user._id);
 
@@ -106,7 +126,7 @@ const updateUserProfile = async (req, res) => {
 
     const updatedUser = await user.save();
 
-    res.json({
+    return res.json({
       _id: updatedUser._id,
       name: updatedUser.name,
       email: updatedUser.email,
@@ -115,7 +135,7 @@ const updateUserProfile = async (req, res) => {
       photo: updatedUser.photo,
     });
   } else {
-    res.status(404).json({ message: "User not found" });
+    return res.status(404).json({ message: "User not found" });
   }
 };
 

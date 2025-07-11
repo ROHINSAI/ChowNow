@@ -13,10 +13,16 @@ const cartSlice = createSlice({
       const item = action.payload;
       console.log("Reducer received:", item);
 
-      if (state.restaurantId && state.restaurantId !== item.restaurantId) {
-        // Prevent adding items from a different restaurant
-        return;
-      }
+      // if (
+      //   state.restaurantId &&
+      //   state.restaurantId !== item.restaurantId
+      // ) {
+      //   // Prevent adding items from a different restaurant
+      //   console.log(
+      //     "Cannot add item from a different restaurant"
+      //   );
+      //   return;
+      // }
 
       if (!state.restaurantId) {
         state.restaurantId = item.restaurantId;
@@ -51,7 +57,11 @@ const cartSlice = createSlice({
   },
 });
 
-export const { addToCart, incrementQuantity, decrementQuantity, clearCart } =
-  cartSlice.actions;
+export const {
+  addToCart,
+  incrementQuantity,
+  decrementQuantity,
+  clearCart,
+} = cartSlice.actions;
 
 export default cartSlice.reducer;

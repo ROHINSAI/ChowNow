@@ -10,12 +10,16 @@ export const fetchUserProfile = createAsyncThunk(
   "auth/fetchUserProfile",
   async (_, { rejectWithValue }) => {
     try {
-      const res = await fetch("http://localhost:3000/api/users/profile", {
-        method: "GET",
-        credentials: "include",
-      });
+      const res = await fetch(
+        "http://localhost:3000/api/users/profile",
+        {
+          method: "GET",
+          credentials: "include",
+        }
+      );
 
-      if (!res.ok) throw new Error("Failed to fetch user profile");
+      if (!res.ok)
+        throw new Error("Failed to fetch user profile");
 
       return await res.json();
     } catch (err) {
@@ -30,7 +34,10 @@ const authSlice = createSlice({
   reducers: {
     setCredentials(state, action) {
       state.userInfo = action.payload;
-      localStorage.setItem("userInfo", JSON.stringify(action.payload));
+      localStorage.setItem(
+        "userInfo",
+        JSON.stringify(action.payload)
+      );
     },
     logout(state) {
       state.userInfo = null;

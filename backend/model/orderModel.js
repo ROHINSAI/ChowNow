@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const orderSchema = new mongoose.Schema({
   restaurant: {
-    type: String, // or mongoose.Schema.Types.ObjectId if you switch back later
+    type: mongoose.Schema.Types.ObjectId,
     ref: "Restaurant",
     required: true,
   },
@@ -11,15 +11,17 @@ const orderSchema = new mongoose.Schema({
     ref: "User",
     required: true,
   },
-  items: [
-    {
-      _id: { type: String }, // keep as string if you're using custom IDs
-      name: String,
-      photo: String,
-      quantity: Number,
-      price: Number,
-    },
-  ],
+  items: {
+    type: [
+      {
+        name: String,
+        photo: String,
+        quantity: Number,
+        price: Number,
+      },
+    ],
+    required: true,
+  },
   orderDate: { type: Date, default: Date.now },
 });
 

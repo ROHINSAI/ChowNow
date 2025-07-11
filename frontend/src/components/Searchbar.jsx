@@ -47,7 +47,11 @@ const SearchBar = ({
   );
 
   if (variant === "bar") {
-    return <div className="flex justify-center my-4">{searchInput}</div>;
+    return (
+      <div className="flex justify-center my-4">
+        {searchInput}
+      </div>
+    );
   }
 
   return searchInput;

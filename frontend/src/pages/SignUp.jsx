@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { setCredentials } from "../components/authSlice";
+import { setCredentials } from "../store/authSlice";
 
 const SignUp = () => {
   const [name, setName] = useState("");
@@ -23,20 +23,23 @@ const SignUp = () => {
       return;
     }
     try {
-      const res = await fetch("http://localhost:3000/api/users", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        credentials: "include",
-        body: JSON.stringify({
-          name,
-          email,
-          password,
-          address,
-          photo,
-        }),
-      });
+      const res = await fetch(
+        "http://localhost:3000/api/users",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          credentials: "include",
+          body: JSON.stringify({
+            name,
+            email,
+            password,
+            address,
+            photo,
+          }),
+        }
+      );
       const data = await res.json();
       if (res.ok) {
         dispatch(setCredentials(data));
@@ -52,8 +55,13 @@ const SignUp = () => {
 
   return (
     <div className="flex-1 flex flex-col items-center justify-center bg-[#1a0f0f] text-white">
-      <form onSubmit={handleSignUp} className="w-full max-w-sm space-y-6">
-        <h2 className="text-2xl font-bold text-center">Create Account</h2>
+      <form
+        onSubmit={handleSignUp}
+        className="w-full max-w-sm space-y-6"
+      >
+        <h2 className="text-2xl font-bold text-center">
+          Create Account
+        </h2>
 
         <div>
           <label className="block text-sm">Name</label>
@@ -97,7 +105,9 @@ const SignUp = () => {
         </div>
 
         <div>
-          <label className="block text-sm">Confirm Password</label>
+          <label className="block text-sm">
+            Confirm Password
+          </label>
           <input
             type="password"
             placeholder="Re-enter password"
@@ -107,7 +117,9 @@ const SignUp = () => {
           />
         </div>
         <div>
-          <label className="block text-sm">Photo (Optional)</label>
+          <label className="block text-sm">
+            Photo (Optional)
+          </label>
           <input
             type="Photo"
             placeholder="Enter Image URL"
@@ -117,7 +129,9 @@ const SignUp = () => {
           />
         </div>
 
-        {error && <p className="text-red-500 text-sm">{error}</p>}
+        {error && (
+          <p className="text-red-500 text-sm">{error}</p>
+        )}
 
         <button
           type="submit"

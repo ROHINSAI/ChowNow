@@ -4,6 +4,7 @@ import restaurants from "../data/restaurants.json";
 import MenuComponent from "./MenuComponent";
 import InfoComponent from "./InfoComponent";
 import ReviewsComponent from "./ReviewsComponent";
+
 const RestaurantHeader = () => {
   const [activeTab, setActiveTab] = useState("Menu");
   const tabs = ["Menu", "Info", "Reviews"];
@@ -13,7 +14,9 @@ const RestaurantHeader = () => {
   if (!restaurant) {
     return (
       <div className="py-6 px-4 text-white">
-        <h1 className="text-2xl font-bold">Restaurant not found</h1>
+        <h1 className="text-2xl font-bold">
+          Restaurant not found
+        </h1>
       </div>
     );
   }
@@ -42,9 +45,14 @@ const RestaurantHeader = () => {
 
       <div className="mt-6 text-white">
         {activeTab === "Menu" && (
-          <MenuComponent menu={restaurant.menu} restaurantId={restaurant.id} />
+          <MenuComponent
+            menu={restaurant.menu}
+            restaurantId={restaurant.id}
+          />
         )}
-        {activeTab === "Info" && <InfoComponent info={restaurant.info} />}
+        {activeTab === "Info" && (
+          <InfoComponent info={restaurant.info} />
+        )}
         {activeTab === "Reviews" && (
           <ReviewsComponent reviews={restaurant.reviews} />
         )}

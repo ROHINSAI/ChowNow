@@ -3,10 +3,10 @@ import {
   clearCart,
   incrementQuantity,
   decrementQuantity,
-} from "../components/cartSlice";
+} from "../store/cartSlice";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-import { fetchUserProfile } from "../components/authSlice";
+import { fetchUserProfile } from "../store/authSlice";
 
 const Cart = () => {
   const cartItems = useSelector((state) => state.cart.items);
@@ -31,23 +31,26 @@ const Cart = () => {
     try {
       const restaurantId = items[0]?.restaurantId; // get it from first item
 
-      const response = await fetch("http://localhost:3000/api/orders", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        credentials: "include",
-        body: JSON.stringify({
-          restaurant: restaurantId,
-          items: items.map((item) => ({
-            _id: item._id,
-            name: item.name,
-            photo: item.photo,
-            quantity: item.quantity,
-            price: item.price,
-          })),
-        }),
-      });
+      const response = await fetch(
+        "http://localhost:3000/api/orders",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          credentials: "include",
+          body: JSON.stringify({
+            restaurant: restaurantId,
+            items: items.map((item) => ({
+              _id: item._id,
+              name: item.name,
+              photo: item.photo,
+              quantity: item.quantity,
+              price: item.price,
+            })),
+          }),
+        }
+      );
 
       if (!response.ok) throw new Error("Order creation failed");
 
@@ -70,7 +73,13 @@ const Cart = () => {
           viewBox="0 0 64 64"
           className="w-32 h-32 mb-6 text-[#F93838]"
         >
-          <circle cx="32" cy="32" r="30" fill="#F93838" opacity="0.1" />
+          <circle
+            cx="32"
+            cy="32"
+            r="30"
+            fill="#F93838"
+            opacity="0.1"
+          />
           <path
             d="M16 20h2l6 24h20l6-16H22"
             stroke="#F93838"
@@ -114,7 +123,10 @@ const Cart = () => {
       {/* Cart Items */}
       <div className="space-y-6 mb-8">
         {items.map((item) => (
-          <div key={item.id} className="flex items-center justify-between">
+          <div
+            key={item.id}
+            className="flex items-center justify-between"
+          >
             {/* Item Image and Details */}
             <div className="flex items-center space-x-4">
               <img
@@ -126,14 +138,18 @@ const Cart = () => {
                 <p className="text-sm text-white font-medium">
                   {item.quantity}x {item.name}
                 </p>
-                <p className="text-xs text-gray-400">{item.category}</p>
+                <p className="text-xs text-gray-400">
+                  {item.category}
+                </p>
               </div>
             </div>
 
             {/* Quantity Controls */}
             <div className="flex items-center gap-3 bg-[#3c1e1e] rounded-full px-3 py-1.5">
               <button
-                onClick={() => dispatch(decrementQuantity(item.id))}
+                onClick={() =>
+                  dispatch(decrementQuantity(item.id))
+                }
                 className="w-6 h-6 flex items-center justify-center text-white font-bold rounded-full bg-[#5c2e2e]"
               >
                 −
@@ -142,7 +158,9 @@ const Cart = () => {
                 {item.quantity}
               </span>
               <button
-                onClick={() => dispatch(incrementQuantity(item.id))}
+                onClick={() =>
+                  dispatch(incrementQuantity(item.id))
+                }
                 className="w-6 h-6 flex items-center justify-center text-white font-bold rounded-full bg-[#5c2e2e]"
               >
                 +
@@ -161,13 +179,19 @@ const Cart = () => {
 
       {/* Delivery Details */}
       <div className="mb-8">
-        <h3 className="text-xl font-bold mb-4">Delivery Details</h3>
+        <h3 className="text-xl font-bold mb-4">
+          Delivery Details
+        </h3>
 
         {/* Address */}
         <div className="flex items-center justify-between py-3 border-b border-[#444]">
           <div>
-            <p className="text-sm font-medium">Delivery Address</p>
-            <p className="text-xs text-gray-400">{userInfo.address}</p>
+            <p className="text-sm font-medium">
+              Delivery Address
+            </p>
+            <p className="text-xs text-gray-400">
+              {userInfo.address}
+            </p>
           </div>
           <span className="text-gray-400">›</span>
         </div>
@@ -184,7 +208,9 @@ const Cart = () => {
         {/* Delivery Fee */}
         <div className="flex items-center justify-between py-3">
           <p className="text-sm font-medium">Delivery Fee</p>
-          <p className="text-sm font-medium">₹{deliveryFee.toFixed(2)}</p>
+          <p className="text-sm font-medium">
+            ₹{deliveryFee.toFixed(2)}
+          </p>
         </div>
       </div>
 

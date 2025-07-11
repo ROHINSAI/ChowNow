@@ -2,8 +2,8 @@ import { useSelector, useDispatch } from "react-redux";
 import RoundedButton from "./Button";
 import SearchBar from "./Searchbar";
 import { useLocation, useNavigate } from "react-router-dom";
-import { logout } from "./authSlice";
-import { fetchUserProfile } from "./authSlice";
+import { logout } from "../store/authSlice"; // Adjust the import path as necessary
+import { fetchUserProfile } from "../store/authSlice"; // Adjust the import path as necessary
 
 function Header() {
   const location = useLocation();
@@ -62,7 +62,10 @@ function Header() {
                   className="w-10 h-10 rounded-full object-cover"
                   onClick={handleProfileClick}
                 />
-                <button onClick={logoutHandler} className="text-white">
+                <button
+                  onClick={logoutHandler}
+                  className="text-white"
+                >
                   Logout
                 </button>
               </div>

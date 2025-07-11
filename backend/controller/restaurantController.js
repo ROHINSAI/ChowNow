@@ -2,13 +2,31 @@ const Restaurant = require("../model/restaurantModel");
 
 const getAllRestaurants = async (req, res) => {
   try {
-    const restaurants = await Restaurant.find({});
-    res.status(200).json(restaurants);
+    const restaurants = await Restaurant.find({}).lean();
+    return res.status(200).json(restaurants);
   } catch (error) {
-    res.status(500).json({ message: "Server error" });
+    console.error("Error fetching restaurants:", error);
+    return res.status(500).json({ message: "Server error" });
+  }
+};
+
+const getRestaurantById = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const restaurant = await Restaurant.findById(id).lean();
+    if (!restaurant) {
+      return res
+        .status(404)
+        .json({ message: "Restaurant not found" });
+    }
+    return res.status(200).json(restaurant);
+  } catch (error) {
+    console.error("Error fetching restaurant:", error);
+    return res.status(500).json({ message: "Server error" });
   }
 };
 
 module.exports = {
   getAllRestaurants,
+  getRestaurantById,
 };

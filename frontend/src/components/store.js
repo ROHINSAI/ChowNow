@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
-import cartReducer from "./cartSlice";
-import authReducer from "./authSlice";
+import cartReducer from "../store/cartSlice";
+import authReducer from "../store/authSlice";
 
 // Load from localStorage
 const loadState = () => {

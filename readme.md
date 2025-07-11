@@ -68,3 +68,20 @@ Rating + Review
   - item-id
   - string
   - created-At
+
+## Changes on 11 July Morning by Lokesh
+
+- Seperated Slices and made them js file and moved them into store folder
+- Commented Same Restaurant items cart adding because there is some logical error, will check later.
+- orderModel.js -> Changed restaurant to ObjectID, removed \_id in items array, because it is auto generated in orderModel
+- restaurantModel.js -> Removed \_id in restaurant, because it's not dynamic in nature, id it's a string, we should use uuid(), which is overhead
+- userModel.js -> Added Favorite Restaurants in UserModel
+- authMiddleware.js -> Removed Console.log in authMiddleware.js
+- generateToken.js -> Made SameSite "Strict" in generateToken, added proxy in frontend to only `/api` routes as solution.
+- userController.js -> Made a passwordMatch variable in userController.loginUser because I have OCD in Coding, added return for all res for the same reason
+- restaurantController.js -> Added `.lean()` in getAllRestaurants because it's directly sent as json, added console.log when an error comes, added return keyword, added getRestaurant by Id
+- restaurantRoutes.js -> Added route for one restaurant
+- orderController.js -> Added `.lean()` in getMyOrders because it's directly sent as json, populated restaurant name, location, description, pictures, contact to display in frontend
+- orderRoutes.js -> If I had too much OCD i would have added `router.use(protect)` and removed protect in each route, but I didn't
+- /backend/readme.md -> Made gpt to add the documentation for routes
+- That summarizes changes in backend, now we will move to frontend :\)

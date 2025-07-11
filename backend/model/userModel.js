@@ -21,15 +21,26 @@ const userSchema = new mongoose.Schema({
     required: true,
     minlength: 6,
   },
-
+  favoriteRestaurants: {
+    type: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Restaurant",
+      },
+    ],
+    default: [],
+  },
   phone: { type: String, default: null },
   address: { type: String, default: null },
-  ordersHistory: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Order",
-    },
-  ],
+  ordersHistory: {
+    type: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Order",
+      },
+    ],
+    default: [],
+  },
   role: {
     type: String,
     enum: ["user", "admin", "owner"],
