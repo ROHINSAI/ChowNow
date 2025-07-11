@@ -44,10 +44,10 @@ const getOrderAnalytics = async (req, res) => {
     const numberOfOrders = orders.length;
     const moneySpent = orders.reduce((sum, order) => {
       const total = order.items.reduce(
-        (acc, item) => acc + item.quantity * item.price,
+        (acc, item) => acc + (item.price || 0) * (item.quantity || 1), // ✅ fallback
         0
       );
-      return sum + total;
+      return sum + total + numberOfOrders * 30;
     }, 0);
     const uniqueRestaurants = new Set(orders.map((o) => o.restaurant)).size;
 

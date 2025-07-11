@@ -44,6 +44,7 @@ const Cart = () => {
             name: item.name,
             photo: item.photo,
             quantity: item.quantity,
+            price: item.price,
           })),
         }),
       });
