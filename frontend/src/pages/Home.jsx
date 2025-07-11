@@ -22,9 +22,7 @@ function Home() {
   useEffect(() => {
     const fetchRestaurants = async () => {
       try {
-        const response = await fetch(
-          "http://localhost:3000/api/restaurants"
-        );
+        const response = await fetch("http://localhost:3000/api/restaurants");
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
