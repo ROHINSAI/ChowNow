@@ -4,26 +4,45 @@ import {
   incrementQuantity,
   decrementQuantity,
 } from "../store/cartSlice";
+import toast from "react-hot-toast";
 
 function MenuComponent({ menu, restaurantId }) {
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cart.items);
+  const userInfo = useSelector((state) => state.auth.userInfo);
+
+  const handleAddtoCart = (item) => {
+    if (!userInfo) {
+      toast.error("Please login to add items to cart");
+      return;
+    }
+    try {
+      dispatch(
+        addToCart({ item: item, restaurantId: restaurantId })
+      );
+    } catch (error) {
+      toast.error(error.message);
+      return;
+    }
+  };
 
   return (
     <div className="bg-[#1C1C1C] text-white p-6 min-h-screen">
       <div className="max-w-4xl mx-auto">
-        {Object.entries(menu).map(([category, items]) => (
-          <div key={category} className="mb-8">
+        {menu.map((categories) => (
+          <div key={categories.cuisine} className="mb-8">
             <h2 className="text-2xl font-bold mb-4 capitalize">
-              {category}
+              {categories.cuisine}
             </h2>
 
-            {items.map((item) => {
-              const inCart = cartItems[item.id];
+            {categories.items.map((item) => {
+              const inCart = cartItems.find(
+                (cartItem) => cartItem._id === item._id
+              );
 
               return (
                 <div
-                  key={item.id}
+                  key={item._id}
                   className="flex items-center justify-between mb-6"
                 >
                   <div className="flex-1 pr-4">
@@ -32,8 +51,7 @@ function MenuComponent({ menu, restaurantId }) {
                         {item.name}
                       </p>
                       <span className="ml-2 text-sm text-gray-400">
-                        {item.avg_rating.toFixed(1)} (
-                        {item.no_of_ratings} ratings)
+                        {/* {item.avg_rating.toFixed(1)} ({item.no_of_ratings} ratings) */}
                       </span>
                     </div>
                     <p className="text-gray-400 text-sm mb-2">
@@ -46,18 +64,7 @@ function MenuComponent({ menu, restaurantId }) {
 
                       {!inCart ? (
                         <button
-                          onClick={() => {
-                            console.log("Dispatching item:", {
-                              ...item,
-                              restaurantId,
-                            });
-                            dispatch(
-                              addToCart({
-                                ...item,
-                                restaurantId,
-                              })
-                            );
-                          }}
+                          onClick={() => handleAddtoCart(item)}
                           className="bg-[#884040] text-white text-sm font-semibold px-4 py-2 rounded-xl"
                         >
                           Add to Cart
@@ -67,18 +74,18 @@ function MenuComponent({ menu, restaurantId }) {
                           <button
                             onClick={() =>
                               dispatch(
-                                decrementQuantity(item.id)
+                                decrementQuantity(item._id)
                               )
                             }
                             className="px-2 text-lg font-bold"
                           >
-                            –
+                            -
                           </button>
                           <span>{inCart.quantity}</span>
                           <button
                             onClick={() =>
                               dispatch(
-                                incrementQuantity(item.id)
+                                incrementQuantity(item._id)
                               )
                             }
                             className="px-2 text-lg font-bold"
@@ -92,7 +99,7 @@ function MenuComponent({ menu, restaurantId }) {
 
                   <div className="w-24 h-24 flex-shrink-0">
                     <img
-                      src={item.photo}
+                      src={item.picture}
                       alt={item.name || "menu item"}
                       className="w-full h-full object-cover rounded-md"
                     />

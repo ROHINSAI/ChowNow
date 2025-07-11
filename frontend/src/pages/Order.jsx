@@ -6,9 +6,12 @@ const Order = () => {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const res = await fetch("http://localhost:3000/api/orders/myorders", {
-          credentials: "include",
-        });
+        const res = await fetch(
+          "http://localhost:3000/api/orders/myorders",
+          {
+            credentials: "include",
+          }
+        );
 
         if (!res.ok) throw new Error("Failed to fetch orders");
         const data = await res.json();
@@ -43,9 +46,9 @@ const Order = () => {
             {latestOrder.items.map((item, i) => (
               <li key={i}>
                 {item.name || "Item"} × {item.quantity || 1}
-                {item.photo && (
+                {item.picture && (
                   <img
-                    src={item.photo}
+                    src={item.picture}
                     alt={item.name}
                     className="w-10 h-10 inline ml-2 rounded"
                   />
@@ -54,7 +57,8 @@ const Order = () => {
             ))}
           </ul>
           <p className="text-sm text-gray-400 mt-2">
-            Ordered at: {new Date(latestOrder.orderDate).toLocaleString()}
+            Ordered at:{" "}
+            {new Date(latestOrder.orderDate).toLocaleString()}
           </p>
         </div>
       )}

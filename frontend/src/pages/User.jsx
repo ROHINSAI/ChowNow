@@ -2,25 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Modal from "../components/Modal";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  fetchUserProfile,
-  setCredentials,
-} from "../store/authSlice";
+import { setCredentials } from "../store/authSlice";
 import RoundedButton from "../components/Button";
 
 const User = () => {
   const dispatch = useDispatch();
-  useEffect(() => {
-    const loadProfile = async () => {
-      try {
-        await dispatch(fetchUserProfile());
-      } catch (err) {
-        console.error("Failed to fetch user profile:", err);
-      }
-    };
-
-    loadProfile();
-  }, [dispatch]);
 
   const [orders, setOrders] = useState([]);
 
@@ -268,7 +254,7 @@ const User = () => {
                 <div className="flex items-center gap-4">
                   <img
                     src={
-                      order.items[0]?.photo ||
+                      order.items[0]?.picture ||
                       "/default-food.jpg"
                     }
                     alt="Food"

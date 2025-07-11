@@ -36,6 +36,23 @@
   - Success: Confirmation message
   - Error: Error message
 
+#### 4. Get User
+
+- **Endpoint:** `GET /profile`
+- **Description:** Get User profile from cookies.
+- **Request Body:** None
+- **Response:**
+  - JSON: user details
+  - Error: Error message
+
+#### 5. Update User
+
+- **Endpoint:** `PUT /profile`
+- **Description:** update user profile.
+- **Request Body:** Fill cheyali
+- **Response:**
+  - Fill Cheyali
+
 ---
 
 ## Restaurant Routes

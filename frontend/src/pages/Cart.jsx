@@ -5,31 +5,15 @@ import {
   decrementQuantity,
 } from "../store/cartSlice";
 import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
-import { fetchUserProfile } from "../store/authSlice";
 
 const Cart = () => {
-  const cartItems = useSelector((state) => state.cart.items);
-  const items = Object.values(cartItems);
-  console.log(cartItems);
+  const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const loadProfile = async () => {
-      try {
-        await dispatch(fetchUserProfile());
-      } catch (err) {
-        console.error("Failed to fetch user profile:", err);
-      }
-    };
-
-    loadProfile();
-  }, [dispatch]);
-
   const handleClick = async () => {
     try {
-      const restaurantId = items[0]?.restaurantId; // get it from first item
+      const restaurantId = cart.restaurantId; // get it from first item
 
       const response = await fetch(
         "http://localhost:3000/api/orders",
@@ -41,10 +25,10 @@ const Cart = () => {
           credentials: "include",
           body: JSON.stringify({
             restaurant: restaurantId,
-            items: items.map((item) => ({
+            items: cart.items.map((item) => ({
               _id: item._id,
               name: item.name,
-              photo: item.photo,
+              picture: item.picture,
               quantity: item.quantity,
               price: item.price,
             })),
@@ -64,7 +48,7 @@ const Cart = () => {
   };
   const { userInfo } = useSelector((state) => state.auth);
 
-  if (items.length === 0) {
+  if (cart.items.length === 0) {
     return (
       <div className="flex flex-col flex-1 items-center justify-center bg-[#1a0f0f]">
         <svg
@@ -102,7 +86,7 @@ const Cart = () => {
   }
 
   // Calculate subtotal
-  const subtotal = items.reduce(
+  const subtotal = cart.items.reduce(
     (total, item) => total + item.price * item.quantity,
     0
   );
@@ -122,25 +106,23 @@ const Cart = () => {
 
       {/* Cart Items */}
       <div className="space-y-6 mb-8">
-        {items.map((item) => (
+        {cart.items.map((item) => (
           <div
-            key={item.id}
+            key={item._id}
             className="flex items-center justify-between"
           >
             {/* Item Image and Details */}
             <div className="flex items-center space-x-4">
               <img
-                src={item.photo}
+                src={item.picture}
                 alt={item.name}
                 className="w-14 h-14 object-cover rounded-md"
               />
               <div>
                 <p className="text-sm text-white font-medium">
-                  {item.quantity}x {item.name}
+                  {item.quantity} x {item.name}
                 </p>
-                <p className="text-xs text-gray-400">
-                  {item.category}
-                </p>
+                <p className="text-xs text-gray-400">Starter</p>
               </div>
             </div>
 
@@ -148,7 +130,7 @@ const Cart = () => {
             <div className="flex items-center gap-3 bg-[#3c1e1e] rounded-full px-3 py-1.5">
               <button
                 onClick={() =>
-                  dispatch(decrementQuantity(item.id))
+                  dispatch(decrementQuantity(item._id))
                 }
                 className="w-6 h-6 flex items-center justify-center text-white font-bold rounded-full bg-[#5c2e2e]"
               >
@@ -159,7 +141,7 @@ const Cart = () => {
               </span>
               <button
                 onClick={() =>
-                  dispatch(incrementQuantity(item.id))
+                  dispatch(incrementQuantity(item._id))
                 }
                 className="w-6 h-6 flex items-center justify-center text-white font-bold rounded-full bg-[#5c2e2e]"
               >

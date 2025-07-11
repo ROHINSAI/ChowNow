@@ -1,5 +1,8 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from "react-router-dom";
 import AppLayout from "./layouts/AppLayout";
 import PrivateRoute from "./components/PrivateRoute";
 import { Toaster } from "react-hot-toast";
@@ -27,9 +30,15 @@ const App = () => {
           <Route element={<PrivateRoute />}>
             <Route path="/cart" element={<Cart />} />
             <Route path="/user" element={<User />} />
-            <Route path="/userdashboard" element={<UserDashboard />} />
+            <Route
+              path="/userdashboard"
+              element={<UserDashboard />}
+            />
             <Route path="/Order" element={<Order />} />
-            <Route path="/orderhistory" element={<OrderHistory />} />
+            <Route
+              path="/orderhistory"
+              element={<OrderHistory />}
+            />
           </Route>
         </Route>
       </Routes>

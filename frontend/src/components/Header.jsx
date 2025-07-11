@@ -1,9 +1,7 @@
-import { useSelector, useDispatch } from "react-redux";
 import RoundedButton from "./Button";
-import SearchBar from "./Searchbar";
 import { useLocation, useNavigate } from "react-router-dom";
-import { logout } from "../store/authSlice"; // Adjust the import path as necessary
-import { fetchUserProfile } from "../store/authSlice"; // Adjust the import path as necessary
+import { logout } from "../store/authSlice";
+import { useSelector, useDispatch } from "react-redux";
 
 function Header() {
   const location = useLocation();
@@ -20,16 +18,16 @@ function Header() {
     try {
       await fetch("http://localhost:3000/api/users/logout", {
         method: "POST",
+        credentials: "include",
       });
       dispatch(logout());
-      navigate("/signin");
     } catch (error) {
       console.error(error);
     }
   };
-  const handleProfileClick = async () => {
+
+  const handleProfileClick = () => {
     try {
-      await dispatch(fetchUserProfile());
       navigate("/user");
     } catch (err) {
       console.error("Failed to fetch user profile:", err);
@@ -64,7 +62,7 @@ function Header() {
                 />
                 <button
                   onClick={logoutHandler}
-                  className="text-white"
+                  className="text-white hover:text-blue-500 hover:cursor-pointer"
                 >
                   Logout
                 </button>

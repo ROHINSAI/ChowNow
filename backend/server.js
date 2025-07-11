@@ -26,7 +26,9 @@ const DB_URI = process.env.MONGO_URI; // Update with your MongoDB URI
 mongoose
   .connect(DB_URI)
   .then(() => console.log("MongoDB connected"))
-  .catch((err) => console.error("MongoDB connection error:", err));
+  .catch((err) =>
+    console.error("MongoDB connection error:", err)
+  );
 
 // Routes
 app.use("/api/users", userRoutes);

@@ -1,6 +1,7 @@
 const User = require("../model/userModel");
 const generateToken = require("../utils/generateToken");
 const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
 
 // @desc    Register a new user
 // @route   POST /api/users
@@ -84,9 +85,10 @@ const loginUser = async (req, res) => {
 // @route   POST /api/users/logout
 // @access  Public
 const logoutUser = (req, res) => {
-  res.cookie("jwt", "", {
+  res.clearCookie("jwt", {
     httpOnly: true,
-    expires: new Date(0),
+    secure: process.env.NODE_ENV !== "development",
+    sameSite: "strict",
   });
   return res
     .status(200)
@@ -139,10 +141,43 @@ const updateUserProfile = async (req, res) => {
   }
 };
 
+const autoLogin = async (req, res) => {
+  if (!req.cookies.jwt) {
+    return res.json({ message: "No Token" });
+  }
+  const decoded = jwt.verify(
+    req.cookies.jwt,
+    process.env.JWT_SECRET
+  );
+
+  const user = await User.findById(decoded.userId).select(
+    "-password"
+  );
+
+  if (user) {
+    return res.json({
+      _id: user._id,
+      name: user.name,
+      email: user.email,
+      address: user.address,
+      favoriteRestaurants: user.favoriteRestaurants,
+      phone: user.phone,
+      ordersHistory: user.ordersHistory,
+      role: user.role,
+      restaurantOwned: user.restaurantOwned || null,
+      createdAt: user.createdAt,
+      photo: user.displayPhotoUrl, // virtual fallback avatar if missing
+    });
+  } else {
+    return res.json({ message: "User Not Found" });
+  }
+};
+
 module.exports = {
   registerUser,
   loginUser,
   logoutUser,
   getUserProfile,
   updateUserProfile,
+  autoLogin,
 };

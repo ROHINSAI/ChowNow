@@ -1,61 +1,58 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-const initialState = {
-  userInfo: localStorage.getItem("userInfo")
-    ? JSON.parse(localStorage.getItem("userInfo"))
-    : null,
+const initialStateAuth = {
+  userInfo: null,
 };
 
-export const fetchUserProfile = createAsyncThunk(
-  "auth/fetchUserProfile",
-  async (_, { rejectWithValue }) => {
-    try {
-      const res = await fetch(
-        "http://localhost:3000/api/users/profile",
-        {
-          method: "GET",
-          credentials: "include",
-        }
-      );
-
-      if (!res.ok)
-        throw new Error("Failed to fetch user profile");
-
-      return await res.json();
-    } catch (err) {
-      return rejectWithValue(err.message);
+// Async thunk for auto-login (if needed in the future)
+export const autoLogin = createAsyncThunk(
+  "auth/fetchUser",
+  async () => {
+    const res = await fetch(
+      "http://localhost:3000/api/users/autoLogin",
+      {
+        method: "GET",
+        credentials: "include", // send cookies
+      }
+    );
+    const data = await res.json();
+    if (
+      data.message == "No Token" ||
+      data.message == "User Not Found"
+    ) {
+      return null;
     }
+    return data;
   }
 );
 
 const authSlice = createSlice({
   name: "auth",
-  initialState,
+
+  initialState: initialStateAuth,
+
   reducers: {
     setCredentials(state, action) {
       state.userInfo = action.payload;
-      localStorage.setItem(
-        "userInfo",
-        JSON.stringify(action.payload)
-      );
     },
+
     logout(state) {
       state.userInfo = null;
-      localStorage.removeItem("userInfo");
     },
   },
   extraReducers: (builder) => {
     builder
-      .addCase(fetchUserProfile.pending, (state) => {
-        state.status = "loading";
+      .addCase(autoLogin.pending, (state) => {
+        state.loading = true;
+        state.error = null;
       })
-      .addCase(fetchUserProfile.fulfilled, (state, action) => {
+      .addCase(autoLogin.fulfilled, (state, action) => {
         state.userInfo = action.payload;
-        state.status = "succeeded";
+        state.loading = false;
       })
-      .addCase(fetchUserProfile.rejected, (state, action) => {
-        state.status = "failed";
-        state.error = action.payload;
+      .addCase(autoLogin.rejected, (state, action) => {
+        state.error = action.error.message;
+        state.loading = false;
       });
   },
 });

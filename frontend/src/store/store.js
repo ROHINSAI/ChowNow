@@ -1,20 +1,23 @@
 import { configureStore } from "@reduxjs/toolkit";
 import cartReducer from "../store/cartSlice";
 import authReducer from "../store/authSlice";
+import { autoLogin } from "../store/authSlice";
 
-// Load from localStorage
-const loadState = () => {
+// Loading Cart from localStorage
+const loadCartFromLocalStorage = () => {
   try {
     const serialized = localStorage.getItem("cart");
-    return serialized ? JSON.parse(serialized) : undefined;
+    return serialized
+      ? JSON.parse(serialized)
+      : { items: [], restaurantId: null };
   } catch (e) {
     console.warn("Could not load state", e);
-    return undefined;
+    return { items: [], restaurantId: null };
   }
 };
 
 // Save to localStorage
-const saveState = (state) => {
+const saveCartToLocalStorage = (state) => {
   try {
     const serialized = JSON.stringify(state.cart);
     localStorage.setItem("cart", serialized);
@@ -24,7 +27,7 @@ const saveState = (state) => {
 };
 
 const preloadedState = {
-  cart: loadState(),
+  cart: loadCartFromLocalStorage(),
 };
 
 const store = configureStore({
@@ -37,7 +40,10 @@ const store = configureStore({
 
 // Listen to store changes and save
 store.subscribe(() => {
-  saveState(store.getState());
+  const state = store.getState();
+  saveCartToLocalStorage(state);
 });
+
+store.dispatch(autoLogin()); // Auto-login on store initialization
 
 export default store;

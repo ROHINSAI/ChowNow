@@ -1,20 +1,7 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchUserProfile } from "../store/authSlice"; // Adjust the import path as necessary
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
 
 const Modal = ({ onClose }) => {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    const loadProfile = async () => {
-      try {
-        await dispatch(fetchUserProfile());
-      } catch (err) {
-        console.error("Failed to fetch user profile:", err);
-      }
-    };
-
-    loadProfile();
-  }, [dispatch]);
   const { userInfo } = useSelector((state) => state.auth);
   const [addresses, setAddresses] = useState([
     `${userInfo.address}`,

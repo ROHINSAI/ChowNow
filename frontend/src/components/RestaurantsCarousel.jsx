@@ -25,12 +25,14 @@ const RestaurantCarousel = ({ title, restaurants }) => {
   }
 
   return (
-    <div className="mt-8">
-      <h2 className="text-2xl font-bold text-white mb-4">{title}</h2>
+    <div className="mt-8 text-center max-w-[1200px] mx-auto">
+      <h2 className="text-2xl font-bold text-white mb-4">
+        {title}
+      </h2>
       <div
         className={
           title === "All Restaurants" || restaurants
-            ? "grid grid-cols-4 gap-6"
+            ? "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-items-center"
             : "flex gap-6 overflow-x-auto"
         }
       >
@@ -43,19 +45,20 @@ const RestaurantCarousel = ({ title, restaurants }) => {
               className="w-60 flex-shrink-0 rounded-xl overflow-hidden"
             >
               <img
-                src={restaurant.restaurant_photo}
-                alt={restaurant.restaurant_name}
+                src={restaurant.pictures[0]}
+                alt={restaurant.name}
                 className="w-full h-36 object-cover rounded-xl"
               />
               <div className="mt-2 text-white">
                 <h3
                   className="font-medium text-base hover:text-blue-500 hover:cursor-pointer"
-                  onClick={() => handleClick(restaurant.id)}
+                  onClick={() => handleClick(restaurant._id)}
                 >
-                  {restaurant.restaurant_name}
+                  {restaurant.name}
                 </h3>
                 <p className="text-sm text-[#d8baba]">
-                  {restaurant.avg_ratings.toFixed(1)} • 25-30 min
+                  {/*restaurant.avg_ratings.toFixed(1) */} •
+                  25-30 min
                 </p>
               </div>
             </div>

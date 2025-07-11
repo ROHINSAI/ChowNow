@@ -1,4 +1,6 @@
 const Restaurant = require("../model/restaurantModel");
+const Rating = require("../model/restaurantRatingModel");
+const Review = require("../model/restaurantReviewModel");
 
 const getAllRestaurants = async (req, res) => {
   try {
@@ -26,7 +28,30 @@ const getRestaurantById = async (req, res) => {
   }
 };
 
+const getRestaurantRatingsReviews = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const ratings = await Rating.find({
+      restaurant: id,
+    })
+      .populate("user", "name")
+      .select("user rating")
+      .lean();
+    const reviews = await Review.find({
+      restaurant: id,
+    })
+      .populate("user", "name")
+      .select("user review")
+      .lean();
+    return res.status(200).json({ ratings, reviews });
+  } catch (error) {
+    console.error("Error fetching ratings and reviews:", error);
+    return res.status(500).json({ message: "Server error" });
+  }
+};
+
 module.exports = {
   getAllRestaurants,
   getRestaurantById,
+  getRestaurantRatingsReviews,
 };
