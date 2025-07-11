@@ -10,6 +10,7 @@ function Header() {
   const cartItems = useSelector((state) => state.cart.items);
   const cartItemCount = Object.keys(cartItems).length;
   const { userInfo } = useSelector((state) => state.auth);
+  console.log("userInfo in Header:", userInfo);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -66,6 +67,22 @@ function Header() {
                 >
                   Logout
                 </button>
+                {userInfo.role == "owner" && (
+                  <>
+                    <RoundedButton
+                      text="Dashboard"
+                      to="/restaurant-dashboard"
+                      bgColor="bg-blue-600"
+                      textColor="text-white"
+                    />
+                    <RoundedButton
+                      text="Add Restaurant"
+                      to="/add-restaurant"
+                      bgColor="bg-green-600"
+                      textColor="text-white"
+                    />
+                  </>
+                )}
               </div>
             ) : (
               <RoundedButton
