@@ -4,6 +4,8 @@ import Modal from "../components/Modal";
 import { useSelector, useDispatch } from "react-redux";
 import { setCredentials } from "../store/authSlice";
 import RoundedButton from "../components/Button";
+import ReviewModal from "../components/ReviewModal";
+import toast from "react-hot-toast";
 
 const User = () => {
   const dispatch = useDispatch();
@@ -22,6 +24,7 @@ const User = () => {
         if (!res.ok) throw new Error("Failed to fetch orders");
         const data = await res.json();
         setOrders(data.reverse()); // latest first
+        console.log("Fetched orders:", data);
       } catch (err) {
         console.error(err);
       }
@@ -45,6 +48,29 @@ const User = () => {
 
   const [originalUser, setOriginalUser] = useState(null);
   const [showModal, setShowModal] = useState(false);
+  const [showReviewModal, setShowReviewModal] = useState(false);
+  const [selectedRestaurant, setSelectedRestaurant] =
+    useState(null);
+
+  const handleReviewSubmit = async (reviewData) => {
+    try {
+      const res = await fetch(
+        "http://localhost:3000/api/users/review",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          credentials: "include",
+          body: JSON.stringify(reviewData),
+        }
+      );
+      if (!res.ok) throw new Error("Failed to submit review");
+      toast.success("Review submitted successfully");
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   useEffect(() => {
     if (userInfo) {
@@ -271,8 +297,14 @@ const User = () => {
                     </p>
                   </div>
                 </div>
-                <button className="bg-[#5e2e2e] text-white px-4 py-1 rounded-full hover:bg-red-700">
-                  Reorder
+                <button
+                  onClick={() => {
+                    setSelectedRestaurant(order.restaurant._id);
+                    setShowReviewModal(true);
+                  }}
+                  className="bg-[#5e2e2e] text-white px-4 py-1 rounded-full hover:bg-red-700"
+                >
+                  Give Review
                 </button>
               </div>
             ))}
@@ -319,6 +351,15 @@ const User = () => {
 
       {showModal && (
         <Modal onClose={() => setShowModal(false)} />
+      )}
+
+      {showReviewModal && (
+        <ReviewModal
+          restaurantId={selectedRestaurant}
+          userId={userInfo._id}
+          onClose={() => setShowReviewModal(false)}
+          onSubmit={handleReviewSubmit}
+        />
       )}
 
       <div className="w-1/2 mt-6">

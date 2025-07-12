@@ -5,14 +5,18 @@ const Restaurant = require("../model/restaurantModel");
 const getOwnerDashboardData = async (req, res) => {
   try {
     const ownerId = req.user._id;
-    const restaurant = await Restaurant.findById(req.user.restaurantOwned);
-    if (!restaurant)
-      return res.status(404).json({ message: "Restaurant not found" });
-
-    const orders = await Order.find({ restaurant: restaurant._id }).populate(
-      "user",
-      "name email"
+    const restaurant = await Restaurant.findById(
+      req.user.restaurantOwned
     );
+    if (!restaurant) {
+      return res
+        .status(404)
+        .json({ message: "Restaurant not found" });
+    }
+
+    const orders = await Order.find({
+      restaurant: restaurant._id,
+    }).populate("user", "name email");
 
     // Analytics
     const totalOrders = orders.length;
@@ -44,7 +48,10 @@ const getOwnerDashboardData = async (req, res) => {
       totalOrders,
       totalRevenue,
       totalItemsSold,
-      mostSoldItem: { name: mostSoldItem[0], quantity: mostSoldItem[1] },
+      mostSoldItem: {
+        name: mostSoldItem[0],
+        quantity: mostSoldItem[1],
+      },
       orders,
     });
   } catch (err) {

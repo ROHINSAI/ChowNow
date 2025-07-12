@@ -1,4 +1,6 @@
 const User = require("../model/userModel");
+const RestaurantRating = require("../model/restaurantRatingModel");
+const RestaurantReview = require("../model/restaurantReviewModel");
 const generateToken = require("../utils/generateToken");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
@@ -185,6 +187,35 @@ const autoLogin = async (req, res) => {
   }
 };
 
+const addReview = async (req, res) => {
+  const { restaurant, rating, review } = req.body;
+  const user = req.user._id;
+
+  try {
+    if (rating) {
+      await RestaurantRating.create({
+        user,
+        restaurant,
+        rating,
+      });
+    }
+
+    if (review != "") {
+      await RestaurantReview.create({
+        user,
+        restaurant,
+        review,
+      });
+    }
+
+    res
+      .status(201)
+      .json({ message: "Review added successfully" });
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+};
+
 module.exports = {
   registerUser,
   loginUser,
@@ -192,4 +223,5 @@ module.exports = {
   getUserProfile,
   updateUserProfile,
   autoLogin,
+  addReview,
 };
