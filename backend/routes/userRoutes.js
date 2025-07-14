@@ -8,7 +8,8 @@ const {
   getUserProfile,
   updateUserProfile,
   autoLogin,
-  addReview,
+  addOrUpdateReview,
+  getReview,
   getAllRestaurantStats,
 } = require("../controller/userController");
 
@@ -19,6 +20,7 @@ router.get("/autoLogin", autoLogin);
 router.get("/restaurantStats", getAllRestaurantStats);
 router.get("/profile", protect, getUserProfile);
 router.put("/profile", protect, updateUserProfile);
-router.post("/review", protect, addReview);
+router.post("/review", protect, addOrUpdateReview);
+router.get("/review/:restaurantId", protect, getReview);
 
 module.exports = router;
