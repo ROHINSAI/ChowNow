@@ -1,11 +1,11 @@
 import CategoryButton from "./CategoryButton";
 
 const categories = [
-  "Pizza",
+  "Chicken",
   "Indian",
-  "Fast Food",
+  "Paneer",
   "Sushi",
-  "Burgers",
+  "Biryani",
   "Desserts",
   "Coffee",
 ];

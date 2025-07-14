@@ -5,6 +5,7 @@ import {
   decrementQuantity,
 } from "../store/cartSlice";
 import { useNavigate } from "react-router-dom";
+import RoundedButton from "../components/Button";
 
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
@@ -94,7 +95,16 @@ const Cart = () => {
   const total = subtotal + deliveryFee;
 
   return (
-    <div className="bg-[#1a0f0f] text-white p-6 min-h-screen w-1/2 mx-auto">
+    <div className="bg-[#1a0f0f] text-white p-6 min-h-screen w-1/2 mx-auto relative">
+      <button
+        onClick={() => {
+          dispatch(clearCart());
+        }}
+        className=" absolute right-[12px] hover:cursor-pointer rounded-full bg-[#5c2e2e] px-2 py-1"
+      >
+        Clear
+      </button>
+
       <h2 className="text-3xl font-bold mb-8">Your Cart</h2>
 
       {/* Restaurant Name */}

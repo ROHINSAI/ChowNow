@@ -19,10 +19,28 @@ function Home() {
     setSearchResults(filtered);
   };
 
+  const handleCategorySelect = (category) => {
+    setSearchTerm(category);
+
+    console.log("Selected category:", category);
+    const filtered = restaurantsData.filter((restaurant) =>
+      restaurant.menu.some(
+        (menu) =>
+          new RegExp(category, "i").test(menu.cuisine) ||
+          menu.items.some((item) =>
+            new RegExp(category, "i").test(item.name)
+          )
+      )
+    );
+    setSearchResults(filtered);
+  };
+
   useEffect(() => {
     const fetchRestaurants = async () => {
       try {
-        const response = await fetch("http://localhost:3000/api/restaurants");
+        const response = await fetch(
+          "http://localhost:3000/api/restaurants"
+        );
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
@@ -55,9 +73,9 @@ function Home() {
         />
       ) : (
         <>
-          <CategoryList />
+          <CategoryList onSelect={handleCategorySelect} />
           {loading ? (
-            <div className="text-white text-center mt-8">
+            <div className="text-white text-center mt-8 ">
               Loading restaurants...
             </div>
           ) : (
