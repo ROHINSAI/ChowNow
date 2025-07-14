@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const AddRestaurant = () => {
   const [name, setName] = useState("");
@@ -20,6 +20,34 @@ const AddRestaurant = () => {
       ],
     },
   ]);
+  useEffect(() => {
+    if ("geolocation" in navigator) {
+      navigator.geolocation.getCurrentPosition(
+        async (position) => {
+          const lat = position.coords.latitude;
+          const lon = position.coords.longitude;
+          setLocation({ lat, long: lon });
+
+          try {
+            const res = await fetch(
+              `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lon}&format=json`
+            );
+            const data = await res.json();
+            if (data?.display_name) {
+              setContact((prev) => ({ ...prev, address: data.display_name }));
+            }
+          } catch (err) {
+            console.error("Reverse geocoding failed", err);
+          }
+        },
+        (err) => {
+          console.error("Geolocation error:", err);
+        }
+      );
+    } else {
+      console.error("Geolocation not supported");
+    }
+  }, []);
 
   const handleAddCuisine = () => {
     setMenu([
@@ -33,6 +61,11 @@ const AddRestaurant = () => {
     ]);
   };
 
+  const handleDeleteCuisine = (index) => {
+    const updated = menu.filter((_, i) => i !== index);
+    setMenu(updated);
+  };
+
   const handleAddItem = (cuisineIndex) => {
     const updatedMenu = [...menu];
     updatedMenu[cuisineIndex].items.push({
@@ -42,6 +75,14 @@ const AddRestaurant = () => {
       description: "",
       picture: "",
     });
+    setMenu(updatedMenu);
+  };
+
+  const handleDeleteItem = (cuisineIndex, itemIndex) => {
+    const updatedMenu = [...menu];
+    updatedMenu[cuisineIndex].items = updatedMenu[cuisineIndex].items.filter(
+      (_, idx) => idx !== itemIndex
+    );
     setMenu(updatedMenu);
   };
 
@@ -94,7 +135,6 @@ const AddRestaurant = () => {
           value={description}
           onChange={(e) => setDescription(e.target.value)}
         />
-
         <div className="flex gap-4">
           <input
             type="number"
@@ -160,11 +200,10 @@ const AddRestaurant = () => {
                   setMenu(updatedMenu);
                 }}
               />
-
               {cuisine.items.map((item, itemIndex) => (
                 <div
                   key={itemIndex}
-                  className="mb-3 border-t border-gray-500 pt-3"
+                  className="mb-3 border-t border-gray-500 pt-3 relative"
                 >
                   <input
                     type="text"
@@ -225,18 +264,33 @@ const AddRestaurant = () => {
                       setMenu(updatedMenu);
                     }}
                   />
+                  <button
+                    type="button"
+                    className="text-sm text-red-400 underline mt-1"
+                    onClick={() => handleDeleteItem(cuisineIndex, itemIndex)}
+                  >
+                    Delete Item
+                  </button>
                 </div>
               ))}
-              <button
-                type="button"
-                className="mt-2 px-3 py-1 bg-green-700 rounded"
-                onClick={() => handleAddItem(cuisineIndex)}
-              >
-                Add Item
-              </button>
+              <div className="flex gap-2 mt-2">
+                <button
+                  type="button"
+                  className="px-3 py-1 bg-green-700 rounded"
+                  onClick={() => handleAddItem(cuisineIndex)}
+                >
+                  Add Item
+                </button>
+                <button
+                  type="button"
+                  className="px-3 py-1 bg-red-700 rounded"
+                  onClick={() => handleDeleteCuisine(cuisineIndex)}
+                >
+                  Delete Cuisine
+                </button>
+              </div>
             </div>
           ))}
-
           <button
             type="button"
             className="px-4 py-2 bg-blue-600 rounded"
@@ -251,7 +305,6 @@ const AddRestaurant = () => {
         </button>
       </form>
 
-      {/* Styling helper */}
       <style jsx>{`
         .input {
           display: block;
