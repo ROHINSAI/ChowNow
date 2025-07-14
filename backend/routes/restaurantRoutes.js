@@ -9,8 +9,8 @@ const {
 const { protect } = require("../middleware/authMiddleware");
 
 router.get("/", getAllRestaurants);
-router.get("/:id", getRestaurantById); // Assuming you want to fetch a specific restaurant by ID
-router.get("/:id/reviewsRatings", getRestaurantRatingsReviews); // Fetch ratings and reviews for a specific restaurant
+router.get("/:id", getRestaurantById);
+router.get("/:id/reviewsRatings", getRestaurantRatingsReviews);
 
 router.post("/owner", protect, addRestaurantByOwner);
 

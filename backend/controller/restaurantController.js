@@ -73,9 +73,53 @@ const addRestaurantByOwner = async (req, res) => {
   }
 };
 
+const getMyRestaurant = async (req, res) => {
+  try {
+    const restaurant = await Restaurant.findById(req.user.restaurantOwned);
+    if (!restaurant)
+      return res.status(404).json({ message: "Restaurant not found" });
+    res.json(restaurant);
+  } catch (err) {
+    res.status(500).json({ message: "Failed to fetch restaurant" });
+  }
+};
+
+const updateMyRestaurant = async (req, res) => {
+  try {
+    const user = req.user;
+    const restaurant = await Restaurant.findById(user.restaurantOwned);
+    if (!restaurant)
+      return res.status(404).json({ message: "Restaurant not found" });
+
+    const { name, description, location, pictures, contact, menu } = req.body;
+
+    restaurant.name = name || restaurant.name;
+    restaurant.description = description || restaurant.description;
+    restaurant.location = {
+      lat: location?.lat || restaurant.location.lat,
+      long: location?.long || restaurant.location.long,
+    };
+    restaurant.pictures = pictures?.length ? pictures : restaurant.pictures;
+    restaurant.contact = {
+      address: contact?.address || restaurant.contact.address,
+      phone: contact?.phone || restaurant.contact.phone,
+      email: contact?.email || restaurant.contact.email,
+    };
+    restaurant.menu = menu?.length ? menu : restaurant.menu;
+
+    const updated = await restaurant.save();
+    res.json(updated);
+  } catch (err) {
+    console.error("Update Restaurant Error:", err);
+    res.status(500).json({ message: "Failed to update restaurant" });
+  }
+};
+
 module.exports = {
   getAllRestaurants,
   getRestaurantById,
   getRestaurantRatingsReviews,
   addRestaurantByOwner,
+  getMyRestaurant,
+  updateMyRestaurant,
 };

@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from "react";
-
+import RoundedButton from "../components/Button";
+import { useNavigate } from "react-router-dom";
 const RestaurantDashboard = () => {
   const [data, setData] = useState(null);
+  const navigate = useNavigate();
   useEffect(() => {
     const fetchDashboard = async () => {
       try {
-        const res = await fetch(
-          "http://localhost:3000/api/owner/dashboard",
-          {
-            credentials: "include",
-          }
-        );
+        const res = await fetch("http://localhost:3000/api/owner/dashboard", {
+          credentials: "include",
+        });
         const json = await res.json();
         setData(json);
       } catch (err) {
@@ -21,13 +20,33 @@ const RestaurantDashboard = () => {
     fetchDashboard();
   }, []);
 
+  const handleDelete = async () => {
+    if (window.confirm("Are you sure you want to delete your restaurant?")) {
+      try {
+        const res = await fetch(
+          "http://localhost:3000/api/owner/myrestaurant",
+          {
+            method: "DELETE",
+            credentials: "include",
+          }
+        );
+
+        if (!res.ok) throw new Error("Failed to delete restaurant");
+
+        alert("Restaurant deleted successfully");
+        navigate("/");
+      } catch (err) {
+        console.error("Delete failed:", err);
+        alert("Error deleting restaurant");
+      }
+    }
+  };
+
   if (!data) return <div className="text-white">Loading...</div>;
 
   return (
     <div className="p-6 bg-[#1c0f0f] text-white min-h-screen">
-      <h2 className="text-3xl font-bold mb-4">
-        Owner Dashboard
-      </h2>
+      <h2 className="text-3xl font-bold mb-4">Owner Dashboard</h2>
       <div className="grid grid-cols-2 gap-4">
         <div className="bg-[#3b1f1f] p-4 rounded-lg">
           <p>Total Orders: {data.totalOrders}</p>
@@ -39,18 +58,13 @@ const RestaurantDashboard = () => {
           </p>
         </div>
         <div className="bg-[#3b1f1f] p-4 rounded-lg overflow-auto max-h-[400px]">
-          <h3 className="text-lg font-semibold mb-2">
-            All Orders
-          </h3>
+          <h3 className="text-lg font-semibold mb-2">All Orders</h3>
           {data.orders?.map((order) => (
             <div key={order._id} className="mb-3 border-b pb-2">
               <p>
                 User: {order.user.name} ({order.user.email})
               </p>
-              <p>
-                Date:{" "}
-                {new Date(order.orderDate).toLocaleString()}
-              </p>
+              <p>Date: {new Date(order.orderDate).toLocaleString()}</p>
               <ul className="ml-4 list-disc">
                 {order.items.map((item, i) => (
                   <li key={i}>
@@ -63,6 +77,13 @@ const RestaurantDashboard = () => {
           ))}
         </div>
       </div>
+      <RoundedButton text="edit" to="/edit-restaurant" />
+      <button
+        className="bg-red-600 text-white px-4 py-2 rounded mt-4"
+        onClick={handleDelete}
+      >
+        Delete Restaurant
+      </button>
     </div>
   );
 };
