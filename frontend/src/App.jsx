@@ -15,7 +15,11 @@ import UserDashboard from "./pages/UserDashboard";
 import SignUpOwner from "./pages/SignUpOwner";
 import RestaurantDashboard from "./pages/RestaurantDashboard";
 import AddRestaurant from "./pages/AddRestaurant";
+
 import EditRestaurant from "./pages/EditRestaurant";
+
+import Fav from "./pages/Fav";
+
 
 const App = () => {
   return (
@@ -30,6 +34,7 @@ const App = () => {
           <Route path="/signupowner" element={<SignUpOwner />} />
           <Route element={<PrivateRoute />}>
             <Route path="/cart" element={<Cart />} />
+            <Route path="/fav" element={<Fav />} />
             <Route path="/user" element={<User />} />
             <Route path="/userdashboard" element={<UserDashboard />} />
             <Route path="/Order" element={<Order />} />

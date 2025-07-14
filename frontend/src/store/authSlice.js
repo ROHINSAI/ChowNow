@@ -39,6 +39,20 @@ const authSlice = createSlice({
     logout(state) {
       state.userInfo = null;
     },
+
+    favoriteRestaurant(state, action) {
+      const restaurantId = action.payload;
+      if (
+        state.userInfo.favoriteRestaurants.includes(restaurantId)
+      ) {
+        state.userInfo.favoriteRestaurants =
+          state.userInfo.favoriteRestaurants.filter(
+            (id) => id !== restaurantId
+          );
+      } else {
+        state.userInfo.favoriteRestaurants.push(restaurantId);
+      }
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -57,6 +71,7 @@ const authSlice = createSlice({
   },
 });
 
-export const { setCredentials, logout } = authSlice.actions;
+export const { setCredentials, logout, favoriteRestaurant } =
+  authSlice.actions;
 
 export default authSlice.reducer;
