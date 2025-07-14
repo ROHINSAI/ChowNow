@@ -9,14 +9,24 @@ const jwt = require("jsonwebtoken");
 // @route   POST /api/users
 // @access  Public
 const registerUser = async (req, res) => {
-  const { name, email, password, address, photo, role, latitude, longitude } =
-    req.body;
+  const {
+    name,
+    email,
+    password,
+    address,
+    photo,
+    role,
+    latitude,
+    longitude,
+  } = req.body;
 
   try {
     const userExists = await User.findOne({ email });
 
     if (userExists) {
-      return res.status(400).json({ message: "User already exists" });
+      return res
+        .status(400)
+        .json({ message: "User already exists" });
     }
 
     const user = await User.create({
@@ -48,7 +58,9 @@ const registerUser = async (req, res) => {
         photo: user.displayPhotoUrl, // virtual fallback avatar
       });
     } else {
-      return res.status(400).json({ message: "Invalid user data" });
+      return res
+        .status(400)
+        .json({ message: "Invalid user data" });
     }
   } catch (error) {
     return res.status(500).json({
@@ -66,7 +78,10 @@ const loginUser = async (req, res) => {
 
   try {
     const user = await User.findOne({ email });
-    const passwordMatch = await bcrypt.compare(password, user.password);
+    const passwordMatch = await bcrypt.compare(
+      password,
+      user.password
+    );
 
     if (user && passwordMatch) {
       generateToken(res, user._id);
@@ -82,7 +97,9 @@ const loginUser = async (req, res) => {
         createdAt: user.createdAt,
       });
     } else {
-      return res.status(401).json({ message: "Invalid email or password" });
+      return res
+        .status(401)
+        .json({ message: "Invalid email or password" });
     }
   } catch (error) {
     return res
@@ -100,7 +117,9 @@ const logoutUser = (req, res) => {
     secure: process.env.NODE_ENV !== "development",
     sameSite: "strict",
   });
-  return res.status(200).json({ message: "Logged out successfully" });
+  return res
+    .status(200)
+    .json({ message: "Logged out successfully" });
 };
 
 // @desc    Get user profile
@@ -156,9 +175,14 @@ const autoLogin = async (req, res) => {
   if (!req.cookies.jwt) {
     return res.json({ message: "No Token" });
   }
-  const decoded = jwt.verify(req.cookies.jwt, process.env.JWT_SECRET);
+  const decoded = jwt.verify(
+    req.cookies.jwt,
+    process.env.JWT_SECRET
+  );
 
-  const user = await User.findById(decoded.userId).select("-password");
+  const user = await User.findById(decoded.userId).select(
+    "-password"
+  );
 
   if (user) {
     return res.json({
@@ -200,9 +224,69 @@ const addReview = async (req, res) => {
       });
     }
 
-    res.status(201).json({ message: "Review added successfully" });
+    res
+      .status(201)
+      .json({ message: "Review added successfully" });
   } catch (error) {
     res.status(400).json({ message: error.message });
+  }
+};
+
+const getAllRestaurantStats = async (req, res) => {
+  try {
+    // Aggregate ratings
+    const ratingStats = await RestaurantRating.aggregate([
+      {
+        $group: {
+          _id: "$restaurant",
+          averageRating: { $avg: "$rating" },
+          totalRatings: { $sum: 1 },
+        },
+      },
+    ]);
+
+    // Aggregate review counts
+    const reviewStats = await RestaurantReview.aggregate([
+      {
+        $group: {
+          _id: "$restaurant",
+          totalReviews: { $sum: 1 },
+        },
+      },
+    ]);
+
+    // Merge both stats by restaurant _id
+    const statsMap = {};
+
+    ratingStats.forEach((r) => {
+      statsMap[r._id.toString()] = {
+        restaurant: r._id,
+        averageRating: r.averageRating,
+        totalRatings: r.totalRatings,
+        totalReviews: 0,
+      };
+    });
+
+    reviewStats.forEach((r) => {
+      const id = r._id.toString();
+      if (statsMap[id]) {
+        statsMap[id].totalReviews = r.totalReviews;
+      } else {
+        statsMap[id] = {
+          restaurant: r._id,
+          averageRating: 0,
+          totalRatings: 0,
+          totalReviews: r.totalReviews,
+        };
+      }
+    });
+
+    const stats = Object.values(statsMap);
+    res.status(200).json(stats);
+  } catch (error) {
+    res
+      .status(500)
+      .json({ message: "Failed to fetch restaurant stats" });
   }
 };
 
@@ -214,4 +298,5 @@ module.exports = {
   updateUserProfile,
   autoLogin,
   addReview,
+  getAllRestaurantStats,
 };

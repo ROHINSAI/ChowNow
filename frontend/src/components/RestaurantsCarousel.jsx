@@ -4,11 +4,10 @@ import { toast } from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
 import { favoriteRestaurant } from "../store/authSlice";
 
-const RestaurantCarousel = ({ title, restaurants }) => {
+const RestaurantCarousel = ({ title, restaurants, stats }) => {
   let displayedRestaurants = [];
   const dispatch = useDispatch();
   const { userInfo } = useSelector((state) => state.auth);
-
   const navigate = useNavigate();
 
   const handleFavoriteClick = async (restaurantId) => {
@@ -58,6 +57,16 @@ const RestaurantCarousel = ({ title, restaurants }) => {
     displayedRestaurants = [...restaurants];
   }
 
+  const mergedRestaurants = displayedRestaurants.map((rest) => {
+    const stat = stats.find((s) => s.restaurant === rest._id);
+    return {
+      ...rest,
+      averageRating: stat?.averageRating || 0,
+      totalRatings: stat?.totalRatings || 0,
+      totalReviews: stat?.totalReviews || 0,
+    };
+  });
+
   function handleClick(id) {
     navigate(`/menu/${id}`);
   }
@@ -74,10 +83,10 @@ const RestaurantCarousel = ({ title, restaurants }) => {
             : "flex gap-6 overflow-x-auto"
         }
       >
-        {displayedRestaurants.length === 0 ? (
+        {mergedRestaurants.length === 0 ? (
           <p className="text-white">No restaurants found.</p>
         ) : (
-          displayedRestaurants.map((restaurant, idx) => (
+          mergedRestaurants.map((restaurant, idx) => (
             <div
               key={idx}
               className="w-60 flex-shrink-0 rounded-xl overflow-hidden"
@@ -111,8 +120,9 @@ const RestaurantCarousel = ({ title, restaurants }) => {
                   {restaurant.name}
                 </h3>
                 <p className="text-sm text-[#d8baba]">
-                  {/*restaurant.avg_ratings.toFixed(1) */} •
-                  25-30 min
+                  {restaurant.averageRating.toFixed(1)} ⭐ •
+                  25-30 min •{" "}
+                  {`(${restaurant.totalReviews}) Reviews`}
                 </p>
               </div>
             </div>
