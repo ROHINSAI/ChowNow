@@ -59,7 +59,7 @@ const RestaurantCard = ({ restaurant }) => {
           className="hover:cursor-pointer absolute right-[10px] bottom-[-30px] "
           size={20}
           color={
-            userInfo?.favoriteRestaurants.includes(
+            userInfo?.favoriteRestaurants?.includes(
               restaurant._id
             )
               ? "#ea1212"

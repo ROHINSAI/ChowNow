@@ -203,12 +203,25 @@ const autoLogin = async (req, res) => {
   }
 };
 
-const addReview = async (req, res) => {
+const addOrUpdateReview = async (req, res) => {
   const { restaurant, rating, review } = req.body;
   const user = req.user._id;
 
   try {
-    if (rating) {
+    // Check for existing rating and review
+    let existingRating = await RestaurantRating.findOne({
+      user,
+      restaurant,
+    });
+    let existingReview = await RestaurantReview.findOne({
+      user,
+      restaurant,
+    });
+
+    if (existingRating) {
+      existingRating.rating = rating;
+      await existingRating.save();
+    } else if (rating) {
       await RestaurantRating.create({
         user,
         restaurant,
@@ -216,7 +229,10 @@ const addReview = async (req, res) => {
       });
     }
 
-    if (review != "") {
+    if (existingReview) {
+      existingReview.review = review;
+      await existingReview.save();
+    } else if (review) {
       await RestaurantReview.create({
         user,
         restaurant,
@@ -226,7 +242,30 @@ const addReview = async (req, res) => {
 
     res
       .status(201)
-      .json({ message: "Review added successfully" });
+      .json({ message: "Review added/updated successfully" });
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+};
+
+const getReview = async (req, res) => {
+  const { restaurantId } = req.params;
+  const user = req.user._id;
+
+  try {
+    const rating = await RestaurantRating.findOne({
+      user,
+      restaurant: restaurantId,
+    });
+    const review = await RestaurantReview.findOne({
+      user,
+      restaurant: restaurantId,
+    });
+
+    res.status(200).json({
+      rating: rating ? rating.rating : 0,
+      review: review ? review.review : "",
+    });
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
@@ -297,6 +336,7 @@ module.exports = {
   getUserProfile,
   updateUserProfile,
   autoLogin,
-  addReview,
+  addOrUpdateReview,
+  getReview,
   getAllRestaurantStats,
 };
