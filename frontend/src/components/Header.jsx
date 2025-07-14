@@ -69,7 +69,7 @@ function Header() {
                 >
                   Logout
                 </button>
-                {userInfo.role == "owner" && (
+                {userInfo.role === "owner" && (
                   <>
                     <RoundedButton
                       text="Dashboard"
@@ -77,12 +77,14 @@ function Header() {
                       bgColor="bg-blue-600"
                       textColor="text-white"
                     />
-                    <RoundedButton
-                      text="Add Restaurant"
-                      to="/add-restaurant"
-                      bgColor="bg-green-600"
-                      textColor="text-white"
-                    />
+                    {!userInfo.restaurantOwned && (
+                      <RoundedButton
+                        text="Add Restaurant"
+                        to="/add-restaurant"
+                        bgColor="bg-green-600"
+                        textColor="text-white"
+                      />
+                    )}
                   </>
                 )}
               </div>

@@ -11,6 +11,13 @@ const RestaurantDashboard = () => {
           credentials: "include",
         });
         const json = await res.json();
+
+        if (!json.restaurant) {
+          alert("You don't have a restaurant yet. Please add one first.");
+          window.location.href = "/";
+          return;
+        }
+
         setData(json);
       } catch (err) {
         console.error("Failed to load dashboard:", err);
