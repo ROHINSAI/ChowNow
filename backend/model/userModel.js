@@ -32,6 +32,10 @@ const userSchema = new mongoose.Schema({
   },
   phone: { type: String, default: null },
   address: { type: String, default: null },
+  location: {
+    lat: { type: Number },
+    long: { type: Number },
+  },
   ordersHistory: {
     type: [
       {

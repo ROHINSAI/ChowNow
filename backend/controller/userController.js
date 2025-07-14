@@ -9,16 +9,14 @@ const jwt = require("jsonwebtoken");
 // @route   POST /api/users
 // @access  Public
 const registerUser = async (req, res) => {
-  const { name, email, password, address, photo, role } =
+  const { name, email, password, address, photo, role, latitude, longitude } =
     req.body;
 
   try {
     const userExists = await User.findOne({ email });
 
     if (userExists) {
-      return res
-        .status(400)
-        .json({ message: "User already exists" });
+      return res.status(400).json({ message: "User already exists" });
     }
 
     const user = await User.create({
@@ -27,7 +25,14 @@ const registerUser = async (req, res) => {
       password,
       address,
       photo,
-      role: role || "user", // default to 'user' if not specified
+      role: role || "user",
+      location:
+        latitude && longitude
+          ? {
+              lat: latitude,
+              long: longitude,
+            }
+          : undefined,
     });
 
     if (user) {
@@ -40,17 +45,16 @@ const registerUser = async (req, res) => {
         phone: user.phone,
         role: user.role,
         restaurantOwned: user.restaurantOwned || null,
-        photo: user.displayPhotoUrl, // virtual fallback avatar if missing
+        photo: user.displayPhotoUrl, // virtual fallback avatar
       });
     } else {
-      return res
-        .status(400)
-        .json({ message: "Invalid user data" });
+      return res.status(400).json({ message: "Invalid user data" });
     }
   } catch (error) {
-    return res
-      .status(500)
-      .json({ message: "Server error", error: error.message });
+    return res.status(500).json({
+      message: "Server error",
+      error: error.message,
+    });
   }
 };
 
@@ -62,10 +66,7 @@ const loginUser = async (req, res) => {
 
   try {
     const user = await User.findOne({ email });
-    const passwordMatch = await bcrypt.compare(
-      password,
-      user.password
-    );
+    const passwordMatch = await bcrypt.compare(password, user.password);
 
     if (user && passwordMatch) {
       generateToken(res, user._id);
@@ -81,9 +82,7 @@ const loginUser = async (req, res) => {
         createdAt: user.createdAt,
       });
     } else {
-      return res
-        .status(401)
-        .json({ message: "Invalid email or password" });
+      return res.status(401).json({ message: "Invalid email or password" });
     }
   } catch (error) {
     return res
@@ -101,9 +100,7 @@ const logoutUser = (req, res) => {
     secure: process.env.NODE_ENV !== "development",
     sameSite: "strict",
   });
-  return res
-    .status(200)
-    .json({ message: "Logged out successfully" });
+  return res.status(200).json({ message: "Logged out successfully" });
 };
 
 // @desc    Get user profile
@@ -159,14 +156,9 @@ const autoLogin = async (req, res) => {
   if (!req.cookies.jwt) {
     return res.json({ message: "No Token" });
   }
-  const decoded = jwt.verify(
-    req.cookies.jwt,
-    process.env.JWT_SECRET
-  );
+  const decoded = jwt.verify(req.cookies.jwt, process.env.JWT_SECRET);
 
-  const user = await User.findById(decoded.userId).select(
-    "-password"
-  );
+  const user = await User.findById(decoded.userId).select("-password");
 
   if (user) {
     return res.json({
@@ -208,9 +200,7 @@ const addReview = async (req, res) => {
       });
     }
 
-    res
-      .status(201)
-      .json({ message: "Review added successfully" });
+    res.status(201).json({ message: "Review added successfully" });
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
