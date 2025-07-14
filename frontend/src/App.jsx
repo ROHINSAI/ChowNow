@@ -1,8 +1,4 @@
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import AppLayout from "./layouts/AppLayout";
 import PrivateRoute from "./components/PrivateRoute";
 import { Toaster } from "react-hot-toast";
@@ -19,7 +15,11 @@ import UserDashboard from "./pages/UserDashboard";
 import SignUpOwner from "./pages/SignUpOwner";
 import RestaurantDashboard from "./pages/RestaurantDashboard";
 import AddRestaurant from "./pages/AddRestaurant";
+
+import EditRestaurant from "./pages/EditRestaurant";
+
 import Fav from "./pages/Fav";
+
 
 const App = () => {
   return (
@@ -36,23 +36,15 @@ const App = () => {
             <Route path="/cart" element={<Cart />} />
             <Route path="/fav" element={<Fav />} />
             <Route path="/user" element={<User />} />
-            <Route
-              path="/userdashboard"
-              element={<UserDashboard />}
-            />
+            <Route path="/userdashboard" element={<UserDashboard />} />
             <Route path="/Order" element={<Order />} />
-            <Route
-              path="/orderhistory"
-              element={<OrderHistory />}
-            />
+            <Route path="/edit-restaurant" element={<EditRestaurant />} />
+            <Route path="/orderhistory" element={<OrderHistory />} />
             <Route
               path="/restaurant-dashboard"
               element={<RestaurantDashboard />}
             />
-            <Route
-              path="/add-restaurant"
-              element={<AddRestaurant />}
-            />
+            <Route path="/add-restaurant" element={<AddRestaurant />} />
           </Route>
         </Route>
       </Routes>

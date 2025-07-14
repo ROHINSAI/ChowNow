@@ -1,7 +1,6 @@
 const Order = require("../model/orderModel");
 
-// POST /api/orders
-// Create a new order
+
 const createOrder = async (req, res) => {
   try {
     const { restaurant, items } = req.body;
@@ -14,20 +13,20 @@ const createOrder = async (req, res) => {
 
     const order = await Order.create({
       restaurant,
-      user: req.user._id, // requires auth middleware to be working
+      user: req.user._id, 
       items,
     });
 
     return res.status(201).json(order);
   } catch (error) {
-    console.error("Error creating order:", error); // 👈 See what fails
+    console.error("Error creating order:", error);
     return res
       .status(500)
       .json({ message: "Server error creating order" });
   }
 };
 
-// controllers/orderController.js
+
 const getMyOrders = async (req, res) => {
   try {
     const orders = await Order.find({
@@ -47,7 +46,7 @@ const getMyOrders = async (req, res) => {
   }
 };
 
-// GET /api/orders/analytics
+
 const getOrderAnalytics = async (req, res) => {
   try {
     const userId = req.user._id;
@@ -58,7 +57,7 @@ const getOrderAnalytics = async (req, res) => {
     const moneySpent = orders.reduce((sum, order) => {
       const total = order.items.reduce(
         (acc, item) =>
-          acc + (item.price || 0) * (item.quantity || 1), // ✅ fallback
+          acc + (item.price || 0) * (item.quantity || 1), 
         0
       );
       return sum + total + numberOfOrders * 30;
