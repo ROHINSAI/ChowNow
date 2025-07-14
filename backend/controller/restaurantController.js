@@ -17,7 +17,9 @@ const getRestaurantById = async (req, res) => {
   try {
     const restaurant = await Restaurant.findById(id).lean();
     if (!restaurant) {
-      return res.status(404).json({ message: "Restaurant not found" });
+      return res
+        .status(404)
+        .json({ message: "Restaurant not found" });
     }
     return res.status(200).json(restaurant);
   } catch (error) {
@@ -49,7 +51,14 @@ const getRestaurantRatingsReviews = async (req, res) => {
 };
 const addRestaurantByOwner = async (req, res) => {
   try {
-    const { name, description, location, pictures, contact, menu } = req.body;
+    const {
+      name,
+      description,
+      location,
+      pictures,
+      contact,
+      menu,
+    } = req.body;
 
     const newRestaurant = new Restaurant({
       name,
@@ -69,7 +78,54 @@ const addRestaurantByOwner = async (req, res) => {
     res.status(201).json(savedRestaurant);
   } catch (err) {
     console.error("Add Restaurant Error:", err);
-    res.status(500).json({ message: "Failed to create restaurant" });
+    res
+      .status(500)
+      .json({ message: "Failed to create restaurant" });
+  }
+};
+
+const addFavoriteRestaurant = async (req, res) => {
+  const { restaurantId } = req.body;
+  try {
+    const user = req.user;
+    if (!user.favoriteRestaurants) {
+      user.favoriteRestaurants = [];
+    }
+    if (!user.favoriteRestaurants.includes(restaurantId)) {
+      user.favoriteRestaurants.push(restaurantId);
+      await user.save();
+      return res.status(200).json({
+        message: "Restaurant added to favorite Restaurants",
+      });
+    } else {
+      user.favoriteRestaurants = user.favoriteRestaurants.filter(
+        (id) => !id.equals(restaurantId)
+      );
+      await user.save();
+      return res
+        .status(200)
+        .json({ message: "Restaurant Removed from Favorites" });
+    }
+  } catch (error) {
+    console.error("Error adding favorite restaurant:", error);
+    return res.status(500).json({ message: "Server error" });
+  }
+};
+
+const getFavoriteRestaurant = async (req, res) => {
+  try {
+    const favoriteRestaurantsIds = req.user.favoriteRestaurants;
+
+    const favoriteRestaurants = await Restaurant.find({
+      _id: { $in: favoriteRestaurantsIds },
+    })
+      .select("name description location pictures contact")
+      .lean();
+    return res.status(200).json(favoriteRestaurants);
+  } catch (error) {
+    return res
+      .status(400)
+      .json({ message: "Internal Server Error" });
   }
 };
 
@@ -78,4 +134,6 @@ module.exports = {
   getRestaurantById,
   getRestaurantRatingsReviews,
   addRestaurantByOwner,
+  addFavoriteRestaurant,
+  getFavoriteRestaurant,
 };
