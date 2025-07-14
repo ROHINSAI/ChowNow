@@ -8,6 +8,7 @@ function Home() {
   const [searchResults, setSearchResults] = useState([]);
   const [restaurantsData, setRestaurantsData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [restaurantStats, setRestaurantStats] = useState([]);
 
   const handleSearchSubmit = (value) => {
     setSearchTerm(value);
@@ -36,17 +37,26 @@ function Home() {
   };
 
   useEffect(() => {
-    const fetchRestaurants = async () => {
+    const fetchRestaurantsData = async () => {
       try {
         const response = await fetch(
           "http://localhost:3000/api/restaurants"
         );
+        const responseStats = await fetch(
+          "http://localhost:3000/api/users/restaurantStats"
+        );
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
+        if (!responseStats.ok) {
+          throw new Error("Network response was not ok");
+        }
         const data = await response.json();
+        const stats = await responseStats.json();
         console.log("Fetched restaurants data:", data);
+        console.log("Fetched restaurants stats:", stats);
         setRestaurantsData(data);
+        setRestaurantStats(stats);
       } catch (error) {
         console.error("Failed to fetch restaurants:", error);
       } finally {
@@ -54,7 +64,7 @@ function Home() {
       }
     };
 
-    fetchRestaurants();
+    fetchRestaurantsData();
   }, []);
 
   return (
@@ -84,6 +94,7 @@ function Home() {
             <RestaurantCarousel
               title="All Restaurants"
               restaurants={restaurantsData}
+              stats={restaurantStats}
             />
           )}
         </>
