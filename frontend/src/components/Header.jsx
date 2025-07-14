@@ -47,12 +47,14 @@ function Header() {
       <div className="flex items-center space-x-4">
         {isHome ? (
           <>
-            <RoundedButton
-              text={`Cart (${cartItemCount})`}
-              to="/cart"
-              bgColor="bg-red-600"
-              textColor="text-white"
-            />
+            {userInfo && (
+              <RoundedButton
+                text={`Cart (${cartItemCount})`}
+                to="/cart"
+                bgColor="bg-red-600"
+                textColor="text-white"
+              />
+            )}
             {userInfo ? (
               <div className="flex items-center space-x-4">
                 <img
@@ -96,7 +98,7 @@ function Header() {
         ) : (
           <>
             <>
-              {cartItemCount > 0 && (
+              {cartItemCount > 0 && userInfo && (
                 <RoundedButton
                   text={`Cart (${cartItemCount})`}
                   to="/cart"
