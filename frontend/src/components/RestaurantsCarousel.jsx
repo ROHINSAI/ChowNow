@@ -1,23 +1,61 @@
-import restaurantsData from "../data/restaurants.json";
 import { useNavigate } from "react-router-dom";
+import { FaHeart } from "react-icons/fa";
+import { toast } from "react-hot-toast";
+import { useDispatch, useSelector } from "react-redux";
+import { favoriteRestaurant } from "../store/authSlice";
 
 const RestaurantCarousel = ({ title, restaurants }) => {
   let displayedRestaurants = [];
+  const dispatch = useDispatch();
+  const { userInfo } = useSelector((state) => state.auth);
 
   const navigate = useNavigate();
 
-  if (restaurants) {
-    displayedRestaurants = restaurants; // ✅ from props
-  } else if (title === "Featured Restaurants") {
-    displayedRestaurants = [...restaurantsData]
+  const handleFavoriteClick = async (restaurantId) => {
+    if (!userInfo) {
+      toast.error("Please log in to add favorites");
+      return;
+    }
+    try {
+      const response = await fetch(
+        "http://localhost:3000/api/restaurants/favorite",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          credentials: "include",
+          body: JSON.stringify({ restaurantId }),
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error();
+      }
+      const data = await response.json();
+      toast.success(
+        data.message || "Restaurant favorite status updated"
+      );
+      dispatch(favoriteRestaurant(restaurantId));
+    } catch (error) {
+      console.error("Error adding favorite restaurant:", error);
+      toast.error(
+        error.message || "Failed to add favorite restaurant"
+      );
+    }
+    // Implement favorite functionality here
+  };
+
+  if (title === "Featured Restaurants") {
+    displayedRestaurants = [...restaurants]
       .sort(() => 0.5 - Math.random())
       .slice(0, 4);
   } else if (title === "Top Rated Near You") {
-    displayedRestaurants = [...restaurantsData]
+    displayedRestaurants = [...restaurants]
       .sort((a, b) => b.avg_ratings - a.avg_ratings)
       .slice(0, 4);
   } else if (title === "All Restaurants") {
-    displayedRestaurants = [...restaurantsData];
+    displayedRestaurants = [...restaurants];
   }
 
   function handleClick(id) {
@@ -44,11 +82,27 @@ const RestaurantCarousel = ({ title, restaurants }) => {
               key={idx}
               className="w-60 flex-shrink-0 rounded-xl overflow-hidden"
             >
-              <img
-                src={restaurant.pictures[0]}
-                alt={restaurant.name}
-                className="w-full h-36 object-cover rounded-xl"
-              />
+              <div className="relative">
+                <img
+                  src={restaurant.pictures[0]}
+                  alt={restaurant.name}
+                  className="w-full h-36 object-cover rounded-xl"
+                />
+                <FaHeart
+                  className="hover:cursor-pointer absolute right-[10px] bottom-[-30px] "
+                  size={20}
+                  color={
+                    userInfo?.favoriteRestaurants.includes(
+                      restaurant._id
+                    )
+                      ? "#ea1212"
+                      : "#f9dede"
+                  }
+                  onClick={() =>
+                    handleFavoriteClick(restaurant._id)
+                  }
+                />
+              </div>
               <div className="mt-2 text-white">
                 <h3
                   className="font-medium text-base hover:text-blue-500 hover:cursor-pointer"
