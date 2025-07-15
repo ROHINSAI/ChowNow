@@ -14,7 +14,6 @@ const getOwnerDashboardData = async (req, res) => {
       restaurant: restaurant._id,
     }).populate("user", "name email");
 
-    // Analytics
     const totalOrders = orders.length;
     let totalRevenue = 0;
     let itemCountMap = {};

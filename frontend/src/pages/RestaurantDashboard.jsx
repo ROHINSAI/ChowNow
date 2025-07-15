@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import RoundedButton from "../components/Button";
 import { useNavigate } from "react-router-dom";
+
 const RestaurantDashboard = () => {
   const [data, setData] = useState(null);
   const navigate = useNavigate();
+
   useEffect(() => {
     const fetchDashboard = async () => {
       try {
@@ -65,9 +67,9 @@ const RestaurantDashboard = () => {
           </p>
         </div>
         <div className="bg-[#3b1f1f] p-4 rounded-lg overflow-auto max-h-[400px]">
-          <h3 className="text-lg font-semibold mb-2">All Orders</h3>
-          {data.orders?.map((order) => (
-            <div key={order._id} className="mb-3 border-b pb-2">
+          <h3 className="text-lg font-semibold mb-2">Latest Orders</h3>
+          {data.orders?.slice(0, 2).map((order) => (
+            <div key={order.id} className="mb-3 border-b pb-2">
               <p>
                 User: {order.user.name} ({order.user.email})
               </p>
@@ -80,8 +82,20 @@ const RestaurantDashboard = () => {
                   </li>
                 ))}
               </ul>
+              <p>
+                Status:{" "}
+                <span className="text-yellow-500 font-medium">
+                  {order.status}
+                </span>
+              </p>
             </div>
           ))}
+          <button
+            onClick={() => navigate("/all-orders")}
+            className="mt-2 px-4 py-2 bg-blue-600 text-white rounded"
+          >
+            View All Orders
+          </button>
         </div>
       </div>
       <RoundedButton text="edit" to="/edit-restaurant" />

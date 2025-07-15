@@ -33,7 +33,6 @@ const PrivateRoute = () => {
     return <Navigate to="/" />;
   }
 
-  // Owner-only routes
   const ownerRoutes = [
     "/restaurant-dashboard",
     "/edit-restaurant",
