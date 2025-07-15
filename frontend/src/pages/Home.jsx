@@ -28,7 +28,9 @@ function Home() {
       restaurant.menu.some(
         (menu) =>
           new RegExp(category, "i").test(menu.cuisine) ||
-          menu.items.some((item) => new RegExp(category, "i").test(item.name))
+          menu.items.some((item) =>
+            new RegExp(category, "i").test(item.name)
+          )
       )
     );
     setSearchResults(filtered);
@@ -37,7 +39,9 @@ function Home() {
   useEffect(() => {
     const fetchRestaurantsData = async () => {
       try {
-        const response = await fetch("http://localhost:3000/api/restaurants");
+        const response = await fetch(
+          "http://localhost:3000/api/restaurants"
+        );
         const responseStats = await fetch(
           "http://localhost:3000/api/users/restaurantStats"
         );
@@ -75,6 +79,7 @@ function Home() {
         <RestaurantCarousel
           title={`Search Results for "${searchTerm}"`}
           restaurants={searchResults}
+          stats={restaurantStats}
         />
       ) : (
         <>
