@@ -32,17 +32,12 @@ const RestaurantCarousel = ({ title, restaurants, stats }) => {
         throw new Error();
       }
       const data = await response.json();
-      toast.success(
-        data.message || "Restaurant favorite status updated"
-      );
+      toast.success(data.message || "Restaurant favorite status updated");
       dispatch(favoriteRestaurant(restaurantId));
     } catch (error) {
       console.error("Error adding favorite restaurant:", error);
-      toast.error(
-        error.message || "Failed to add favorite restaurant"
-      );
+      toast.error(error.message || "Failed to add favorite restaurant");
     }
-    // Implement favorite functionality here
   };
 
   if (title === "Featured Restaurants") {
@@ -73,9 +68,7 @@ const RestaurantCarousel = ({ title, restaurants, stats }) => {
 
   return (
     <div className="mt-8 text-center max-w-[1200px] mx-auto">
-      <h2 className="text-2xl font-bold text-white mb-4">
-        {title}
-      </h2>
+      <h2 className="text-2xl font-bold text-white mb-4">{title}</h2>
       <div
         className={
           title === "All Restaurants" || restaurants
@@ -101,15 +94,11 @@ const RestaurantCarousel = ({ title, restaurants, stats }) => {
                   className="hover:cursor-pointer absolute right-[10px] bottom-[-30px] "
                   size={20}
                   color={
-                    userInfo?.favoriteRestaurants?.includes(
-                      restaurant._id
-                    )
+                    userInfo?.favoriteRestaurants?.includes(restaurant._id)
                       ? "#ea1212"
                       : "#f9dede"
                   }
-                  onClick={() =>
-                    handleFavoriteClick(restaurant._id)
-                  }
+                  onClick={() => handleFavoriteClick(restaurant._id)}
                 />
               </div>
               <div className="mt-2 text-white">
@@ -120,8 +109,7 @@ const RestaurantCarousel = ({ title, restaurants, stats }) => {
                   {restaurant.name}
                 </h3>
                 <p className="text-sm text-[#d8baba]">
-                  {restaurant.averageRating.toFixed(1)} ⭐ •
-                  25-30 min •{" "}
+                  {restaurant.averageRating.toFixed(1)} ⭐ • 25-30 min •{" "}
                   {`(${restaurant.totalReviews}) Reviews`}
                 </p>
               </div>

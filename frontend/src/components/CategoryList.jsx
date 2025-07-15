@@ -17,7 +17,7 @@ const CategoryList = ({ onSelect }) => {
         <CategoryButton
           key={category}
           text={category}
-          onClick={() => onSelect && onSelect(category)}
+          onClick={() => onSelect?.(category)}
         />
       ))}
     </div>

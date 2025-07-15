@@ -28,9 +28,7 @@ function Home() {
       restaurant.menu.some(
         (menu) =>
           new RegExp(category, "i").test(menu.cuisine) ||
-          menu.items.some((item) =>
-            new RegExp(category, "i").test(item.name)
-          )
+          menu.items.some((item) => new RegExp(category, "i").test(item.name))
       )
     );
     setSearchResults(filtered);
@@ -39,9 +37,7 @@ function Home() {
   useEffect(() => {
     const fetchRestaurantsData = async () => {
       try {
-        const response = await fetch(
-          "http://localhost:3000/api/restaurants"
-        );
+        const response = await fetch("http://localhost:3000/api/restaurants");
         const responseStats = await fetch(
           "http://localhost:3000/api/users/restaurantStats"
         );
@@ -75,7 +71,6 @@ function Home() {
         onSubmit={handleSearchSubmit}
       />
 
-      {/* Show search results if there is a search term */}
       {searchTerm ? (
         <RestaurantCarousel
           title={`Search Results for "${searchTerm}"`}
@@ -89,13 +84,23 @@ function Home() {
               Loading restaurants...
             </div>
           ) : (
-            // <RestaurantCarousel title="Featured Restaurants" />
-            //<RestaurantCarousel title="Top Rated Near You" />
-            <RestaurantCarousel
-              title="All Restaurants"
-              restaurants={restaurantsData}
-              stats={restaurantStats}
-            />
+            <>
+              <RestaurantCarousel
+                title="Featured Restaurants"
+                restaurants={restaurantsData}
+                stats={restaurantStats}
+              />
+              <RestaurantCarousel
+                title="Top Rated Near You"
+                restaurants={restaurantsData}
+                stats={restaurantStats}
+              />
+              <RestaurantCarousel
+                title="All Restaurants"
+                restaurants={restaurantsData}
+                stats={restaurantStats}
+              />
+            </>
           )}
         </>
       )}
