@@ -7,7 +7,8 @@ const restaurantRoutes = require("./routes/restaurantRoutes");
 const orderRoutes = require("./routes/orderRoutes");
 const ownerRoutes = require("./routes/ownerRoutes");
 const cors = require("cors");
-require("dotenv").config(); // Add this at the very top
+const adminRoutes = require("./routes/adminRoutes");
+require("dotenv").config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -34,6 +35,7 @@ app.use("/api/users", userRoutes);
 app.use("/api/owner", ownerRoutes);
 app.use("/api/restaurants", restaurantRoutes);
 app.use("/api/orders", orderRoutes);
+app.use("/api/admin", adminRoutes);
 app.get("/", (req, res) => {
   res.send("Hello, world!");
 });

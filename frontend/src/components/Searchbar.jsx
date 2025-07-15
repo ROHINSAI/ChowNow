@@ -1,15 +1,19 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FaSearch } from "react-icons/fa";
 
 const SearchBar = ({
   variant = "bar",
-  value,
+  value = "",
   onChange,
   onSubmit,
   placeholder = "Search",
   className = "",
 }) => {
-  const [inputValue, setInputValue] = useState(value || "");
+  const [inputValue, setInputValue] = useState(value);
+
+  useEffect(() => {
+    setInputValue(value);
+  }, [value]);
 
   const handleChange = (e) => {
     setInputValue(e.target.value);
@@ -18,7 +22,7 @@ const SearchBar = ({
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit && onSubmit(inputValue);
+    if (onSubmit) onSubmit(inputValue.trim());
   };
 
   const baseClasses =
@@ -47,11 +51,7 @@ const SearchBar = ({
   );
 
   if (variant === "bar") {
-    return (
-      <div className="flex justify-center my-4">
-        {searchInput}
-      </div>
-    );
+    return <div className="flex justify-center my-4">{searchInput}</div>;
   }
 
   return searchInput;

@@ -9,24 +9,14 @@ const jwt = require("jsonwebtoken");
 // @route   POST /api/users
 // @access  Public
 const registerUser = async (req, res) => {
-  const {
-    name,
-    email,
-    password,
-    address,
-    photo,
-    role,
-    latitude,
-    longitude,
-  } = req.body;
+  const { name, email, password, address, photo, role, latitude, longitude } =
+    req.body;
 
   try {
     const userExists = await User.findOne({ email });
 
     if (userExists) {
-      return res
-        .status(400)
-        .json({ message: "User already exists" });
+      return res.status(400).json({ message: "User already exists" });
     }
 
     const user = await User.create({
@@ -58,9 +48,7 @@ const registerUser = async (req, res) => {
         photo: user.displayPhotoUrl, // virtual fallback avatar
       });
     } else {
-      return res
-        .status(400)
-        .json({ message: "Invalid user data" });
+      return res.status(400).json({ message: "Invalid user data" });
     }
   } catch (error) {
     return res.status(500).json({
@@ -78,48 +66,46 @@ const loginUser = async (req, res) => {
 
   try {
     const user = await User.findOne({ email });
-    const passwordMatch = await bcrypt.compare(
-      password,
-      user.password
-    );
 
-    if (user && passwordMatch) {
-      generateToken(res, user._id);
-      return res.json({
-        _id: user._id,
-        name: user.name,
-        email: user.email,
-        address: user.address,
-        photo: user.displayPhotoUrl, // virtual fallback avatar if missing
-        phone: user.phone,
-        role: user.role,
-        restaurantOwned: user.restaurantOwned || null,
-        createdAt: user.createdAt,
-      });
-    } else {
-      return res
-        .status(401)
-        .json({ message: "Invalid email or password" });
+    if (!user) {
+      return res.status(401).json({ message: "Invalid email or password" });
     }
+
+    const passwordMatch = await bcrypt.compare(password, user.password);
+
+    if (!passwordMatch) {
+      return res.status(401).json({ message: "Invalid email or password" });
+    }
+
+    generateToken(res, user._id);
+
+    return res.json({
+      _id: user._id,
+      name: user.name,
+      email: user.email,
+      address: user.address,
+      photo: user.displayPhotoUrl,
+      phone: user.phone,
+      role: user.role,
+      restaurantOwned: user.restaurantOwned || null,
+      createdAt: user.createdAt,
+    });
   } catch (error) {
-    return res
-      .status(500)
-      .json({ message: "Server error", error: error.message });
+    console.error("Login Error:", error.message); // log actual error
+    return res.status(500).json({
+      message: "Internal Server Error",
+      error: error.message,
+    });
   }
 };
 
-// @desc    Logout user / clear cookie
-// @route   POST /api/users/logout
-// @access  Public
 const logoutUser = (req, res) => {
   res.clearCookie("jwt", {
     httpOnly: true,
     secure: process.env.NODE_ENV !== "development",
     sameSite: "strict",
   });
-  return res
-    .status(200)
-    .json({ message: "Logged out successfully" });
+  return res.status(200).json({ message: "Logged out successfully" });
 };
 
 // @desc    Get user profile
@@ -175,14 +161,9 @@ const autoLogin = async (req, res) => {
   if (!req.cookies.jwt) {
     return res.json({ message: "No Token" });
   }
-  const decoded = jwt.verify(
-    req.cookies.jwt,
-    process.env.JWT_SECRET
-  );
+  const decoded = jwt.verify(req.cookies.jwt, process.env.JWT_SECRET);
 
-  const user = await User.findById(decoded.userId).select(
-    "-password"
-  );
+  const user = await User.findById(decoded.userId).select("-password");
 
   if (user) {
     return res.json({
@@ -240,9 +221,7 @@ const addOrUpdateReview = async (req, res) => {
       });
     }
 
-    res
-      .status(201)
-      .json({ message: "Review added/updated successfully" });
+    res.status(201).json({ message: "Review added/updated successfully" });
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
@@ -323,9 +302,7 @@ const getAllRestaurantStats = async (req, res) => {
     const stats = Object.values(statsMap);
     res.status(200).json(stats);
   } catch (error) {
-    res
-      .status(500)
-      .json({ message: "Failed to fetch restaurant stats" });
+    res.status(500).json({ message: "Failed to fetch restaurant stats" });
   }
 };
 
