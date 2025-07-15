@@ -87,6 +87,16 @@ function Header() {
                     )}
                   </>
                 )}
+                {userInfo.role === "admin" && (
+                  <>
+                    <RoundedButton
+                      text="Admin Dashboard"
+                      to="/admin"
+                      bgColor="bg-blue-600"
+                      textColor="text-white"
+                    />
+                  </>
+                )}
               </div>
             ) : (
               <RoundedButton

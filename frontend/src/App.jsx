@@ -1,4 +1,8 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from "react-router-dom";
 import AppLayout from "./layouts/AppLayout";
 import PrivateRoute from "./components/PrivateRoute";
 import { Toaster } from "react-hot-toast";
@@ -39,8 +43,14 @@ const App = () => {
             <Route path="/cart" element={<Cart />} />
             <Route path="/fav" element={<Fav />} />
             <Route path="/user" element={<User />} />
-            <Route path="/userdashboard" element={<UserDashboard />} />
-            <Route path="/orderhistory" element={<OrderHistory />} />
+            <Route
+              path="/userdashboard"
+              element={<UserDashboard />}
+            />
+            <Route
+              path="/orderhistory"
+              element={<OrderHistory />}
+            />
             <Route path="/Order" element={<Order />} />
           </Route>
 
@@ -50,14 +60,27 @@ const App = () => {
               path="/restaurant-dashboard"
               element={<RestaurantDashboard />}
             />
-            <Route path="/add-restaurant" element={<AddRestaurant />} />
-            <Route path="/edit-restaurant" element={<EditRestaurant />} />
+            <Route
+              path="/add-restaurant"
+              element={<AddRestaurant />}
+            />
+            <Route
+              path="/edit-restaurant"
+              element={<EditRestaurant />}
+            />
           </Route>
 
+          {/* Restaurant admin Protected Routes */}
           <Route element={<PrivateRoute requiredRole="admin" />}>
             <Route path="/admin" element={<AdminDashboard />} />
-            <Route path="/admin/user/:id" element={<UserDetails />} />
-            <Route path="/admin/owner/:id" element={<OwnerDetails />} />
+            <Route
+              path="/admin/user/:id"
+              element={<UserDetails />}
+            />
+            <Route
+              path="/admin/owner/:id"
+              element={<OwnerDetails />}
+            />
           </Route>
         </Route>
       </Routes>
