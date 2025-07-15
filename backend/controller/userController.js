@@ -5,9 +5,6 @@ const generateToken = require("../utils/generateToken");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
-// @desc    Register a new user
-// @route   POST /api/users
-// @access  Public
 const registerUser = async (req, res) => {
   const { name, email, password, address, photo, role, latitude, longitude } =
     req.body;
@@ -45,7 +42,7 @@ const registerUser = async (req, res) => {
         phone: user.phone,
         role: user.role,
         restaurantOwned: user.restaurantOwned || null,
-        photo: user.displayPhotoUrl, // virtual fallback avatar
+        photo: user.displayPhotoUrl,
       });
     } else {
       return res.status(400).json({ message: "Invalid user data" });
@@ -58,9 +55,6 @@ const registerUser = async (req, res) => {
   }
 };
 
-// @desc    Auth user & get token
-// @route   POST /api/users/login
-// @access  Public
 const loginUser = async (req, res) => {
   const { email, password } = req.body;
 
@@ -91,7 +85,7 @@ const loginUser = async (req, res) => {
       createdAt: user.createdAt,
     });
   } catch (error) {
-    console.error("Login Error:", error.message); // log actual error
+    console.error("Login Error:", error.message);
     return res.status(500).json({
       message: "Internal Server Error",
       error: error.message,
@@ -108,9 +102,6 @@ const logoutUser = (req, res) => {
   return res.status(200).json({ message: "Logged out successfully" });
 };
 
-// @desc    Get user profile
-// @route   GET /api/users/profile
-// @access  Private
 const getUserProfile = async (req, res) => {
   const user = req.user;
 
@@ -122,7 +113,7 @@ const getUserProfile = async (req, res) => {
       address: user.address,
       phone: user.phone,
       role: user.role,
-      photo: user.displayPhotoUrl, // Use the virtual
+      photo: user.displayPhotoUrl,
       restaurantOwned: user.restaurantOwned || null,
       createdAt: user.createdAt,
     });
@@ -138,6 +129,10 @@ const updateUserProfile = async (req, res) => {
     user.name = req.body.name || user.name;
     user.phone = req.body.phone || user.phone;
     user.email = req.body.email || user.email;
+
+    if (Array.isArray(req.body.address)) {
+      user.address = req.body.address.slice(0, 5);
+    }
 
     const updatedUser = await user.save();
 
@@ -177,7 +172,7 @@ const autoLogin = async (req, res) => {
       role: user.role,
       restaurantOwned: user.restaurantOwned || null,
       createdAt: user.createdAt,
-      photo: user.displayPhotoUrl, // virtual fallback avatar if missing
+      photo: user.displayPhotoUrl,
     });
   } else {
     return res.json({ message: "User Not Found" });
@@ -189,7 +184,6 @@ const addOrUpdateReview = async (req, res) => {
   const user = req.user._id;
 
   try {
-    // Check for existing rating and review
     let existingRating = await RestaurantRating.findOne({
       user,
       restaurant,
@@ -252,7 +246,6 @@ const getReview = async (req, res) => {
 
 const getAllRestaurantStats = async (req, res) => {
   try {
-    // Aggregate ratings
     const ratingStats = await RestaurantRating.aggregate([
       {
         $group: {
@@ -263,7 +256,6 @@ const getAllRestaurantStats = async (req, res) => {
       },
     ]);
 
-    // Aggregate review counts
     const reviewStats = await RestaurantReview.aggregate([
       {
         $group: {
@@ -273,7 +265,6 @@ const getAllRestaurantStats = async (req, res) => {
       },
     ]);
 
-    // Merge both stats by restaurant _id
     const statsMap = {};
 
     ratingStats.forEach((r) => {

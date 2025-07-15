@@ -21,30 +21,33 @@ const userSchema = new mongoose.Schema({
     required: true,
     minlength: 6,
   },
-  favoriteRestaurants: {
+  favoriteRestaurants: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Restaurant",
+    },
+  ],
+  phone: { type: String, default: null },
+  addressList: {
     type: [
       {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Restaurant",
+        label: { type: String, default: "Home" },
+        fullAddress: { type: String, required: true },
       },
     ],
+    validate: [(arr) => arr.length <= 5, "Maximum 5 addresses allowed"],
     default: [],
   },
-  phone: { type: String, default: null },
-  address: { type: String, default: null },
   location: {
     lat: { type: Number },
     long: { type: Number },
   },
-  ordersHistory: {
-    type: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Order",
-      },
-    ],
-    default: [],
-  },
+  ordersHistory: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Order",
+    },
+  ],
   role: {
     type: String,
     enum: ["user", "admin", "owner"],
@@ -61,32 +64,23 @@ const userSchema = new mongoose.Schema({
   },
 });
 
-// Hash password before saving
 userSchema.pre("save", async function (next) {
-  if (!this.isModified("password")) {
-    return next();
-  }
+  if (!this.isModified("password")) return next();
   const salt = await bcrypt.genSalt(10);
   this.password = await bcrypt.hash(this.password, salt);
   next();
 });
 
-// Virtual getter for profile image (fallback to initials if no custom photo)
 userSchema.virtual("displayPhotoUrl").get(function () {
-  if (this.photo) {
-    return this.photo;
-  }
-
-  const name = this.name || "User";
-  return `https://api.dicebear.com/9.x/initials/svg?seed=${encodeURIComponent(
-    name
-  )}`;
+  return this.photo
+    ? this.photo
+    : `https://api.dicebear.com/9.x/initials/svg?seed=${encodeURIComponent(
+        this.name || "User"
+      )}`;
 });
 
-// Enable virtuals in JSON output (important!)
 userSchema.set("toJSON", { virtuals: true });
 userSchema.set("toObject", { virtuals: true });
 
 const User = mongoose.model("User", userSchema);
-
 module.exports = User;

@@ -22,6 +22,11 @@ const orderSchema = new mongoose.Schema({
     ],
     required: true,
   },
+  status: {
+    type: String,
+    enum: ["cooking", "out for delivery", "delivered"],
+    default: "cooking",
+  },
   orderDate: { type: Date, default: Date.now },
 });
 

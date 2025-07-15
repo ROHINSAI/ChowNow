@@ -3,9 +3,7 @@ import { useSelector } from "react-redux";
 
 const Modal = ({ onClose }) => {
   const { userInfo } = useSelector((state) => state.auth);
-  const [addresses, setAddresses] = useState([
-    `${userInfo.address}`,
-  ]);
+  const [addresses, setAddresses] = useState([`${userInfo.address}`]);
   const [newAddress, setNewAddress] = useState("");
 
   const addAddress = () => {
@@ -19,9 +17,7 @@ const Modal = ({ onClose }) => {
     <div className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50">
       <div className="bg-[#2e1a1a] p-6 rounded-lg w-full max-w-md text-white">
         <div className="flex justify-between items-center mb-4">
-          <h3 className="text-xl font-semibold">
-            Saved Addresses
-          </h3>
+          <h3 className="text-xl font-semibold">Saved Addresses</h3>
           <button
             onClick={onClose}
             className="text-red-400 hover:text-red-600 font-bold"
@@ -30,7 +26,6 @@ const Modal = ({ onClose }) => {
           </button>
         </div>
 
-        {/* Address list */}
         <ul className="space-y-2 mb-4">
           {addresses.map((addr, index) => (
             <li key={index} className="bg-[#4a2a2a] p-2 rounded">
@@ -39,7 +34,6 @@ const Modal = ({ onClose }) => {
           ))}
         </ul>
 
-        {/* Add new address */}
         <div className="flex gap-2">
           <input
             type="text"

@@ -1,8 +1,4 @@
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import AppLayout from "./layouts/AppLayout";
 import PrivateRoute from "./components/PrivateRoute";
 import { Toaster } from "react-hot-toast";
@@ -24,6 +20,7 @@ import UserDetails from "./components/admin/UserDetails";
 import OwnerDetails from "./components/admin/OwnerDetails";
 import EditRestaurant from "./pages/EditRestaurant";
 import Fav from "./pages/Fav";
+import AllOrders from "./pages/AllOrders";
 
 const App = () => {
   return (
@@ -38,49 +35,30 @@ const App = () => {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/signupowner" element={<SignUpOwner />} />
 
-          {/* User Protected Routes */}
           <Route element={<PrivateRoute requiredRole="user" />}>
             <Route path="/cart" element={<Cart />} />
             <Route path="/fav" element={<Fav />} />
             <Route path="/user" element={<User />} />
-            <Route
-              path="/userdashboard"
-              element={<UserDashboard />}
-            />
-            <Route
-              path="/orderhistory"
-              element={<OrderHistory />}
-            />
+            <Route path="/userdashboard" element={<UserDashboard />} />
+            <Route path="/orderhistory" element={<OrderHistory />} />
             <Route path="/Order" element={<Order />} />
           </Route>
 
-          {/* Restaurant Owner Protected Routes */}
           <Route element={<PrivateRoute requiredRole="owner" />}>
             <Route
               path="/restaurant-dashboard"
               element={<RestaurantDashboard />}
             />
-            <Route
-              path="/add-restaurant"
-              element={<AddRestaurant />}
-            />
-            <Route
-              path="/edit-restaurant"
-              element={<EditRestaurant />}
-            />
+            <Route path="/all-orders" element={<AllOrders />} />
+            <Route path="/add-restaurant" element={<AddRestaurant />} />
+            <Route path="/edit-restaurant" element={<EditRestaurant />} />
           </Route>
 
           {/* Restaurant admin Protected Routes */}
           <Route element={<PrivateRoute requiredRole="admin" />}>
             <Route path="/admin" element={<AdminDashboard />} />
-            <Route
-              path="/admin/user/:id"
-              element={<UserDetails />}
-            />
-            <Route
-              path="/admin/owner/:id"
-              element={<OwnerDetails />}
-            />
+            <Route path="/admin/user/:id" element={<UserDetails />} />
+            <Route path="/admin/owner/:id" element={<OwnerDetails />} />
           </Route>
         </Route>
       </Routes>
